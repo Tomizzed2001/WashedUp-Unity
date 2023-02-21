@@ -14,10 +14,15 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D collisionBox;
 
+    Animator animator;
+    SpriteRenderer spriteRenderer;
+
     // Start is called before the first frame update
     void Start()
     {
         collisionBox = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -28,18 +33,34 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (moveInput != Vector2.zero) {
+        if (moveInput != Vector2.zero)
+        {
             bool movePossible = canMove(moveInput);
 
             if (movePossible)
             {
-                movePossible = canMove(new Vector2 (moveInput.x, 0));
+                movePossible = canMove(new Vector2(moveInput.x, 0));
 
                 if (!movePossible)
                 {
                     movePossible = canMove(new Vector2(0, moveInput.y));
                 }
             }
+
+            animator.SetBool("isMoving", movePossible);
+        }
+        else 
+        {
+            animator.SetBool("isMoving", false);
+        }
+
+        if (moveInput.x < 0)
+        {
+            spriteRenderer.flipX = true;
+        }
+        else
+        {
+            spriteRenderer.flipX = false;
         }
     }
 

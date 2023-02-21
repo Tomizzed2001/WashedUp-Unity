@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Water10
+  m_Name: Water2
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -414606368, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: -383871331, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: 1147393129, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: -1831819994, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
+  - {fileID: -74666239, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
+  - {fileID: -1597947894, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
+  - {fileID: -1049649028, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
+  - {fileID: 880629538, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
-  m_TileColliderType: 0
+  m_TileColliderType: 1

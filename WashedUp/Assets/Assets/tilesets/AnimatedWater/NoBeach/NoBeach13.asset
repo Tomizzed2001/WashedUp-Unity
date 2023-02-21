@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
-  m_Name: Water12
+  m_Name: NoBeach13
   m_EditorClassIdentifier: 
   m_AnimatedSprites:
-  - {fileID: -196823843, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: 276257505, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: 772051659, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
-  - {fileID: -2021068207, guid: a1f902149edbeef4799d757c246fd0f7, type: 3}
+  - {fileID: -974634455, guid: d05bc32afa3089344a7404ccb4568555, type: 3}
+  - {fileID: -781646791, guid: d05bc32afa3089344a7404ccb4568555, type: 3}
+  - {fileID: -383169054, guid: d05bc32afa3089344a7404ccb4568555, type: 3}
+  - {fileID: 1231126451, guid: d05bc32afa3089344a7404ccb4568555, type: 3}
   m_MinSpeed: 1
   m_MaxSpeed: 1
   m_AnimationStartTime: 0
   m_AnimationStartFrame: 0
-  m_TileColliderType: 0
+  m_TileColliderType: 1

@@ -25,8 +25,9 @@ public class itemCollect : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        bool isInventoryFull = InventoryManager.Instance.checkInventoryFull();
         float distance = Vector3.Distance(transform.position, player.position);
-        if (distance < collectionRange)
+        if (distance < collectionRange || isInventoryFull)
         {
             return;
         }
@@ -34,7 +35,6 @@ public class itemCollect : MonoBehaviour
         if  (distance < 0.1f)
         {
             //Inventory item collection goes here
-            bool isInventoryFull = InventoryManager.Instance.checkInventoryFull();
 
             if (isInventoryFull)
             {

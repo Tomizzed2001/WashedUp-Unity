@@ -20,6 +20,20 @@ public class InventoryManager : MonoBehaviour
         {
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
+
+            if (itemItem != null && itemItem.item == item && itemItem.stackCount <5)
+            {
+                itemItem.stackCount++;
+                itemItem.UpdateCount();
+                return;
+            }
+        }
+
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
+            
             if (itemItem == null )
             {
                 SpawnNewItem(item, slot);

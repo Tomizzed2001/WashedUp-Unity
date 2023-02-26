@@ -19,6 +19,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.icon;
+        //stackText.text = stackCount.ToString();
         //UpdateCount();
     }
 
@@ -32,8 +33,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {  
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
-        //transform.SetAsLastSibling();
-        image.raycastTarget = false; 
+        transform.SetAsLastSibling();
+        image.raycastTarget = false;
+        stackText.raycastTarget = false;
     }
 
     //Whilst dragging
@@ -47,5 +49,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
+        stackText.raycastTarget = true;
     }
 }

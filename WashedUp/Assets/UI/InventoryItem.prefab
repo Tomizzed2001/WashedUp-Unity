@@ -172,6 +172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 2564611843544585481}
   stackText: {fileID: 7958792946278199700}
+  rectTransform: {fileID: 3208140504678148101}
   item: {fileID: 0}
   stackCount: 1
   parentAfterDrag: {fileID: 0}

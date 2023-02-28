@@ -9,6 +9,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     //Front End
     public Image image;
     public Text stackText;
+    public RectTransform rectTransform;
 
     //Back End
     public Item item;
@@ -19,8 +20,6 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         item = newItem;
         image.sprite = newItem.icon;
-        //stackText.text = stackCount.ToString();
-        //UpdateCount();
     }
 
     public void UpdateCount()
@@ -34,6 +33,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+        rectTransform.localScale = new Vector3(1f, 1f, 1f);
         image.raycastTarget = false;
         stackText.raycastTarget = false;
     }
@@ -48,6 +48,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnEndDrag(PointerEventData eventData)
     {
         transform.SetParent(parentAfterDrag);
+        rectTransform.localScale = new Vector3(1f, 1f, 1f);
         image.raycastTarget = true;
         stackText.raycastTarget = true;
     }

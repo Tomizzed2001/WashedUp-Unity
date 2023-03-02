@@ -102,6 +102,62 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    public bool CheckItem(string ItemName, int ItemNum)
+    {
+        int counter = 0;
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem slotItem = slot.GetComponentInChildren<InventoryItem>();
+            if (slotItem == null)
+            {
+                continue;
+            }
+            if (slotItem.item != null && slotItem.item.Name == ItemName)
+            {
+                
+                counter += slotItem.stackCount;
+                if (counter >= ItemNum)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public void removeItem(string ItemName, int ItemNum)
+    {
+        for (int i = 0; i < inventorySlots.Length; i++)
+        {
+            InventorySlot slot = inventorySlots[i];
+            InventoryItem slotItem = slot.GetComponentInChildren<InventoryItem>();
+            if (slotItem == null)
+            {
+                continue;
+            }
+            if (slotItem.item != null && slotItem.item.Name == ItemName)
+            {
+                if (ItemNum > slotItem.stackCount)
+                {
+                    ItemNum -= slotItem.stackCount;
+                    Destroy(slotItem.gameObject);
+                    continue;
+                }
+                if (ItemNum == slotItem.stackCount)
+                {
+                    Destroy(slotItem.gameObject);
+                    return;
+                }
+                else
+                {
+                    slotItem.stackCount -= ItemNum;
+                    slotItem.UpdateCount();
+                    return;
+                }
+            }
+        }
+    }
 
     public bool checkInventoryFull()
     {

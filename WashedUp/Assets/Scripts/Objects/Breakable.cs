@@ -7,6 +7,7 @@ public class Breakable : UseTool
     [SerializeField] GameObject drop;
     [SerializeField] int dropNum = 5;
     [SerializeField] float spread = 2f;
+    [SerializeField] bool needsTool;
     [SerializeField] string Tool;
     [SerializeField] int objectHealth = 3;
 
@@ -20,7 +21,7 @@ public class Breakable : UseTool
     public override void Hit()
     {
         string selectedItem = InventoryManager.Instance.getSelectedItemName();
-        if ( selectedItem == Tool)
+        if ( selectedItem == Tool || !needsTool)
         {
             float posx = gameObject.transform.position.x;
             float posy = gameObject.transform.position.y;

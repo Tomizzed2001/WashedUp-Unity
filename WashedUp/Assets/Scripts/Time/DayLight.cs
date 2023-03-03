@@ -17,6 +17,12 @@ public class DayLight : MonoBehaviour
     private void Awake()
     {
         daylight = GetComponent<Light2D>();
+        daylight.color = gradient.Evaluate(PercentOfDay(worldTime.currentTime));
+    }
+
+    public void UpdateLights()
+    {
+        daylight.color = gradient.Evaluate(PercentOfDay(worldTime.currentTime));
     }
 
     private float PercentOfDay(TimeSpan timeSpan)

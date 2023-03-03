@@ -6,9 +6,10 @@ using UnityEngine;
 public class WorldTime : MonoBehaviour
 {
     [SerializeField] float dayLength;
-    [SerializeField] TimeSpan currentTime;
+    [SerializeField] public TimeSpan currentTime;
 
     [SerializeField] TimeDisplay timeDisplay;
+    [SerializeField] DayLight daylight;
 
     private float timeLength => dayLength / 1440;
 
@@ -22,6 +23,7 @@ public class WorldTime : MonoBehaviour
         currentTime += TimeSpan.FromMinutes(1);
         timeDisplay.timer = currentTime;
         timeDisplay.UpdateTime();
+        daylight.UpdateLights();
         yield return new WaitForSeconds(timeLength);
         StartCoroutine(AddMinute());
     }

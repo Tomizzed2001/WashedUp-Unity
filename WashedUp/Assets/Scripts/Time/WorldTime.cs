@@ -6,6 +6,7 @@ using UnityEngine;
 public class WorldTime : MonoBehaviour
 {
     [SerializeField] float dayLength;
+    [SerializeField] int startTime;
     [SerializeField] public TimeSpan currentTime;
 
     [SerializeField] TimeDisplay timeDisplay;
@@ -15,7 +16,14 @@ public class WorldTime : MonoBehaviour
 
     private void Start()
     {
+        currentTime = TimeSpan.FromMinutes(startTime);
         StartCoroutine(AddMinute());
+    }
+
+    public void goNight(int nightTime)
+    {
+        currentTime = TimeSpan.FromMinutes(nightTime);
+
     }
 
     private IEnumerator AddMinute()

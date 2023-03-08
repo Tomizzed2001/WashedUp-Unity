@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drop: {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
-  dropNum: 1
+  dropNum: 30
   spread: 1
   needsTool: 0
   Tool: 

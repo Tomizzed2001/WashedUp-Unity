@@ -7,14 +7,16 @@ public class sleep : MonoBehaviour
 {
     public WorldTime WorldTime;
     public int nightTime;
-    public GameObject button;
+    public GameObject UI;
     public Spawner Spawner;
+    public GameManager GameManager;
 
 
     public void skipTime()
-    {
+    {   
         WorldTime.goNight(nightTime);
-        button.SetActive(false);
+        UI.SetActive(false);
+        GameManager.UseRaidCam();
         Spawner.StartSpawn();
     }
 

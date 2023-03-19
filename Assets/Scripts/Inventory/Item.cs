@@ -6,10 +6,14 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    
-    public string Name;
-    public bool stackable = true;
+    [Header("Item Identity")]
+    public string Name;    
     public Sprite icon;
+
+    [Header("Item Attributes")]
+    public bool stackable = true;
+    public bool isTool;
+    public bool isStructure;
     
 }
 

@@ -182,6 +182,26 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
+    public bool isSelectedTool()
+    {
+        InventoryItem selectedItem = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();
+        if (selectedItem != null)
+        {
+            return selectedItem.item.isTool;
+        }
+        return false;
+    }
+
+    public bool isSelectedStructure()
+    {
+        InventoryItem selectedItem = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();
+        if (selectedItem != null)
+        {
+            return selectedItem.item.isStructure;
+        }
+        return false;
+    }
+
     void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject itemGameObject = Instantiate(inventoryItemPrefab, slot.transform);

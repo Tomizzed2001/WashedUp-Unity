@@ -11,6 +11,10 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] float offsetDistrance = 1f;        //Look Into these two
     [SerializeField] float sizeOfInteractableArea;
 
+    [SerializeField] InventoryManager inventoryManager;
+    [SerializeField] Transform placement;
+    [SerializeField] GameObject tower;
+
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
@@ -21,7 +25,19 @@ public class PlayerToolsController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            UseTool();
+            if (inventoryManager.isSelectedTool())
+            {
+                UseTool();
+            }
+            if (inventoryManager.isSelectedStructure())
+            {
+                inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
+                GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);
+            }
+            else
+            {
+                UseTool();
+            }          
         }
     }
 

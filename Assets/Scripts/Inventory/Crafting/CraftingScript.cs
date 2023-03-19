@@ -30,4 +30,9 @@ public class CraftingScript : MonoBehaviour
             InventoryManager.AddItem(craftItem);
         }
     }
+
+    public void CraftArcherTower()
+    {
+        InventoryManager.AddItem(craftItem);
+    }
 }

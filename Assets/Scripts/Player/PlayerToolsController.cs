@@ -11,9 +11,9 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] float offsetDistrance = 1f;        //Look Into these two
     [SerializeField] float sizeOfInteractableArea;
 
+
+    [SerializeField] TowerManager towerManager;
     [SerializeField] InventoryManager inventoryManager;
-    [SerializeField] Transform placement;
-    [SerializeField] GameObject tower;
 
     private void Awake()
     {
@@ -31,14 +31,21 @@ public class PlayerToolsController : MonoBehaviour
             }
             if (inventoryManager.isSelectedStructure())
             {
-                inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
-                GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);
+                //inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
+                //GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);
+
+                Build();
             }
             else
             {
                 UseTool();
             }          
         }
+    }
+
+    private void Build()
+    {
+        towerManager.Build(inventoryManager.getSelectedItemName());
     }
 
     private void UseTool()

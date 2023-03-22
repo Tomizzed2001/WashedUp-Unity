@@ -6,6 +6,12 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    [Header("Inventory Components")]
+    public GameObject inventoryGrid;
+    public GameObject inventoryButton;
+    public GameObject inventoryPicture;
+
+    [Header("Inventroy Prefabs")]
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 

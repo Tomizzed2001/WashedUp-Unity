@@ -8,6 +8,7 @@ TagManager:
   - Waypoint
   - Enemy
   - Projectile
+  - InventoryManager
   layers:
   - Default
   - TransparentFX

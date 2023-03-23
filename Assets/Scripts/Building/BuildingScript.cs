@@ -14,6 +14,8 @@ public class BuildingScript : MonoBehaviour
 
     public BuildArea BuildArea;
 
+    [SerializeField] private PlayerController playerController;
+
     public void BuildHut()
     {
         // Remove and check resources in inventory
@@ -21,6 +23,8 @@ public class BuildingScript : MonoBehaviour
         bool testStone = InventoryManager.CheckItem("Stone", 30);
         if (testWood && testStone)
         {
+            playerController.OnBuild();
+
             InventoryManager.removeItem("Wood", 60);
             InventoryManager.removeItem("Stone", 30);
 

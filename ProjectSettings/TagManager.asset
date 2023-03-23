@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Projectile
   - InventoryManager
+  - UICanvas
   layers:
   - Default
   - TransparentFX

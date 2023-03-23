@@ -68,5 +68,8 @@ public class PlayerController : MonoBehaviour
         moveInput = moveValue.Get<Vector2>();
     }
 
-
+    public void OnBuild()
+    {
+        rb.MovePosition(new Vector2(0,0));
+    }
 }

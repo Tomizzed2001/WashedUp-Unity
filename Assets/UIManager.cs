@@ -7,7 +7,9 @@ public class UIManager : MonoBehaviour
     [Header("UI Screens")]
     public GameObject UI;
     public GameObject PauseUI;
-    public GameObject StartUI;
+
+    //[Header("Game variables")]
+    //public bool GameStarted = false;
 
     private List<GameObject> UIScreens = new List<GameObject>();
 
@@ -21,8 +23,10 @@ public class UIManager : MonoBehaviour
         UIScreens.Clear();
         foreach (var gameObj in GameObject.FindGameObjectsWithTag("UICanvas"))
         {
+            Debug.Log(gameObj.name);
             UIScreens.Add(gameObj);
         }
+        Debug.Log(UIScreens.Count);
     }
 
     public void HideAllCanvas()
@@ -38,7 +42,8 @@ public class UIManager : MonoBehaviour
     {
         foreach (var gameObj in UIScreens)
         {
+            Debug.Log("Showing");
             gameObj.SetActive(true);
         }
     }
-}
+} 

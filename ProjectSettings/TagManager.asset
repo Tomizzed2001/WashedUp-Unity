@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - InventoryManager
   - UICanvas
+  - Spawner
   layers:
   - Default
   - TransparentFX

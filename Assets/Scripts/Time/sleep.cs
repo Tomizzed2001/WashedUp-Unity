@@ -8,7 +8,7 @@ public class sleep : MonoBehaviour
     public WorldTime WorldTime;
     public int nightTime;
     public GameObject UI;
-    public Spawner Spawner;
+    private Spawner Spawner;
     public GameManager GameManager;
 
 
@@ -17,7 +17,16 @@ public class sleep : MonoBehaviour
         WorldTime.goNight(nightTime);
         UI.SetActive(false);
         GameManager.UseRaidCam();
-        Spawner.StartSpawn();
+        startSpawn();
+    }
+
+    public void startSpawn()
+    {
+        foreach (var spawner in GameObject.FindGameObjectsWithTag("Spawner"))
+        {
+            Spawner = spawner.GetComponent<Spawner>();
+            Spawner.StartSpawn();
+        }
     }
 
 }

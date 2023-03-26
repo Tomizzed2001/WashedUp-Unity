@@ -11,6 +11,7 @@ TagManager:
   - InventoryManager
   - UICanvas
   - Spawner
+  - UIManager
   layers:
   - Default
   - TransparentFX

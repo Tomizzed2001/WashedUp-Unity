@@ -6,8 +6,8 @@ using UnityEngine.UIElements;
 public class Chest : MonoBehaviour
 {
     [SerializeField] private GameObject chestInventory;
-    //[SerializeField] private GameObject hideAll;
 
+    private UIManager uiManager;
     private InventoryManager inventoryManager;
 
     private void Start()
@@ -16,12 +16,17 @@ public class Chest : MonoBehaviour
         {
             inventoryManager = gameObj.GetComponent<InventoryManager>();
         }
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("UIManager"))
+        {
+            uiManager = gameObj.GetComponent<UIManager>();
+        }
     }
 
     private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1))
         {
+            uiManager.InventoryOpen = true;
             chestInventory.SetActive(true);
             inventoryManager.inventoryPicture.SetActive(true);
             inventoryManager.inventoryGrid.SetActive(true);
@@ -32,10 +37,27 @@ public class Chest : MonoBehaviour
 
     public void HideAll()
     {
+        
         chestInventory.SetActive(false);
         inventoryManager.inventoryPicture.SetActive(false);
         inventoryManager.inventoryGrid.SetActive(false);
         //hideAll.SetActive(false);
         inventoryManager.inventoryButton.SetActive(true);
+        //uiManager.ChestOpen = false;
+        StartCoroutine(SetChestFalse());
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && uiManager.InventoryOpen)
+        {
+            HideAll();
+        }
+    }
+
+    private IEnumerator SetChestFalse()
+    {
+        yield return new WaitForSeconds(0.2f);
+        uiManager.InventoryOpen = false;
     }
 }

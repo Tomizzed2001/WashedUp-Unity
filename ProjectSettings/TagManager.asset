@@ -12,6 +12,7 @@ TagManager:
   - UICanvas
   - Spawner
   - UIManager
+  - Defence
   layers:
   - Default
   - TransparentFX

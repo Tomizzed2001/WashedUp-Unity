@@ -249,9 +249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetDistrance: 1
   sizeOfInteractableArea: 0
+  towerManager: {fileID: 0}
   inventoryManager: {fileID: 0}
-  placement: {fileID: 1919627247366983266}
-  tower: {fileID: 7021329613809289098, guid: ef0fcda89d7bd544ea0fd1138703667a, type: 3}
 --- !u!114 &116501141053391784
 MonoBehaviour:
   m_ObjectHideFlags: 0

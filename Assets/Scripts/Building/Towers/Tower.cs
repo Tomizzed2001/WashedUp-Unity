@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    [Header("Tower type")]
+    public string towerName;
+
     [Header("Tower Settings")]
     [SerializeField] private float damage;
     [SerializeField] private float shootDelay;

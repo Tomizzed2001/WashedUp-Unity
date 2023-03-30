@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 5083796587662372873}
   m_Layer: 0
   m_Name: ArcherTower
-  m_TagString: Untagged
+  m_TagString: ArcherTower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -212,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a39deb7527f8643ba5d89845079f09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerName: ArcherTower
   damage: 2
   shootDelay: 1
   enemies: []

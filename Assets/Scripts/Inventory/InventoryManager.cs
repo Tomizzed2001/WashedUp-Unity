@@ -217,6 +217,11 @@ public class InventoryManager : MonoBehaviour
 
     public void SpawnNewStack(Item item, InventorySlot slot, int stackNum)
     {
+        if (stackNum == 1)
+        {
+            SpawnNewItem(item, slot);
+            return;
+        }
         GameObject itemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = itemGameObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);

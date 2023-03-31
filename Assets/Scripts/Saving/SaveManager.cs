@@ -9,6 +9,7 @@ public class SaveManager : MonoBehaviour
 
     [Header("Managers")]
     [SerializeField] private TowerManager towerManager;
+    [SerializeField] private ItemManager itemManager;
 
     public void Save()
     {
@@ -17,6 +18,9 @@ public class SaveManager : MonoBehaviour
 
         //Save tower related variables
         towerManager.SaveTowers();
+
+        //Save inventory related variables
+        itemManager.SaveItems();
 
     }
 }

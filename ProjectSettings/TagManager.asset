@@ -13,6 +13,8 @@ TagManager:
   - Spawner
   - UIManager
   - Defence
+  - ArcherTower
+  - InventorySlot
   layers:
   - Default
   - TransparentFX

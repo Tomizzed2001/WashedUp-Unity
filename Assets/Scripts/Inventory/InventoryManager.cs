@@ -208,10 +208,32 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
-    void SpawnNewItem(Item item, InventorySlot slot)
+    public void SpawnNewItem(Item item, InventorySlot slot)
     {
         GameObject itemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
         InventoryItem inventoryItem = itemGameObject.GetComponent<InventoryItem>();
         inventoryItem.InitialiseItem(item);
+    }
+
+    public void SpawnNewStack(Item item, InventorySlot slot, int stackNum)
+    {
+        GameObject itemGameObject = Instantiate(inventoryItemPrefab, slot.transform);
+        InventoryItem inventoryItem = itemGameObject.GetComponent<InventoryItem>();
+        inventoryItem.InitialiseItem(item);
+        inventoryItem.stackCount = stackNum;
+        inventoryItem.UpdateCount();
+    }
+
+    public Item CheckSlot(InventorySlot slot)
+    {
+        InventoryItem slotItem = slot.GetComponentInChildren<InventoryItem>();
+        if (slotItem != null)
+        {
+            return slotItem.item;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

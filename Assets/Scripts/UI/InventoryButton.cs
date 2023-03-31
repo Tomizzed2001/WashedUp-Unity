@@ -20,7 +20,7 @@ public class InventoryButton : MonoBehaviour
             InventoryImage.SetActive(false);
             InventoryGrid.SetActive(false);
             Crafting.SetActive(false);
-            Objectives.SetActive(false);
+            Objectives.SetActive(true);
             inventoryOpen = false;
         }
         else if (!inventoryOpen)
@@ -28,7 +28,7 @@ public class InventoryButton : MonoBehaviour
             InventoryImage.SetActive(true);
             InventoryGrid.SetActive(true);
             Crafting.SetActive(true);
-            Objectives.SetActive(true);
+            Objectives.SetActive(false);
             inventoryOpen = true;
         }
     }

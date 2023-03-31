@@ -26,7 +26,6 @@ public class TowerManager : MonoBehaviour
         {
             if (towerName == Towers[i].name)
             {
-                Debug.Log("Match");
                 GameObject newTower = Instantiate(Towers[i], pos, Quaternion.identity);
             }
         }

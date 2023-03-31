@@ -7,6 +7,7 @@ public class LoadManager : MonoBehaviour
     [Header("Things to load in")]
     [SerializeField] PlayerController player;
     [SerializeField] TowerManager towerManager;
+    [SerializeField] ItemManager itemManager;
 
     private void Start()
     {
@@ -17,6 +18,9 @@ public class LoadManager : MonoBehaviour
 
             //Load tower related values
             towerManager.LoadTowers();
+
+            //Load inventory related values
+            itemManager.LoadItems();
 
         }
     }

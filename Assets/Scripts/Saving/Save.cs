@@ -4,6 +4,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public static class Save
 {
+    //Player Saving and Loading
     public static void SavePlayer(PlayerController player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -39,6 +40,7 @@ public static class Save
         }
     }
 
+    //Tower Saving and Loading
     public static void SaveTower(Tower[] towers)
     {
         BinaryFormatter formatter = new BinaryFormatter();
@@ -68,6 +70,42 @@ public static class Save
             FileStream stream = new FileStream(path, FileMode.Open);
 
             AllTowerData data = formatter.Deserialize(stream) as AllTowerData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
+
+    //Inventory Saving and Loading
+    public static void SaveInventory(int[] nums, string[] names)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/inventory.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        InventoryData data = new InventoryData(nums, names);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+
+    }
+
+    public static InventoryData LoadInventory()
+    {
+        string path = Application.persistentDataPath + "/inventory.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            InventoryData data = formatter.Deserialize(stream) as InventoryData;
 
             stream.Close();
 

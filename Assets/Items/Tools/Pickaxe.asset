@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pickaxe
   m_EditorClassIdentifier: 
   Name: Pickaxe
-  icon: {fileID: 21300000, guid: 7214b56de0da8634789f7fce663a39fb, type: 3}
+  icon: {fileID: 21300000, guid: 301c7ddbb45750d4a98f745521788f68, type: 3}
   stackable: 0
   isTool: 1
   isStructure: 0

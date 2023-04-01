@@ -117,4 +117,144 @@ public static class Save
             return null;
         }
     }
+
+    //Time Saving and Loading
+    public static void SaveTime(double time, int day)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/time.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        TimeData data = new TimeData(time, day);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static TimeData LoadTime()
+    {
+        string path = Application.persistentDataPath + "/time.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            TimeData data = formatter.Deserialize(stream) as TimeData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
+
+    //House Saving and Loading
+    public static void SaveHouse(bool buildingStatus)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/house.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        HouseData data = new HouseData(buildingStatus);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static HouseData LoadHouse()
+    {
+        string path = Application.persistentDataPath + "/house.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            HouseData data = formatter.Deserialize(stream) as HouseData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
+
+    //Object Saving and Loading
+    public static void SaveObjects(bool[] arebroken)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/objects.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        ObjectData data = new ObjectData(arebroken);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static ObjectData LoadObjects()
+    {
+        string path = Application.persistentDataPath + "/objects.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            ObjectData data = formatter.Deserialize(stream) as ObjectData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
+
+    //Objectives Saving and Loading
+    public static void SaveObjectives(bool[] objectives)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/objectives.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        ObjectiveData data = new ObjectiveData(objectives);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static ObjectiveData LoadObjectives()
+    {
+        string path = Application.persistentDataPath + "/objectives.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            ObjectiveData data = formatter.Deserialize(stream) as ObjectiveData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
 }

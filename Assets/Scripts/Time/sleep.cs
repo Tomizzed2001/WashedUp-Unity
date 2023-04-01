@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class sleep : MonoBehaviour
 {
-    public WorldTime WorldTime;
+    public TimeManager WorldTime;
     public int nightTime;
     public GameObject UI;
     private Spawner Spawner;

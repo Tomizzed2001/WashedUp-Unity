@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildArea : MonoBehaviour
 {
+    [SerializeField] BuildingScript buildingScript;
     public GameObject uiBuild;
     public GameObject uiSleep;
     public bool buildingComplete;
@@ -31,5 +32,19 @@ public class BuildArea : MonoBehaviour
             uiBuild.SetActive(false);
         }
         
+    }
+
+    public void SaveHouse()
+    {
+        Save.SaveHouse(buildingComplete);
+    }
+
+    public void LoadHouse()
+    {
+        HouseData data = Save.LoadHouse();
+
+        buildingComplete = data.houseBuilt;
+
+        buildingScript.LoadHut();
     }
 }

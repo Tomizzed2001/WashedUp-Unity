@@ -1,15 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Breakable : UseTool
 {
-    [SerializeField] GameObject drop;
+    public bool isbroken;
+
+    [Header("Object Settings")]
+    [SerializeField] int objectHealth = 3;
     [SerializeField] int dropNum = 5;
     [SerializeField] float spread = 2f;
     [SerializeField] bool needsTool;
     [SerializeField] string Tool;
-    [SerializeField] int objectHealth = 3;
+    [SerializeField] GameObject drop;
+
+
+
 
     void Shake()
     {
@@ -39,8 +43,8 @@ public class Breakable : UseTool
                     go.transform.position = pos;
 
                 }
-
-                Destroy(gameObject);
+                isbroken = true;
+                gameObject.SetActive(false);
             }
             
         }

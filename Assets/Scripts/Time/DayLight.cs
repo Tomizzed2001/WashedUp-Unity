@@ -11,7 +11,7 @@ public class DayLight : MonoBehaviour
 {
     private Light2D daylight;
 
-    [SerializeField] WorldTime worldTime;
+    [SerializeField] TimeManager worldTime;
     [SerializeField] Gradient gradient;
 
     private void Awake()

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2220813863648044429}
   m_Layer: 0
   m_Name: Stick
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,12 +98,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e1004701bb90004a8f7078d1cfd82f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  isbroken: 0
+  objectHealth: 2
   dropNum: 60
   spread: 1
   needsTool: 0
   Tool: 
-  objectHealth: 2
+  drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0

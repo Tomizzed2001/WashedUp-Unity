@@ -15,6 +15,7 @@ public class BuildingScript : MonoBehaviour
     public BuildArea BuildArea;
 
     [SerializeField] private PlayerController playerController;
+    [SerializeField] private ObjectivesManager objectivesManager;
 
     public void BuildHut()
     {
@@ -38,6 +39,9 @@ public class BuildingScript : MonoBehaviour
             color.a = 0;
             BuildingArea.GetComponent<SpriteRenderer>().color = color;
 
+            // Start the next objective
+            objectivesManager.Objective2();
+
             // Make sleep button appear
             SleepButton.SetActive(true);
         } 
@@ -45,6 +49,15 @@ public class BuildingScript : MonoBehaviour
         {
             Debug.Log("Not enough resources");
         }
+    }
+
+    public void LoadHut()
+    {
+        Building.SetActive(true);
+        uiPopup.SetActive(false);
+        Color color = BuildingArea.GetComponent<SpriteRenderer>().color;
+        color.a = 0;
+        BuildingArea.GetComponent<SpriteRenderer>().color = color;
     }
 
 }

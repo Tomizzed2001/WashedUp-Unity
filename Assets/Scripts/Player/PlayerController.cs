@@ -19,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     public Vector2 lastPos;
 
+    private bool freezeMovement = false;
+
+    [SerializeField] private GameObject FadeScreen;
 
     private void Start()
     {
@@ -30,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (freezeMovement)
+        {
+            return;
+        }
+
         //Collision Logic 
         if (moveInput != Vector2.zero)
         {
@@ -70,7 +78,24 @@ public class PlayerController : MonoBehaviour
 
     public void OnBuild()
     {
-        rb.MovePosition(new Vector2(0,0));
+        rb.MovePosition(new Vector2(2.167939f, 1.40794f));
+    }
+
+    public void FreezeMovement()
+    {
+        freezeMovement = true;
+    }
+
+    public void UnFreezeMovement(float seconds)
+    {
+        StartCoroutine(EnableMovement(seconds));
+    }
+
+    private IEnumerator EnableMovement(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        FadeScreen.SetActive(false);
+        freezeMovement = false;
     }
 
     public void SavePlayer()

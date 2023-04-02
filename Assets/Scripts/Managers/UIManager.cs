@@ -5,10 +5,17 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [Header("UI Screens")]
+    [SerializeField]
     public GameObject UI;
     public GameObject PauseUI;
+    public GameObject FadeUI;
+
+    [Header("UI Scripts")]
+    [SerializeField]
+    public FadeOut FadeScript;
 
     [Header("Game variables")]
+    [SerializeField]
     public bool InventoryOpen = false;
 
     private List<GameObject> UIScreens = new List<GameObject>();

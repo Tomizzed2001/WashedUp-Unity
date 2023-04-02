@@ -16,39 +16,44 @@ public class BuildingScript : MonoBehaviour
 
     [SerializeField] private PlayerController playerController;
     [SerializeField] private ObjectivesManager objectivesManager;
+    [SerializeField] private UIManager uIManager;
 
-    public void BuildHut()
+    public void BeginBuild()
     {
-        // Remove and check resources in inventory
+        
         bool testWood = InventoryManager.CheckItem("Wood", 60);
         bool testStone = InventoryManager.CheckItem("Stone", 30);
-        if (testWood && testStone)
+        if (testWood && testWood)
         {
-            playerController.OnBuild();
-
             InventoryManager.removeItem("Wood", 60);
             InventoryManager.removeItem("Stone", 30);
-
-            // Make the building appear
-            Building.SetActive(true);
-
-            // Make the option to build in the UI dissapear
-            BuildArea.buildingComplete = true;
-            uiPopup.SetActive(false);
-            Color color = BuildingArea.GetComponent<SpriteRenderer>().color;
-            color.a = 0;
-            BuildingArea.GetComponent<SpriteRenderer>().color = color;
-
-            // Start the next objective
-            objectivesManager.Objective2();
-
-            // Make sleep button appear
-            SleepButton.SetActive(true);
-        } 
+            StartCoroutine(TriggerBuild());
+        }
         else
         {
             Debug.Log("Not enough resources");
         }
+    }
+
+    public void BuildHut()
+    {
+        playerController.OnBuild();
+
+        // Make the building appear
+        Building.SetActive(true);
+
+        // Make the option to build in the UI dissapear
+        BuildArea.buildingComplete = true;
+        
+        Color color = BuildingArea.GetComponent<SpriteRenderer>().color;
+        color.a = 0;
+        BuildingArea.GetComponent<SpriteRenderer>().color = color;
+
+        // Start the next objective
+        objectivesManager.Objective2();
+
+        // Make sleep button appear
+        SleepButton.SetActive(true);
     }
 
     public void LoadHut()
@@ -60,4 +65,11 @@ public class BuildingScript : MonoBehaviour
         BuildingArea.GetComponent<SpriteRenderer>().color = color;
     }
 
+    private IEnumerator TriggerBuild()
+    {
+        uIManager.FadeScript.BlackOut();
+        yield return new WaitForSeconds(2.5f);
+        BuildHut();
+        uiPopup.SetActive(false);       
+    }
 }

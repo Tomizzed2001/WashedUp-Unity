@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerToolsController : MonoBehaviour
 {
     PlayerController playerController;
+    PlayerBuild playerBuild;
     Rigidbody2D rb;
 
     [SerializeField] float offsetDistrance = 1f;        //Look Into these two
@@ -18,6 +19,7 @@ public class PlayerToolsController : MonoBehaviour
     private void Awake()
     {
         playerController = GetComponent<PlayerController>();
+        playerBuild = GetComponent<PlayerBuild>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -29,7 +31,7 @@ public class PlayerToolsController : MonoBehaviour
             {
                 UseTool();
             }
-            if (inventoryManager.isSelectedStructure())
+            if (inventoryManager.isSelectedStructure() && playerBuild.canBuild)
             {
                 //inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
                 //GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);

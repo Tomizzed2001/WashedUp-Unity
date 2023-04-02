@@ -11,13 +11,14 @@ public class sleep : MonoBehaviour
     private Spawner Spawner;
     public GameManager GameManager;
 
+    [SerializeField] UIManager uiManager;
+
 
     public void skipTime()
     {   
-        WorldTime.goNight(nightTime);
-        UI.SetActive(false);
+        //UI.SetActive(false);
         GameManager.UseRaidCam();
-        startSpawn();
+        StartCoroutine(TriggerSpawn());
     }
 
     public void startSpawn()
@@ -27,6 +28,15 @@ public class sleep : MonoBehaviour
             Spawner = spawner.GetComponent<Spawner>();
             Spawner.StartSpawn();
         }
+    }
+
+    private IEnumerator TriggerSpawn()
+    {
+        uiManager.FadeScript.BlackOut();
+        yield return new WaitForSeconds(2.5f);
+        WorldTime.goNight(nightTime);
+        yield return new WaitForSeconds(2.5f);
+        startSpawn();
     }
 
 }

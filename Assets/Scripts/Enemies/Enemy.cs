@@ -37,6 +37,7 @@ public class Enemy : MonoBehaviour
             }
             else
             {
+                GameManager.Instance.LoseHealth();
                 Destroy(gameObject);
             }
         }

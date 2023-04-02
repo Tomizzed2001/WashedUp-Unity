@@ -5,8 +5,20 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+
+    [Header("Player objects")]
+    [SerializeField]
     public Camera playerCam;
     public Camera raidCam;
+    public GameObject player;
+
+    [Header("Game Settings")]
+    [SerializeField]
+    public int GameHealth;
+    public bool isGameOver = false;
+
+    [Header("Game Screens")]
+    [SerializeField] private GameOver gameOver;
 
     private void Awake()
     {
@@ -25,5 +37,14 @@ public class GameManager : MonoBehaviour
         raidCam.enabled = true;
     }
 
-    public GameObject player;
+    public void LoseHealth()
+    {
+        GameHealth--;
+        if (GameHealth <= 0)
+        {
+            isGameOver = true;
+            gameOver.GameEnd();
+        }
+    }
+
 }

@@ -15,9 +15,7 @@ public class sleep : MonoBehaviour
 
 
     public void skipTime()
-    {   
-        //UI.SetActive(false);
-        GameManager.UseRaidCam();
+    {           
         StartCoroutine(TriggerSpawn());
     }
 
@@ -34,6 +32,7 @@ public class sleep : MonoBehaviour
     {
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
+        GameManager.UseRaidCam();
         WorldTime.goNight(nightTime);
         yield return new WaitForSeconds(2.5f);
         startSpawn();

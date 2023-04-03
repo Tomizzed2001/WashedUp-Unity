@@ -1,4 +1,4 @@
-using System;
+ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,15 +8,20 @@ public class TimeManager : MonoBehaviour
     [Header("Time Settings")]
     [SerializeField] float dayLength;
     [SerializeField] int startTime;
+    [SerializeField] int morningTime;
 
     [Header("Current day info")]
+    [SerializeField] int currentDay = 1;
     public TimeSpan currentTime;
     public double totalSeconds;
-    public int currentDay = 1;
+    
 
     [Header("Time output displays")]
     [SerializeField] TimeDisplay timeDisplay;
     [SerializeField] DayLight daylight;
+
+    [Header("Output places")]
+    [SerializeField] private Boat boat;
 
     private float timeLength => dayLength / 1440;
 
@@ -45,6 +50,11 @@ public class TimeManager : MonoBehaviour
 
     }
 
+    public void goDay()
+    {
+        currentTime = TimeSpan.FromMinutes(morningTime);
+    }
+
     private IEnumerator AddMinute()
     {
         currentTime += TimeSpan.FromMinutes(1);
@@ -53,7 +63,7 @@ public class TimeManager : MonoBehaviour
         if (totalSeconds % 86400 == 0)
         {
             currentDay++;
-            Debug.Log(currentDay);
+            boat.fixedToday = false;
         }
 
         timeDisplay.UpdateTime();

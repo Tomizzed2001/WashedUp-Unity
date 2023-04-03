@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Screens")]
     [SerializeField] private GameOver gameOver;
+    [SerializeField] private GameWin gameWin;
 
     private void Awake()
     {
@@ -45,6 +46,11 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             gameOver.GameEnd();
         }
+    }
+
+    public void GameWin()
+    {
+        gameWin.GameWon();
     }
 
 }

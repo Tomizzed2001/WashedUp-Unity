@@ -11,9 +11,15 @@ public class Enemy : MonoBehaviour
     private Waypoints Wpoints;
     private int waypointIndex;
 
+    private EnemyManager enemyManager;
+
     private void Start()
     {
         Wpoints = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoints>();
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("EnemyManager"))
+        {
+            enemyManager = gameObj.GetComponent<EnemyManager>();
+        }
     }
 
     public void TakeDamage(float damage)
@@ -21,6 +27,8 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            enemyManager.currentEnemyNum--;
+            enemyManager.isLastEnemy();
             Destroy(gameObject);
         }
     }
@@ -38,6 +46,8 @@ public class Enemy : MonoBehaviour
             else
             {
                 GameManager.Instance.LoseHealth();
+                enemyManager.currentEnemyNum--;
+                enemyManager.isLastEnemy();
                 Destroy(gameObject);
             }
         }

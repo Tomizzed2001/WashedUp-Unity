@@ -11,12 +11,18 @@ public class Spawner : MonoBehaviour
 
     [Header("Enemies to spawn")]
     [SerializeField] private GameObject enemyToSpawn;
+    public bool finishedSpawning = false;
+    public int enemyCurrentCount = 0;
 
-    private int enemyCurrentCount = 0;
+    [Header("Enemy Manager")]
+    private EnemyManager enemyManager;
 
     private void Start()
     {
-        //StartCoroutine(SpawnEnemy(spawnDelay, enemyToSpawn));
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("EnemyManager"))
+        {
+            enemyManager = gameObj.GetComponent<EnemyManager>();
+        }
     }
 
     public void StartSpawn()
@@ -27,8 +33,9 @@ public class Spawner : MonoBehaviour
     private IEnumerator InitialSpawn(float initialWait, GameObject enemy, float interval)
     {
         yield return new WaitForSeconds(initialWait);
-        GameObject newEnemy = Instantiate(enemy);
+        Instantiate(enemy);
         enemyCurrentCount++;
+        enemyManager.currentEnemyNum++;
         StartCoroutine(SpawnEnemy(interval, enemy));
     }
 
@@ -37,9 +44,14 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(interval);
         if (enemyCurrentCount < toSpawnCount)
         {
-            GameObject newEnemy = Instantiate(enemy);
+            Instantiate(enemy);
             enemyCurrentCount++;
+            enemyManager.currentEnemyNum++;
             StartCoroutine(SpawnEnemy(interval, enemy));
+        }
+        else
+        {
+            finishedSpawning = true;
         }
     }
 }

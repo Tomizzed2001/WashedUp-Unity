@@ -11,7 +11,6 @@ public class FadeOut : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1.0f;
-        Debug.Log("Playign");
         StartFade.SetActive(true);
         StartFade.GetComponent<Animation>().Play("FadeStart");
         StartCoroutine(HideStart());

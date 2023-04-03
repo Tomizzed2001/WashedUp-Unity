@@ -7,6 +7,7 @@ public class SaveManager : MonoBehaviour
     [Header("Things to save")]
     [SerializeField] private PlayerController player;
     [SerializeField] private BuildArea house;
+    [SerializeField] private Boat boat;
 
     [Header("Managers")]
     [SerializeField] private TowerManager towerManager;
@@ -38,5 +39,7 @@ public class SaveManager : MonoBehaviour
         //Save objective related variables
         objectivesManager.SaveObjectives();
 
+        //Save boat related variables
+        boat.SaveBoat();
     }
 }

@@ -257,4 +257,39 @@ public static class Save
             return null;
         }
     }
+
+    //Boat Saving and Loading
+    public static void SaveBoat(int boatLevel, bool todayFix, bool isFixed)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/boat.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        BoatData data = new BoatData(boatLevel, todayFix, isFixed);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static BoatData LoadBoat()
+    {
+        string path = Application.persistentDataPath + "/boat.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            BoatData data = formatter.Deserialize(stream) as BoatData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
 }

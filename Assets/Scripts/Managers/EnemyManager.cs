@@ -43,7 +43,6 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator NightEnd()
     {
-        Debug.Log("Fadeout");
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
         GameManager.Instance.UsePlayerCam();

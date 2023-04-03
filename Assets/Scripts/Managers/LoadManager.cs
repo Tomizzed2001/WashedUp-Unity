@@ -7,6 +7,7 @@ public class LoadManager : MonoBehaviour
     [Header("Things to load in")]
     [SerializeField] private PlayerController player;
     [SerializeField] private BuildArea house;
+    [SerializeField] private Boat boat;
 
     [Header("Managers")]
     [SerializeField] private TowerManager towerManager;
@@ -39,6 +40,9 @@ public class LoadManager : MonoBehaviour
 
             //Load objective related values
             objectivesManager.LoadObjectives();
+
+            //Load boat related values
+            boat.LoadBoat();
         }
     }
 }

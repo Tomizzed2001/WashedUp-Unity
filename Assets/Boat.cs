@@ -32,4 +32,21 @@ public class Boat : MonoBehaviour
             sailButton.SetActive(true);
         }
     }
+
+    public void SaveBoat()
+    {
+        Save.SaveBoat(boatTier, fixedToday, boatFixed);
+    }
+
+    public void LoadBoat()
+    {
+        Debug.Log("Loading Boat");
+        BoatData data = Save.LoadBoat();
+
+        boatTier = data.boatTier;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = sprites[boatTier];
+        fixedToday = data.fixedToday;
+        boatFixed = data.boatFixed;
+    }
 }

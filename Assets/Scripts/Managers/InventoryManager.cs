@@ -7,15 +7,20 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
 
     [Header("Inventory Components")]
+    [SerializeField]
     public GameObject inventoryGrid;
     public GameObject inventoryButton;
     public GameObject inventoryPicture;
 
     [Header("Inventroy Prefabs")]
+    [SerializeField]
     public InventorySlot[] inventorySlots;
     public GameObject inventoryItemPrefab;
 
     int selectedSlot = -1;
+
+    [Header("Player assets to update")]
+    [SerializeField] AimWeapon playerAim;
 
     private void Start()
     {
@@ -68,6 +73,7 @@ public class InventoryManager : MonoBehaviour
             }
             
         }
+
     }
 
     public void changeSlot(int newSlot)
@@ -79,6 +85,15 @@ public class InventoryManager : MonoBehaviour
 
         inventorySlots[newSlot].Select();
         selectedSlot = newSlot;
+
+        if (isSelectedWeapon())
+        {
+            playerAim.WeaponReady();
+        }
+        else
+        {
+            playerAim.WeaponAway();
+        }
     }
 
     public void AddItem(Item item)
@@ -204,6 +219,16 @@ public class InventoryManager : MonoBehaviour
         if (selectedItem != null)
         {
             return selectedItem.item.isStructure;
+        }
+        return false;
+    }
+
+    public bool isSelectedWeapon()
+    {
+        InventoryItem selectedItem = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();
+        if (selectedItem != null)
+        {
+            return selectedItem.item.isWeapon;
         }
         return false;
     }

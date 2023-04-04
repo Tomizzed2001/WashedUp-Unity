@@ -13,10 +13,14 @@ public class InventoryButton : MonoBehaviour
     [Header("Button Settings")]
     [SerializeField] bool inventoryOpen = false;
 
+    [Header("Managers and related objects")]
+    [SerializeField] UIManager UIManager;
+
     public void toggleInventory()
     {
         if (inventoryOpen)
         {
+            UIManager.InventoryOpen = false;
             InventoryImage.SetActive(false);
             InventoryGrid.SetActive(false);
             Crafting.SetActive(false);
@@ -25,11 +29,13 @@ public class InventoryButton : MonoBehaviour
         }
         else if (!inventoryOpen)
         {
+            UIManager.InventoryOpen = true;
             InventoryImage.SetActive(true);
             InventoryGrid.SetActive(true);
             Crafting.SetActive(true);
             Objectives.SetActive(false);
             inventoryOpen = true;
+            UIManager.ResetCursor();
         }
     }
 

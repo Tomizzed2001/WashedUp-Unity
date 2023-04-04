@@ -20,6 +20,9 @@ public class UIManager : MonoBehaviour
 
     private List<GameObject> UIScreens = new List<GameObject>();
 
+    [Header("Cursor Attributes")]
+    [SerializeField] AimWeapon playerCursor;
+
     private void Start()
     {
         UpdateAllCanvas();
@@ -49,5 +52,10 @@ public class UIManager : MonoBehaviour
         {
             gameObj.SetActive(true);
         }
+    }
+
+    public void ResetCursor()
+    {
+        playerCursor.WeaponAway();
     }
 } 

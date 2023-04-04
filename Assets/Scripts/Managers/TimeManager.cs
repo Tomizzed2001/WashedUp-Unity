@@ -11,7 +11,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] int morningTime;
 
     [Header("Current day info")]
-    [SerializeField] int currentDay = 1;
+    [SerializeField]
+    public int currentDay = 1;
     public TimeSpan currentTime;
     public double totalSeconds;
     
@@ -53,6 +54,8 @@ public class TimeManager : MonoBehaviour
     public void goDay()
     {
         currentTime = TimeSpan.FromMinutes(morningTime);
+        currentDay++;
+        boat.fixedToday = false;
     }
 
     private IEnumerator AddMinute()
@@ -60,11 +63,6 @@ public class TimeManager : MonoBehaviour
         currentTime += TimeSpan.FromMinutes(1);
         timeDisplay.timer = currentTime;
         totalSeconds = currentTime.TotalSeconds;
-        if (totalSeconds % 86400 == 0)
-        {
-            currentDay++;
-            boat.fixedToday = false;
-        }
 
         timeDisplay.UpdateTime();
         daylight.UpdateLights();

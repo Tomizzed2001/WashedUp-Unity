@@ -18,6 +18,12 @@ public class EnemyManager : MonoBehaviour
     [Header("Managers")]
     [SerializeField] UIManager uiManager;
     [SerializeField] TimeManager timeManager;
+
+    private void Start()
+    {
+        level = timeManager.currentDay;
+    }
+
     public void isLastEnemy()
     {
         if (currentEnemyNum == 0)
@@ -29,15 +35,7 @@ public class EnemyManager : MonoBehaviour
                     return;
                 }
             }
-            level++;
-            if (level == 3)
-            {
-                GameManager.Instance.GameWin();
-            }
-            else
-            {
-                StartCoroutine(NightEnd());
-            }            
+            StartCoroutine(NightEnd());            
         }
     }
 
@@ -47,5 +45,9 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         GameManager.Instance.UsePlayerCam();
         timeManager.goDay();
+        if (timeManager.currentDay == 3)
+        {
+            GameManager.Instance.GameWin();
+        }
     }
 }

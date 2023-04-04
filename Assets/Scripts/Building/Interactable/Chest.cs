@@ -32,6 +32,7 @@ public class Chest : MonoBehaviour
             inventoryManager.inventoryGrid.SetActive(true);
             //hideAll.SetActive(true);
             inventoryManager.inventoryButton.SetActive(false);
+            uiManager.ResetCursor();
         }
     }
 

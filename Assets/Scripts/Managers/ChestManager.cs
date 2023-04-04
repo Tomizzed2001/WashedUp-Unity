@@ -7,15 +7,19 @@ public class ChestManager : MonoBehaviour
     [Header("Manager")]
     [SerializeField] private InventoryManager inventoryManager;
 
-    [Header("Slot and Item")]
+    [Header("Slot and Item 1")]
     [SerializeField] private InventorySlot slot1;
     [SerializeField] private Item item1;
+    [Header("Slot and Item 2")]
+    [SerializeField] private InventorySlot slot2;
+    [SerializeField] private Item item2;
 
     public void Start()
     {
         if (!StartScript.toLoad)
         {
-            inventoryManager.SpawnNewItem(item1, slot1);            
+            inventoryManager.SpawnNewItem(item1, slot1);   
+            inventoryManager.SpawnNewItem(item2, slot2);
         }
     }
 }

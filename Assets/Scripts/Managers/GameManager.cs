@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public Camera playerCam;
     public Camera raidCam;
+    public Camera currentCam;
     public GameObject player;
 
     [Header("Game Settings")]
@@ -24,16 +25,19 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        currentCam = playerCam;
     }
 
     public void UsePlayerCam()
     {
+        currentCam = playerCam;
         playerCam.enabled = true;
         raidCam.enabled = false;
     }
 
     public void UseRaidCam()
     {
+        currentCam = raidCam;
         playerCam.enabled = false;
         raidCam.enabled = true;
     }

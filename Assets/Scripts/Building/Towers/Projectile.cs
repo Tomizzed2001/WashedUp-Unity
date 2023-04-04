@@ -8,6 +8,11 @@ public class Projectile : MonoBehaviour
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float projectileDamage;
 
+    private void Awake()
+    {
+        StartCoroutine(despawner());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
@@ -17,12 +22,18 @@ public class Projectile : MonoBehaviour
             {
                 enemy.TakeDamage(projectileDamage);
             }
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
 
     private void Update()
     {
         transform.position += transform.right * projectileSpeed;
+    }
+
+    private IEnumerator despawner()
+    {
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
     }
 }

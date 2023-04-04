@@ -12,9 +12,16 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] float offsetDistrance = 1f;        //Look Into these two
     [SerializeField] float sizeOfInteractableArea;
 
-
+    [Header("Managers")]
+    [SerializeField] UIManager uiManager;
     [SerializeField] TowerManager towerManager;
     [SerializeField] InventoryManager inventoryManager;
+
+    [Header("Weapon Related Fields")]
+    [SerializeField] GameObject Projectile;
+    [SerializeField] Transform player;
+    [SerializeField] Transform pivot;
+
 
     private void Awake()
     {
@@ -25,23 +32,27 @@ public class PlayerToolsController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !uiManager.InventoryOpen)
         {
             if (inventoryManager.isSelectedTool())
             {
                 UseTool();
             }
-            if (inventoryManager.isSelectedStructure() && playerBuild.canBuild)
+            else if (inventoryManager.isSelectedStructure() && playerBuild.canBuild)
             {
                 //inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
                 //GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);
 
                 Build();
             }
+            else if (inventoryManager.isSelectedWeapon())
+            {
+                Shoot();
+            }
             else
             {
                 UseTool();
-            }          
+            }
         }
     }
 
@@ -65,5 +76,10 @@ public class PlayerToolsController : MonoBehaviour
                 break;
             }
         }
+    }
+
+    private void Shoot()
+    {
+        GameObject newProjectile = Instantiate(Projectile, pivot.position, pivot.rotation);
     }
 }

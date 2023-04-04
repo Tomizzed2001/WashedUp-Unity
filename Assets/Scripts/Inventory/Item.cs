@@ -14,6 +14,7 @@ public class Item : ScriptableObject
     public bool stackable = true;
     public bool isTool;
     public bool isStructure;
+    public bool isWeapon;
     
 }
 

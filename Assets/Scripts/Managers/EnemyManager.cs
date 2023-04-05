@@ -18,6 +18,7 @@ public class EnemyManager : MonoBehaviour
     [Header("Managers")]
     [SerializeField] UIManager uiManager;
     [SerializeField] TimeManager timeManager;
+    [SerializeField] SaveManager saveManager;
 
     private void Start()
     {
@@ -45,6 +46,7 @@ public class EnemyManager : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         GameManager.Instance.UsePlayerCam();
         timeManager.goDay();
+        saveManager.Save();
         if (timeManager.currentDay == 3)
         {
             GameManager.Instance.GameWin();

@@ -49,7 +49,6 @@ public class ObjectManager : MonoBehaviour
             if (activeList[i] == false && script.DayToSpawn <= day)
             {
                 int respawn = Random.Range(0, 10);
-                Debug.Log(respawn);
                 if (respawn >= 1)
                 {
                     objects[i].SetActive(true);

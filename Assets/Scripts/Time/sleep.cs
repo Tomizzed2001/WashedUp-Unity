@@ -9,7 +9,7 @@ public class sleep : MonoBehaviour
     public int nightTime;
     public GameObject UI;
     private Spawner Spawner;
-    public GameManager GameManager;
+    public bool sleptToday;
 
     [SerializeField] UIManager uiManager;
 
@@ -32,10 +32,11 @@ public class sleep : MonoBehaviour
     {
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
-        GameManager.UseRaidCam();
+        GameManager.Instance.UseRaidCam();
         WorldTime.goNight(nightTime);
         yield return new WaitForSeconds(2.5f);
         startSpawn();
+        gameObject.SetActive(false);
     }
 
 }

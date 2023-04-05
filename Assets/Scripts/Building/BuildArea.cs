@@ -11,6 +11,10 @@ public class BuildArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.Instance.inRaid)
+        {
+            return;
+        }
         if (buildingComplete)
         {
             uiSleep.SetActive(true);

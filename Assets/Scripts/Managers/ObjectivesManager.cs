@@ -10,6 +10,7 @@ public class ObjectivesManager : MonoBehaviour
 
     [Header("Objectives")]
     [SerializeField] private GameObject objectiveBorder;
+    [SerializeField] private GameObject objectiveTitle;
     [SerializeField] private Objective[] objectiveArray;
     [SerializeField] private bool[] activeObjectives;
 
@@ -58,10 +59,12 @@ public class ObjectivesManager : MonoBehaviour
         if (allObjectivesFalse())
         {
             objectiveBorder.SetActive(false);
+            objectiveTitle.SetActive(false);
         }
         else
         {
             objectiveBorder.SetActive(true);
+            objectiveTitle.SetActive(true);
         }
     }
 

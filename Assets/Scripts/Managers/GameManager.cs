@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game Settings")]
     [SerializeField]
+    public bool inRaid = false;
     public int GameHealth;
     public bool isGameOver = false;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void UsePlayerCam()
     {
+        inRaid = true;
         currentCam = playerCam;
         playerCam.enabled = true;
         raidCam.enabled = false;
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void UseRaidCam()
     {
+        inRaid = true;
         currentCam = raidCam;
         playerCam.enabled = false;
         raidCam.enabled = true;

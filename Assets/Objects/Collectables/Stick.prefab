@@ -100,11 +100,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isbroken: 0
   objectHealth: 2
-  dropNum: 60
+  dropNum: 2
   spread: 1
   needsTool: 0
   Tool: 
   drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  DayToSpawn: 0
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0

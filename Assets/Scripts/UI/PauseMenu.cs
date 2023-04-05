@@ -8,6 +8,9 @@ public class PauseMenu : MonoBehaviour
     [Header("UI Manager")]
     [SerializeField] UIManager uiManager;
 
+    [Header("Save Manager")]
+    [SerializeField] SaveManager saveManager;
+
     [Header("Screens")]
     [SerializeField] GameObject PauseScreen;
 
@@ -46,8 +49,10 @@ public class PauseMenu : MonoBehaviour
 
     public void Save()
     {
-        //Saving initialisation goes here
-        return;
+        if (!GameManager.Instance.inRaid)
+        {
+            saveManager.Save();
+        }
     }
 
     public void Exit()

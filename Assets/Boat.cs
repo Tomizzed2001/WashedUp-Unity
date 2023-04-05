@@ -40,7 +40,6 @@ public class Boat : MonoBehaviour
 
     public void LoadBoat()
     {
-        Debug.Log("Loading Boat");
         BoatData data = Save.LoadBoat();
 
         boatTier = data.boatTier;

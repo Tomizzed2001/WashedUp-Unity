@@ -9,8 +9,11 @@ public class PlayerToolsController : MonoBehaviour
     PlayerBuild playerBuild;
     Rigidbody2D rb;
 
-    [SerializeField] float offsetDistrance = 1f;        //Look Into these two
-    [SerializeField] float sizeOfInteractableArea;
+    [Header("Tools Values")]
+    [SerializeField] private float offsetDistrance = 1f;
+    [SerializeField] private float sizeOfInteractableArea;
+    [SerializeField] private float fireRate = 0.5f;
+    private float nextShot = 0.0f;
 
     [Header("Managers")]
     [SerializeField] UIManager uiManager;
@@ -40,14 +43,14 @@ public class PlayerToolsController : MonoBehaviour
             }
             else if (inventoryManager.isSelectedStructure() && playerBuild.canBuild)
             {
-                //inventoryManager.removeItem(inventoryManager.getSelectedItemName(), 1);
-                //GameObject newTower = Instantiate(tower, placement.position, Quaternion.identity);
-
                 Build();
             }
             else if (inventoryManager.isSelectedWeapon())
             {
-                Shoot();
+                if (Time.time > nextShot)
+                {
+                    Shoot();
+                }
             }
             else
             {
@@ -80,6 +83,7 @@ public class PlayerToolsController : MonoBehaviour
 
     private void Shoot()
     {
+        nextShot = Time.time + fireRate;
         GameObject newProjectile = Instantiate(Projectile, pivot.position, pivot.rotation);
     }
 }

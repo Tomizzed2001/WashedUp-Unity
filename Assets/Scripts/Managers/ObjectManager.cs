@@ -8,6 +8,8 @@ public class ObjectManager : MonoBehaviour
     [SerializeField] GameObject[] objects;
     [SerializeField] bool[] activeList;
 
+    [SerializeField] private int rarity;
+
     private void Start()
     {
         
@@ -15,6 +17,10 @@ public class ObjectManager : MonoBehaviour
         activeList = new bool[objects.Length];
         for (int i = 0; i < objects.Length; i++)
         {
+            if (objects[i].GetComponent<Breakable>().DayToSpawn != 0)
+            {
+                objects[i].SetActive(false);
+            }
             activeList[i] = objects[i].activeSelf;
         }
     }
@@ -34,20 +40,33 @@ public class ObjectManager : MonoBehaviour
         Save.SaveObjects(activeList);
     }
 
+    public void objectAppear(int day)
+    {
+        updateActiveList();
+        for (int i = 0; i < objects.Length; i++)
+        {
+            Breakable script = objects[i].GetComponent<Breakable>();
+            if (activeList[i] == false && script.DayToSpawn <= day)
+            {
+                int respawn = Random.Range(0, 10);
+                Debug.Log(respawn);
+                if (respawn >= 1)
+                {
+                    objects[i].SetActive(true);
+                    script.resetHealth();
+                }
+            }
+        }
+        updateActiveList();
+    }
+
     public void LoadObjects()
     {
         ObjectData data = Save.LoadObjects();
 
         for (int i = 0; i<objects.Length; i++)
         {
-            if (data.isBroken[i])
-            {
-                objects[i].SetActive(true);
-            }
-            else
-            {
-                objects[i].SetActive(false);
-            }
+            objects[i].SetActive(data.isBroken[i]);
         }
     }
 

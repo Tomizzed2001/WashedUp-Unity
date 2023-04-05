@@ -23,6 +23,7 @@ public class TimeManager : MonoBehaviour
 
     [Header("Output places")]
     [SerializeField] private Boat boat;
+    [SerializeField] private ObjectManager objectManager;
 
     private float timeLength => dayLength / 1440;
 
@@ -55,6 +56,7 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = TimeSpan.FromMinutes(morningTime);
         currentDay++;
+        objectManager.objectAppear(currentDay);
         boat.fixedToday = false;
     }
 

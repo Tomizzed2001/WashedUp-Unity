@@ -11,9 +11,19 @@ public class Breakable : UseTool
     [SerializeField] bool needsTool;
     [SerializeField] string Tool;
     [SerializeField] GameObject drop;
+    public int DayToSpawn = 1;
 
+    private int originalHealth;
 
+    private void Start()
+    {
+        originalHealth = objectHealth;
+    }
 
+    public void resetHealth()
+    {
+        objectHealth = originalHealth;
+    }
 
     void Shake()
     {

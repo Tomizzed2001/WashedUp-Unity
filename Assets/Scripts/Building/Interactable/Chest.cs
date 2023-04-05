@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            uiManager.inventoryButton.inventoryOpen = true;
             uiManager.InventoryOpen = true;
             chestInventory.SetActive(true);
             inventoryManager.inventoryPicture.SetActive(true);
@@ -42,9 +43,9 @@ public class Chest : MonoBehaviour
         chestInventory.SetActive(false);
         inventoryManager.inventoryPicture.SetActive(false);
         inventoryManager.inventoryGrid.SetActive(false);
-        //hideAll.SetActive(false);
+        inventoryManager.crafting.SetActive(false);
         inventoryManager.inventoryButton.SetActive(true);
-        //uiManager.ChestOpen = false;
+        uiManager.inventoryButton.inventoryOpen = false;
         StartCoroutine(SetChestFalse());
     }
 

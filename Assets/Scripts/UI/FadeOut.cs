@@ -7,6 +7,8 @@ public class FadeOut : MonoBehaviour
     public GameObject FadeScreen;
     public GameObject StartFade;
     [SerializeField] PlayerController player;
+    [SerializeField] UIManager uiManager;
+    [SerializeField] SaveManager saveManager;
 
     private void Start()
     {
@@ -18,6 +20,8 @@ public class FadeOut : MonoBehaviour
 
     public void BlackOut()
     {
+        saveManager.Save();
+        uiManager.canPause = false;
         FadeScreen.SetActive(true);
         player.FreezeMovement();
         FadeScreen.GetComponent<Animation>().Play("FadeOut");
@@ -27,6 +31,7 @@ public class FadeOut : MonoBehaviour
     private IEnumerator EnableMovement()
     {
         yield return new WaitForSeconds(2.5f);
+        uiManager.canPause = true;
         player.UnFreezeMovement(2.5f);
     }
 

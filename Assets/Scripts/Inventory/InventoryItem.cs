@@ -15,11 +15,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Item item;
     [HideInInspector] public int stackCount = 1;
     [HideInInspector] public Transform parentAfterDrag;
+    private Transform intendedParent;
 
     public void InitialiseItem(Item newItem)
     {
         item = newItem;
         image.sprite = newItem.icon;
+        foreach (var gameObj in GameObject.FindGameObjectsWithTag("UIManager"))
+        {
+            UIManager uiManager = gameObj.GetComponent<UIManager>();
+            intendedParent = uiManager.UI.transform;
+        }
     }
 
     public void UpdateCount()
@@ -29,9 +35,9 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     //Begin dragging
     public void OnBeginDrag(PointerEventData eventData)
-    {  
+    {
         parentAfterDrag = transform.parent;
-        transform.SetParent(transform.root);
+        transform.SetParent(intendedParent);
         transform.SetAsLastSibling();
         rectTransform.localScale = new Vector3(1f, 1f, 1f);
         image.raycastTarget = false;

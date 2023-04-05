@@ -11,10 +11,12 @@ public class InventoryManager : MonoBehaviour
     public GameObject inventoryGrid;
     public GameObject inventoryButton;
     public GameObject inventoryPicture;
+    public GameObject crafting;
 
     [Header("Inventroy Prefabs")]
     [SerializeField]
     public InventorySlot[] inventorySlots;
+    public InventorySlot[] allSlots;
     public GameObject inventoryItemPrefab;
 
     int selectedSlot = -1;
@@ -114,6 +116,10 @@ public class InventoryManager : MonoBehaviour
         for (int i = 0; i < inventorySlots.Length; i++)
         {
             InventorySlot slot = inventorySlots[i];
+            if (slot.tag != "InventorySlot")
+            {
+                return;
+            }
             InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
             
             if (itemItem == null )

@@ -7,15 +7,25 @@ public class FixBoat : MonoBehaviour
     [Header("Boat to fix")]
     [SerializeField] Boat boat;
 
+    [Header("Managers")]
+    [SerializeField] UIManager uiManager;
+
     public void fixTheBoat()
     {
-        boat.fixedToday = true;
-        boat.IncreaseTier();
-        gameObject.SetActive(false);
+        StartCoroutine(TriggerBuild());
     }
 
     public void setSail()
     {
         GameManager.Instance.GameWin();
+    }
+
+    private IEnumerator TriggerBuild()
+    {
+        uiManager.FadeScript.BlackOut();
+        yield return new WaitForSeconds(2.5f);
+        boat.fixedToday = true;
+        boat.IncreaseTier();
+        gameObject.SetActive(false);
     }
 }

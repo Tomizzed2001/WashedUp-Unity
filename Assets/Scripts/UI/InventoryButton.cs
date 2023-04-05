@@ -11,7 +11,8 @@ public class InventoryButton : MonoBehaviour
     [SerializeField] GameObject Objectives;
 
     [Header("Button Settings")]
-    [SerializeField] bool inventoryOpen = false;
+    [SerializeField] 
+    public bool inventoryOpen = false;
 
     [Header("Managers and related objects")]
     [SerializeField] UIManager UIManager;

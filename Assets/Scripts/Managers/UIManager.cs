@@ -13,10 +13,12 @@ public class UIManager : MonoBehaviour
     [Header("UI Scripts")]
     [SerializeField]
     public FadeOut FadeScript;
+    public InventoryButton inventoryButton;
 
     [Header("Game variables")]
     [SerializeField]
     public bool InventoryOpen = false;
+    public bool canPause = true;
 
     private List<GameObject> UIScreens = new List<GameObject>();
 

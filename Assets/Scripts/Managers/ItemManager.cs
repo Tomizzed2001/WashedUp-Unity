@@ -17,7 +17,7 @@ public class ItemManager : MonoBehaviour
 
     private void Start()
     {
-        allSlots = inventoryManager.inventorySlots;
+        allSlots = inventoryManager.allSlots;
         stackNums = new int[allSlots.Length];
         itemNames = new string[allSlots.Length];
     }

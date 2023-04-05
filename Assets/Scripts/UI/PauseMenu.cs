@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !uiManager.InventoryOpen)
+        if (Input.GetKeyDown(KeyCode.Escape) && !uiManager.InventoryOpen && uiManager.canPause)
         {
             if (GameIsPaused)
             {

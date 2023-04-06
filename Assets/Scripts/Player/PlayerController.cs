@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool freezeMovement = false;
 
     [SerializeField] private GameObject FadeScreen;
+    [SerializeField] private AudioManager audioManager;
 
     private void Start()
     {
@@ -53,6 +54,7 @@ public class PlayerController : MonoBehaviour
         //Logic for the animation of the player and set last position
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
+            audioManager.FootStep(true);
             lastPos = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
             animator.SetBool("isMoving", true);
 
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            audioManager.FootStep(false);
             animator.SetBool("isMoving", false);
         }
     }

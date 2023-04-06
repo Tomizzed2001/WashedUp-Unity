@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
 
     public void UsePlayerCam()
     {
-        inRaid = true;
+        inRaid = false;
         currentCam = playerCam;
         playerCam.enabled = true;
         raidCam.enabled = false;

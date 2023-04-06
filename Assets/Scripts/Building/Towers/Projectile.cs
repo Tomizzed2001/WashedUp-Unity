@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position += transform.right * projectileSpeed;
     }

@@ -18,6 +18,7 @@ public class SaveManager : MonoBehaviour
 
     public void Save()
     {
+        Debug.Log("Saving");
         //Save Player related variables
         player.SavePlayer();
 

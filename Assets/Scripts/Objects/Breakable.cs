@@ -11,6 +11,7 @@ public class Breakable : UseTool
     [SerializeField] bool needsTool;
     [SerializeField] string Tool;
     [SerializeField] GameObject drop;
+    [SerializeField] string objectType;
     public int DayToSpawn = 1;
 
     private int originalHealth;
@@ -41,6 +42,15 @@ public class Breakable : UseTool
             float posy = gameObject.transform.position.y;
             gameObject.transform.position = new Vector2(posx+0.02f, posy+0.02f);
             Invoke("Shake",0.1f);
+            
+            if (objectType == "Tree")
+            {
+                GameManager.Instance.audioManager.TreeChop();
+            }
+            else if (objectType == "Rock") {
+                GameManager.Instance.audioManager.StoneHit();
+            }
+            
             objectHealth -= 1;
             if (objectHealth == 0)
             {

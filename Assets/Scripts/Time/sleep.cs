@@ -12,7 +12,6 @@ public class sleep : MonoBehaviour
     public bool sleptToday;
 
     [SerializeField] UIManager uiManager;
-    [SerializeField] AudioManager audioManager;
 
 
     public void skipTime()
@@ -35,7 +34,7 @@ public class sleep : MonoBehaviour
         yield return new WaitForSeconds(2.5f);
         GameManager.Instance.UseRaidCam();
         WorldTime.goNight(nightTime);
-        audioManager.PlayRaid();
+        GameManager.Instance.audioManager.PlayRaid();
         yield return new WaitForSeconds(2.5f);
         startSpawn();
         gameObject.SetActive(false);

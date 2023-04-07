@@ -150,3 +150,5 @@ MonoBehaviour:
   needsTool: 1
   Tool: Axe
   drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  objectType: Tree
+  DayToSpawn: 1

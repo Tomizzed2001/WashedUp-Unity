@@ -83,7 +83,17 @@ public class PlayerToolsController : MonoBehaviour
 
     private void Shoot()
     {
-        nextShot = Time.time + fireRate;
-        GameObject newProjectile = Instantiate(Projectile, pivot.position, pivot.rotation);
+        bool testStone = inventoryManager.CheckItem("Stone", 1);
+        if (testStone)
+        {
+            inventoryManager.removeItem("Stone", 1);
+            GameManager.Instance.audioManager.Slingshot();
+            nextShot = Time.time + fireRate;
+            GameObject newProjectile = Instantiate(Projectile, pivot.position, pivot.rotation);
+        }
+        else
+        {
+            Debug.Log("No Ammo");
+        }
     }
 }

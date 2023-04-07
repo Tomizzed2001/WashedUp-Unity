@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    [Header("Audio Sources")]
     [SerializeField] AudioSource raidSong;
     [SerializeField] AudioSource beachSong;
     [SerializeField] AudioSource forestSong;
     [SerializeField] AudioSource footstep;
+    [SerializeField] AudioSource tree;
+    [SerializeField] AudioSource stone;
+    [SerializeField] AudioSource slingshot;
 
     private bool stepsInProgress;
 
@@ -16,10 +20,10 @@ public class AudioManager : MonoBehaviour
         PlayBeach();
     }
 
-
+    //Raid
     public void PlayRaid()
     {
-        StartCoroutine(FadeAudioIn(raidSong, 100));
+        StartCoroutine(FadeAudioIn(raidSong, 50));
     }
 
     public void FadeRaid()
@@ -27,6 +31,12 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeAudioOut(raidSong));
     }
 
+    public void StopRaid()
+    {
+        raidSong.Stop();
+    }
+
+    //Beach
     public void PlayBeach()
     {
         StartCoroutine(FadeAudioIn(beachSong, 20));
@@ -37,6 +47,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeAudioOut(beachSong));
     }
 
+    //Forest
     public void PlayForest()
     {
         StartCoroutine(FadeAudioIn(forestSong, 20));
@@ -47,6 +58,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(FadeAudioOut(forestSong));
     }
 
+    //Player
     public void FootStep(bool isWalking)
     {
         if (isWalking)
@@ -64,6 +76,21 @@ public class AudioManager : MonoBehaviour
             stepsInProgress = false;
             footstep.loop = false;
         }
+    }
+
+    public void TreeChop()
+    {
+        tree.Play();
+    }
+
+    public void StoneHit()
+    {
+        stone.Play();
+    }
+
+    public void Slingshot()
+    {
+        slingshot.Play();
     }
 
     private IEnumerator FadeAudioIn(AudioSource audio, int volume)

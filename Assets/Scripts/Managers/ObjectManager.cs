@@ -17,7 +17,7 @@ public class ObjectManager : MonoBehaviour
         activeList = new bool[objects.Length];
         for (int i = 0; i < objects.Length; i++)
         {
-            if (objects[i].GetComponent<Breakable>().DayToSpawn != 0)
+            if (objects[i].GetComponent<Breakable>().DayToSpawn > 1 )
             {
                 objects[i].SetActive(false);
             }

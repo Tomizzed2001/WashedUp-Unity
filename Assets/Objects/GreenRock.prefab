@@ -105,6 +105,8 @@ MonoBehaviour:
   needsTool: 1
   Tool: Pickaxe
   drop: {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
+  objectType: Rock
+  DayToSpawn: 1
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameOver gameOver;
     [SerializeField] private GameWin gameWin;
 
+    [Header("Managers")]
+    [SerializeField] public AudioManager audioManager;
+
     private void Awake()
     {
         Instance = this;

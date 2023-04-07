@@ -42,9 +42,11 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator NightEnd()
     {
+        GameManager.Instance.audioManager.FadeRaid();
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
         GameManager.Instance.UsePlayerCam();
+        GameManager.Instance.audioManager.StopRaid(); 
         timeManager.goDay();
         saveManager.Save();
         if (timeManager.currentDay == 3)

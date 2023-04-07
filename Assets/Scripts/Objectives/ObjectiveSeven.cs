@@ -13,7 +13,6 @@ public class ObjectiveSeven : Objective
 
     private void Start()
     {
-        Debug.Log("Updating");
         UpdateText();
     }
 

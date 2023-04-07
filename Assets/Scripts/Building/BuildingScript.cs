@@ -15,7 +15,6 @@ public class BuildingScript : MonoBehaviour
     public BuildArea BuildArea;
 
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private ObjectivesManager objectivesManager;
     [SerializeField] private UIManager uIManager;
 
     public void BeginBuild()
@@ -48,9 +47,6 @@ public class BuildingScript : MonoBehaviour
         Color color = BuildingArea.GetComponent<SpriteRenderer>().color;
         color.a = 0;
         BuildingArea.GetComponent<SpriteRenderer>().color = color;
-
-        // Start the next objective
-        objectivesManager.Objective2();
 
         // Make sleep button appear
         SleepButton.SetActive(true);

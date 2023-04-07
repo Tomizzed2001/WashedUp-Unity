@@ -12,7 +12,7 @@ public class Boat : MonoBehaviour
     [SerializeField]
     public bool fixedToday;
     public bool boatFixed;
-    [SerializeField] int boatTier = 0;
+    public int boatTier = 0;
 
     [Header("Buttons")]
     [SerializeField] private GameObject sailButton;
@@ -30,6 +30,7 @@ public class Boat : MonoBehaviour
         {
             boatFixed = true;
             sailButton.SetActive(true);
+            GameManager.Instance.objectivesManager.Objective9();
         }
     }
 

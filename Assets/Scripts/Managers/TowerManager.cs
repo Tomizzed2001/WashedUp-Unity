@@ -8,6 +8,8 @@ public class TowerManager : MonoBehaviour
     [SerializeField] Transform PlacementZone;
     [SerializeField] InventoryManager inventoryManager;
 
+    [HideInInspector] public int defencesPlaced = 0;
+
     public void Build(string towerName)
     {
         for (int i = 0; i < Towers.Length; i++)

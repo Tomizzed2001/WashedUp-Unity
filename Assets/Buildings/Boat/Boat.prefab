@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1378575102782278314}
   - component: {fileID: 2748791673782192028}
   - component: {fileID: 4384357425122431365}
+  - component: {fileID: 6350238996707879204}
   m_Layer: 0
   m_Name: Boat
   m_TagString: Untagged
@@ -120,3 +121,25 @@ CapsuleCollider2D:
   m_Offset: {x: -0.026620999, y: 0.008866712}
   m_Size: {x: 1.364306, y: 0.6633055}
   m_Direction: 1
+--- !u!114 &6350238996707879204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009982046069025491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9581b091611ef354da7a2170c27adb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: a413a375f23e9b94397fddc8ab6a1ebd, type: 3}
+  - {fileID: 21300000, guid: 1f89b89957d0d554b9a9b383c71144cb, type: 3}
+  - {fileID: 21300000, guid: 3042dab09112cd048a3d67aa442b0e57, type: 3}
+  - {fileID: 21300000, guid: 39d9973d7bcdc144cbf7ba5b3c6393c6, type: 3}
+  - {fileID: 21300000, guid: cb944c4418256a445a80b3df2bfef9f3, type: 3}
+  fixedToday: 0
+  boatFixed: 0
+  boatTier: 0
+  sailButton: {fileID: 0}

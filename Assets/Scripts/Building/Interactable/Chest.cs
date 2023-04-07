@@ -26,6 +26,7 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1))
         {
+            GameManager.Instance.chestOpened = true;
             uiManager.inventoryButton.inventoryOpen = true;
             uiManager.InventoryOpen = true;
             chestInventory.SetActive(true);

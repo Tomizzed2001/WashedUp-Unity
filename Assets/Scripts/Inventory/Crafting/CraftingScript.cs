@@ -25,8 +25,8 @@ public class CraftingScript : MonoBehaviour
         bool testStone = InventoryManager.CheckItem("Stone", 6);
         if (testWood && testStone)
         {
-            InventoryManager.removeItem("Wood", 6);
-            InventoryManager.removeItem("Stone", 4);
+            InventoryManager.removeItem("Wood", 10);
+            InventoryManager.removeItem("Stone", 6);
             InventoryManager.AddItem(craftItem);
         }
     }

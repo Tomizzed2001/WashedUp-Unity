@@ -13,6 +13,9 @@ public class ChestManager : MonoBehaviour
     [Header("Slot and Item 2")]
     [SerializeField] private InventorySlot slot2;
     [SerializeField] private Item item2;
+    [Header("Slot and Item 2")]
+    [SerializeField] private InventorySlot slot3;
+    [SerializeField] private Item item3;
 
     public void Start()
     {
@@ -20,6 +23,7 @@ public class ChestManager : MonoBehaviour
         {
             inventoryManager.SpawnNewItem(item1, slot1);   
             inventoryManager.SpawnNewItem(item2, slot2);
+            inventoryManager.SpawnNewItem(item3, slot3);
         }
     }
 }

@@ -61,6 +61,7 @@ public class PlayerToolsController : MonoBehaviour
 
     private void Build()
     {
+        towerManager.defencesPlaced++;
         towerManager.Build(inventoryManager.getSelectedItemName());
     }
 

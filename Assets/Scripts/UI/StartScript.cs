@@ -10,6 +10,7 @@ public class StartScript : MonoBehaviour
 
     public void Play()
     {
+        toLoad = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

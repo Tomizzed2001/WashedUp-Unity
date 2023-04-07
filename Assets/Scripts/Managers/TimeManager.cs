@@ -58,6 +58,14 @@ public class TimeManager : MonoBehaviour
         currentDay++;
         objectManager.objectAppear(currentDay);
         boat.fixedToday = false;
+        if (currentDay == 2)
+        {
+            GameManager.Instance.objectivesManager.Objective8();
+        }
+        if (!boat.boatFixed)
+        {
+            GameManager.Instance.objectivesManager.Objective7();
+        }
     }
 
     private IEnumerator AddMinute()

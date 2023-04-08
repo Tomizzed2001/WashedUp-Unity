@@ -82,6 +82,48 @@ public static class Save
         }
     }
 
+    //Trap Saving and Loading
+    public static void SaveTraps(Trap[] traps)
+    {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/traps.save";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        TrapData[] trapsData = new TrapData[traps.Length];
+
+        for (int i = 0; i < traps.Length; i++)
+        {
+            trapsData[i] = new TrapData(traps[i]);
+        }
+
+        AllTrapData data = new AllTrapData(trapsData);
+
+        formatter.Serialize(stream, data);
+
+        stream.Close();
+    }
+
+    public static AllTrapData LoadTraps()
+    {
+        string path = Application.persistentDataPath + "/traps.save";
+        if (File.Exists(path))
+        {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            AllTrapData data = formatter.Deserialize(stream) as AllTrapData;
+
+            stream.Close();
+
+            return data;
+        }
+        else
+        {
+            Debug.LogError("File not found");
+            return null;
+        }
+    }
+
     //Inventory Saving and Loading
     public static void SaveInventory(int[] nums, string[] names)
     {

@@ -15,6 +15,7 @@ public class Item : ScriptableObject
     public bool isTool;
     public bool isStructure;
     public bool isWeapon;
+    public bool isTrap;
     
 }
 

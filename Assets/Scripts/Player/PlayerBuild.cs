@@ -20,14 +20,13 @@ public class PlayerBuild : MonoBehaviour
         if (inventoryManager.isSelectedStructure())
         {
             buildRegion.SetActive(true);
-            if (!canBuild)
+            if (canBuild || inventoryManager.isSelectedTrap())
             {
-                
-                buildRegion.GetComponent<SpriteRenderer>().color = red;
+                buildRegion.GetComponent<SpriteRenderer>().color = originalColor;
             }
             else
             {
-                buildRegion.GetComponent<SpriteRenderer>().color = originalColor;
+                buildRegion.GetComponent<SpriteRenderer>().color = red;
             }
         }
         else

@@ -232,6 +232,16 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+    public bool isSelectedTrap()
+    {
+        InventoryItem selectedItem = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();
+        if (selectedItem != null)
+        {
+            return selectedItem.item.isTrap;
+        }
+        return false;
+    }
+
     public bool isSelectedWeapon()
     {
         InventoryItem selectedItem = inventorySlots[selectedSlot].GetComponentInChildren<InventoryItem>();

@@ -18,3 +18,4 @@ MonoBehaviour:
   isTool: 0
   isStructure: 1
   isWeapon: 0
+  isTrap: 1

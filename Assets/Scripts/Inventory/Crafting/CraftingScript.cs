@@ -141,11 +141,14 @@ public class CraftingScript : MonoBehaviour
         }
     }
 
-    public void SlingTower()
+    public void CraftSlingTower()
     {
         bool testWood = InventoryManager.CheckItem("Wood", 50);
+        Debug.Log(testWood);
         bool testStone = InventoryManager.CheckItem("Stone", 100);
+        Debug.Log(testStone);
         bool testSling = InventoryManager.CheckItem("Slingshot", 1);
+        Debug.Log(testSling);
         if (testWood && testStone && testSling)
         {
             InventoryManager.removeItem("Wood", 50);

@@ -41,7 +41,7 @@ public class PlayerToolsController : MonoBehaviour
             {
                 UseTool();
             }
-            else if (inventoryManager.isSelectedStructure() && playerBuild.canBuild)
+            else if (inventoryManager.isSelectedStructure() && (playerBuild.canBuild || inventoryManager.isSelectedTrap()))
             {
                 Build();
             }

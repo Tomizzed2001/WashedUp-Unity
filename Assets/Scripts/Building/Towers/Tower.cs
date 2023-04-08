@@ -9,7 +9,6 @@ public class Tower : MonoBehaviour
     public string towerName;
 
     [Header("Tower Settings")]
-    [SerializeField] private float damage;
     [SerializeField] private float shootDelay;
 
     [Header("Current Enemies")]

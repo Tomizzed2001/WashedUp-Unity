@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &153729547035137097
 SpriteRenderer:
@@ -149,6 +149,12 @@ MonoBehaviour:
   spread: 0.5
   needsTool: 1
   Tool: Axe
-  drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
   objectType: Tree
   DayToSpawn: 1
+  drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  drops:
+  - {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  - {fileID: 40109902139978021, guid: cab09145fe3949e47b6889e691416343, type: 3}
+  - {fileID: 40109902139978021, guid: f39fab48952b1b549a20c4082cfba65a, type: 3}
+  dropRateLower: 030000000300000001000000
+  dropRateUpper: 070000000800000002000000

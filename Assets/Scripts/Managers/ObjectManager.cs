@@ -49,7 +49,7 @@ public class ObjectManager : MonoBehaviour
             if (activeList[i] == false && script.DayToSpawn <= day)
             {
                 int respawn = Random.Range(0, 10);
-                if (respawn >= 1)
+                if (respawn >= 5)
                 {
                     objects[i].SetActive(true);
                     script.resetHealth();

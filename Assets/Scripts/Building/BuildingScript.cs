@@ -31,6 +31,7 @@ public class BuildingScript : MonoBehaviour
         else
         {
             Debug.Log("Not enough resources");
+            uIManager.NoResources();
         }
     }
 

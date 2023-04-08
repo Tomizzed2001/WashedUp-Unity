@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [Header("Managers")]
     [SerializeField] public AudioManager audioManager;
     [SerializeField] public ObjectivesManager objectivesManager;
+    [SerializeField] public UIManager uiManager;
 
     [Header("Objective Helper Variables")]
     [SerializeField] public bool chestOpened;

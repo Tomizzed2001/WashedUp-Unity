@@ -6,6 +6,9 @@ public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
 
+    [Header("Inventory Numbers")]
+    [SerializeField] int stackSize;
+
     [Header("Inventory Components")]
     [SerializeField]
     public GameObject inventoryGrid;
@@ -105,7 +108,7 @@ public class InventoryManager : MonoBehaviour
             InventorySlot slot = inventorySlots[i];
             InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
 
-            if (itemItem != null && itemItem.item == item && itemItem.stackCount <5 && itemItem.item.stackable)
+            if (itemItem != null && itemItem.item == item && itemItem.stackCount <stackSize && itemItem.item.stackable)
             {
                 itemItem.stackCount++;
                 itemItem.UpdateCount();

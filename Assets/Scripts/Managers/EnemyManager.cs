@@ -48,10 +48,16 @@ public class EnemyManager : MonoBehaviour
         GameManager.Instance.UsePlayerCam();
         GameManager.Instance.audioManager.StopRaid(); 
         timeManager.goDay();
-        saveManager.Save();
+        StartCoroutine(SaveTime());
         if (timeManager.currentDay == 3)
         {
             GameManager.Instance.GameWin();
         }
+    }
+
+    private IEnumerator SaveTime()
+    {
+        yield return new WaitForSeconds(2.5f);
+        saveManager.Save();
     }
 }

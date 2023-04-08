@@ -135,10 +135,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isbroken: 0
   objectHealth: 3
-  dropNum: 3
   spread: 1
-  needsTool: 1
   Tool: Pickaxe
-  drop: {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
   objectType: Rock
   DayToSpawn: 1
+  needsTool: 1
+  drops:
+  - {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
+  dropRateLower: 02000000
+  dropRateUpper: 04000000

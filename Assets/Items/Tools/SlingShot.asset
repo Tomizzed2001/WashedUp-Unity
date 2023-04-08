@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf637b87f17400f4ca11fb28afc9675f, type: 3}
-  m_Name: SlingShot
+  m_Name: Slingshot
   m_EditorClassIdentifier: 
   Name: Slingshot
   icon: {fileID: 21300000, guid: 558d08fee313b6642a73d877bf428437, type: 3}

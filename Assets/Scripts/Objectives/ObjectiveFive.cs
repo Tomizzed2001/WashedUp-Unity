@@ -9,7 +9,7 @@ public class ObjectiveFive : Objective
 
     private void Update()
     {
-        if (towerManager.defencesPlaced == 5)
+        if (towerManager.defencesPlaced == 4)
         {
             objectiveActive = false;
             gameObject.SetActive(false);

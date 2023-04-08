@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
     public FadeOut FadeScript;
     public InventoryButton inventoryButton;
 
+    [Header("UI Components")]
+    [SerializeField] GameObject CostsTooMuch;
+
     [Header("Game variables")]
     [SerializeField]
     public bool InventoryOpen = false;
@@ -28,6 +31,18 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         UpdateAllCanvas();
+    }
+
+    public void NoResources()
+    {
+        CostsTooMuch.SetActive(true);
+        StartCoroutine(ShowUI(3f, CostsTooMuch));
+    }
+
+    private IEnumerator ShowUI(float timeToShow, GameObject uiToShow)
+    {
+        yield return new WaitForSeconds(timeToShow);
+        uiToShow.SetActive(false);
     }
 
     private void UpdateAllCanvas()

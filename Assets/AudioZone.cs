@@ -8,6 +8,24 @@ public class AudioZone : MonoBehaviour
     [SerializeField] AudioManager manager;
     [SerializeField] AudioSource audioSource;
 
+    public bool inside;
+
+    public void switchAudio()
+    {
+        if (inside)
+        {
+            inside = false;
+            manager.PlayBeach();
+            manager.FadeForest();
+        }
+        else
+        {
+            inside = true;
+            manager.FadeBeach();
+            manager.PlayForest();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         manager.FadeBeach();

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     public GameObject UI;
     public GameObject PauseUI;
     public GameObject FadeUI;
+    public GameObject DragUI;
 
     [Header("UI Scripts")]
     [SerializeField]

@@ -10,6 +10,8 @@ public class Chest : MonoBehaviour
     private UIManager uiManager;
     private InventoryManager inventoryManager;
 
+    private bool inRange;
+
     private void Start()
     {
         foreach(var gameObj in GameObject.FindGameObjectsWithTag("InventoryManager"))
@@ -22,9 +24,19 @@ public class Chest : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        inRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        inRange = false;
+    }
+
     private void OnMouseOver()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && inRange)
         {
             GameManager.Instance.chestOpened = true;
             uiManager.inventoryButton.inventoryOpen = true;

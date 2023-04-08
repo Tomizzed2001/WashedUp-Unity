@@ -18,6 +18,8 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
         PlayBeach();
+        PlayForest();
+        forestSong.Stop();
     }
 
     //Raid
@@ -75,6 +77,7 @@ public class AudioManager : MonoBehaviour
         {
             stepsInProgress = false;
             footstep.loop = false;
+            footstep.Stop();
         }
     }
 

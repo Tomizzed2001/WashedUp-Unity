@@ -59,7 +59,6 @@ public class ObjectivesManager : MonoBehaviour
         checkForObjectives = true;
         if (activeObjectives[0] == false && activeObjectives[1] == false)
         {
-            Debug.Log("O 3");
             checkForObjectives = false;
             objectiveArray[2].objectiveActive = true;
         }

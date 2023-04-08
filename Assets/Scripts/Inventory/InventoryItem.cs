@@ -24,7 +24,8 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         foreach (var gameObj in GameObject.FindGameObjectsWithTag("UIManager"))
         {
             UIManager uiManager = gameObj.GetComponent<UIManager>();
-            intendedParent = uiManager.UI.transform;
+            //intendedParent = uiManager.UI.transform;
+            intendedParent = uiManager.DragUI.transform;
         }
     }
 

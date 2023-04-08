@@ -12,7 +12,8 @@ public class PlayerToolsController : MonoBehaviour
     [Header("Tools Values")]
     [SerializeField] private float offsetDistrance = 1f;
     [SerializeField] private float sizeOfInteractableArea;
-    [SerializeField] private float fireRate = 0.5f;
+    [SerializeField] private float slingshotFireRate = 0.5f;
+    [SerializeField] private float bowFireRate = 0.7f;
     private float nextShot = 0.0f;
 
     [Header("Managers")]
@@ -21,7 +22,9 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] InventoryManager inventoryManager;
 
     [Header("Weapon Related Fields")]
-    [SerializeField] GameObject Projectile;
+    [SerializeField] GameObject ProjectileSlingshot;
+    [SerializeField] GameObject ProjectileArrowMetal;
+    [SerializeField] GameObject ProjectileArrowStone;
     [SerializeField] Transform player;
     [SerializeField] Transform pivot;
 
@@ -84,17 +87,43 @@ public class PlayerToolsController : MonoBehaviour
 
     private void Shoot()
     {
-        bool testStone = inventoryManager.CheckItem("Stone", 1);
-        if (testStone)
+        if (inventoryManager.getSelectedItemName() == "Slingshot")
         {
-            inventoryManager.removeItem("Stone", 1);
-            GameManager.Instance.audioManager.Slingshot();
-            nextShot = Time.time + fireRate;
-            GameObject newProjectile = Instantiate(Projectile, pivot.position, pivot.rotation);
+            bool testStone = inventoryManager.CheckItem("Stone", 1);
+            if (testStone)
+            {
+                inventoryManager.removeItem("Stone", 1);
+                GameManager.Instance.audioManager.Slingshot();
+                nextShot = Time.time + slingshotFireRate;
+                GameObject newProjectile = Instantiate(ProjectileSlingshot, pivot.position, pivot.rotation);
+            }
+            else
+            {
+                Debug.Log("No Ammo");
+            }
         }
-        else
+        else if (inventoryManager.getSelectedItemName() == "Bow")
         {
-            Debug.Log("No Ammo");
+            bool testArrowStone = inventoryManager.CheckItem("ArrowStone", 1);
+            bool testArrowMetal = inventoryManager.CheckItem("ArrowMetal", 1);
+            if (testArrowMetal)
+            {
+                inventoryManager.removeItem("ArrowMetal", 1);
+                //Add arrow sound here
+                nextShot = Time.time + bowFireRate;
+                GameObject newProjectile = Instantiate(ProjectileArrowMetal, pivot.position, pivot.rotation);
+            }
+            else if (testArrowStone)
+            {
+                inventoryManager.removeItem("ArrowStone", 1);
+                //Add arrow sound here
+                nextShot = Time.time + bowFireRate;
+                GameObject newProjectile = Instantiate(ProjectileArrowStone, pivot.position, pivot.rotation);
+            }
+            else
+            {
+                Debug.Log("No Ammo");
+            }
         }
     }
 }

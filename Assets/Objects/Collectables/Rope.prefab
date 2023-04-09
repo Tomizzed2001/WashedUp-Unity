@@ -107,8 +107,8 @@ MonoBehaviour:
   needsTool: 0
   drops:
   - {fileID: 40109902139978021, guid: ef0fb35f1e8c7bc498548b5c7d972cc4, type: 3}
-  dropRateLower: 01000000
-  dropRateUpper: 01000000
+  dropRateLower: 05000000
+  dropRateUpper: 05000000
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0

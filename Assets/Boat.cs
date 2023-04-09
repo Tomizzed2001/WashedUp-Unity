@@ -26,7 +26,7 @@ public class Boat : MonoBehaviour
     {
         boatTier++;
         spriteRenderer.sprite = sprites[boatTier];
-        if (boatTier == 4)
+        if (boatTier == 5)
         {
             boatFixed = true;
             sailButton.SetActive(true);

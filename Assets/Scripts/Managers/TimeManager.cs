@@ -28,6 +28,7 @@ public class TimeManager : MonoBehaviour
     [Header("Force Spawning Systems")]
     [SerializeField] private UIManager uiManager;
     [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private PlayerController playerController;
 
     private float timeLength => dayLength / 1440;
 
@@ -93,6 +94,7 @@ public class TimeManager : MonoBehaviour
     {
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
+        playerController.OnBuild();
         GameManager.Instance.UseRaidCam();
         goNight(1400);
         GameManager.Instance.audioManager.PlayRaid();

@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public bool isGameOver = false;
 
     [Header("Game Screens")]
-    [SerializeField] private GameOver gameOver;
+    [SerializeField] public GameOver gameOver;
     [SerializeField] private GameWin gameWin;
 
     [Header("Managers")]
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     public void LoseHealth()
     {
         GameHealth--;
+        uiManager.Health2.text = GameHealth.ToString();
         if (GameHealth <= 0)
         {
             isGameOver = true;
@@ -66,6 +67,18 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         gameWin.GameWon();
+    }
+
+    public void SaveGame()
+    {
+        Save.SaveGame(GameHealth);
+    }
+
+    public void LoadGame()
+    {
+        GameData data = Save.LoadGame();
+        GameHealth = data.health;
+        uiManager.Health2.text = GameHealth.ToString();
     }
 
 }

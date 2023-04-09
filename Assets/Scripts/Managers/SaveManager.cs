@@ -42,5 +42,8 @@ public class SaveManager : MonoBehaviour
 
         //Save boat related variables
         boat.SaveBoat();
+
+        //Save Game manager
+        GameManager.Instance.SaveGame();
     }
 }

@@ -25,6 +25,10 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Boat boat;
     [SerializeField] private ObjectManager objectManager;
 
+    [Header("Force Spawning Systems")]
+    [SerializeField] private UIManager uiManager;
+    [SerializeField] private EnemyManager enemyManager;
+
     private float timeLength => dayLength / 1440;
 
     private void Start()
@@ -74,9 +78,25 @@ public class TimeManager : MonoBehaviour
         timeDisplay.timer = currentTime;
         totalSeconds = currentTime.TotalSeconds;
 
+        if (currentTime.TotalMinutes == 1320) //1320
+        {
+            StartCoroutine(TriggerSpawn());
+        }
+
         timeDisplay.UpdateTime();
         daylight.UpdateLights();
         yield return new WaitForSeconds(timeLength);
         StartCoroutine(AddMinute());
+    }
+
+    private IEnumerator TriggerSpawn()
+    {
+        uiManager.FadeScript.BlackOut();
+        yield return new WaitForSeconds(2.5f);
+        GameManager.Instance.UseRaidCam();
+        goNight(1400);
+        GameManager.Instance.audioManager.PlayRaid();
+        yield return new WaitForSeconds(2.5f);
+        enemyManager.BeginSpawn();
     }
 }

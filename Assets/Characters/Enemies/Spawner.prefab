@@ -45,5 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toSpawnCount: 10
+  initialDelay: 0
   spawnDelay: 1
-  enemyToSpawn: {fileID: 8340472521181153183, guid: ec97cce234f9d4344a79d6ddc20f4035, type: 3}
+  enemyToSpawn: {fileID: 0}
+  finishedSpawning: 0
+  enemyCurrentCount: 0

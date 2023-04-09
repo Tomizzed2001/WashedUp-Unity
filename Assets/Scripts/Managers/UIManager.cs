@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +20,8 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Components")]
     [SerializeField] GameObject CostsTooMuch;
+    [SerializeField] public TextMeshProUGUI Health;
+    [SerializeField] public Text Health2;
 
     [Header("Game variables")]
     [SerializeField]

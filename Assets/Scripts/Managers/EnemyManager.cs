@@ -14,6 +14,7 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Spawners")]
     [SerializeField] Spawner[] day1Spawners;
+    [SerializeField] Spawner[] day2Spawners;
 
     [Header("Managers")]
     [SerializeField] UIManager uiManager;
@@ -25,17 +26,43 @@ public class EnemyManager : MonoBehaviour
         level = timeManager.currentDay;
     }
 
-    public void isLastEnemy()
+    public void BeginSpawn()
     {
-        if (currentEnemyNum == 0)
+        if (timeManager.currentDay == 1)
         {
             for (int i = 0; i < day1Spawners.Length; i++)
             {
+                Spawner spawner = day1Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+        else if (timeManager.currentDay == 2)
+        {
+            for (int i = 0; i < day2Spawners.Length; i++)
+            {
+                Spawner spawner = day2Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+    }
+
+    public void isLastEnemy()
+    {
+        Debug.Log("Check Last");
+        if (currentEnemyNum == 0)
+        {
+            Debug.Log("None Left");
+            for (int i = 0; i < day1Spawners.Length; i++)
+            {
+                Debug.Log(i);
                 if (!day1Spawners[i].finishedSpawning)
                 {
+                    Debug.Log("Not yet");
+                    Debug.Log(day1Spawners[i].finishedSpawning);
                     return;
                 }
             }
+            Debug.Log("Finished");
             StartCoroutine(NightEnd());            
         }
     }

@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &153729547035137097
 SpriteRenderer:
@@ -107,8 +107,8 @@ MonoBehaviour:
   needsTool: 0
   drops:
   - {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
-  dropRateLower: 1e000000
-  dropRateUpper: 1e000000
+  dropRateLower: 01000000
+  dropRateUpper: 02000000
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,4 +143,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.24308556

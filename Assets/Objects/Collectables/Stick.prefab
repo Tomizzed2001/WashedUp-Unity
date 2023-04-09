@@ -107,8 +107,8 @@ MonoBehaviour:
   needsTool: 0
   drops:
   - {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
-  dropRateLower: 1e000000
-  dropRateUpper: 1e000000
+  dropRateLower: 01000000
+  dropRateUpper: 02000000
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -143,4 +143,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.16
+  m_Radius: 0.97497433

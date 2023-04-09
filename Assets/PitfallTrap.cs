@@ -9,7 +9,8 @@ public class PitfallTrap : Trap
     {
         if (collision.tag == "Enemy")
         {
-            Destroy(collision.gameObject);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            enemy.TakeDamage(100);
             Destroy(gameObject);
         }
     }

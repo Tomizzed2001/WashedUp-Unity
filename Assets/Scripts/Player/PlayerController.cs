@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-
+    [Header("Player Variables")]
     public float moveSpeed = 1f;
     public float collisionOffset = 0.05f;
+    public float playerHealth;
     public ContactFilter2D moveFilter;
 
     List<RaycastHit2D> collisions = new List<RaycastHit2D>();
@@ -17,10 +18,11 @@ public class PlayerController : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteRenderer;
 
-    public Vector2 lastPos;
+    [HideInInspector] public Vector2 lastPos;
 
     private bool freezeMovement = false;
 
+    [Header("Related components")]
     [SerializeField] private GameObject FadeScreen;
     [SerializeField] private AudioManager audioManager;
 

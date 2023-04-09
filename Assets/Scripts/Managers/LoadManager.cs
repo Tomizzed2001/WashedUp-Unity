@@ -43,6 +43,9 @@ public class LoadManager : MonoBehaviour
 
             //Load boat related values
             boat.LoadBoat();
+
+            //Load game manager
+            GameManager.Instance.LoadGame();
         }
     }
 }

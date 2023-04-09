@@ -5,27 +5,26 @@ using UnityEngine;
 
 public class sleep : MonoBehaviour
 {
+    [Header("Time variables")]
     public TimeManager WorldTime;
     public int nightTime;
-    public GameObject UI;
-    private Spawner Spawner;
     public bool sleptToday;
 
+    [SerializeField] GameObject sleepUI;
+
+    [Header("Managers")]
     [SerializeField] UIManager uiManager;
+    [SerializeField] EnemyManager enemyManager;
 
 
-    public void skipTime()
+    public void SkipTime()
     {           
         StartCoroutine(TriggerSpawn());
     }
 
     public void startSpawn()
     {
-        foreach (var spawner in GameObject.FindGameObjectsWithTag("Spawner"))
-        {
-            Spawner = spawner.GetComponent<Spawner>();
-            Spawner.StartSpawn();
-        }
+        enemyManager.BeginSpawn();
     }
 
     private IEnumerator TriggerSpawn()
@@ -37,7 +36,7 @@ public class sleep : MonoBehaviour
         GameManager.Instance.audioManager.PlayRaid();
         yield return new WaitForSeconds(2.5f);
         startSpawn();
-        gameObject.SetActive(false);
+        sleepUI.SetActive(false);
     }
 
 }

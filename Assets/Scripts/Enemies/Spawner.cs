@@ -33,7 +33,7 @@ public class Spawner : MonoBehaviour
     private IEnumerator InitialSpawn(float initialWait, GameObject enemy, float interval)
     {
         yield return new WaitForSeconds(initialWait);
-        Instantiate(enemy);
+        Instantiate(enemy, transform.position, Quaternion.identity);
         enemyCurrentCount++;
         enemyManager.currentEnemyNum++;
         StartCoroutine(SpawnEnemy(interval, enemy));
@@ -44,7 +44,7 @@ public class Spawner : MonoBehaviour
         yield return new WaitForSeconds(interval);
         if (enemyCurrentCount < toSpawnCount)
         {
-            Instantiate(enemy);
+            Instantiate(enemy, transform.position, Quaternion.identity);
             enemyCurrentCount++;
             enemyManager.currentEnemyNum++;
             StartCoroutine(SpawnEnemy(interval, enemy));
@@ -52,6 +52,7 @@ public class Spawner : MonoBehaviour
         else
         {
             finishedSpawning = true;
+            enemyManager.isLastEnemy();
         }
     }
 }

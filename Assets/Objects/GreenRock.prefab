@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 564dfde7231df4744aab00b4293bb087, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 026de7f7eeee25b47a6d5d41013945d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbroken: 0
-  objectHealth: 7
+  objectHealth: 10
   spread: 1
   Tool: Pickaxe
   objectType: Rock
@@ -107,8 +107,8 @@ MonoBehaviour:
   needsTool: 1
   drops:
   - {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
-  dropRateLower: 06000000
-  dropRateUpper: 08000000
+  dropRateLower: 0a000000
+  dropRateUpper: 0e000000
 --- !u!58 &2220813863648044429
 CircleCollider2D:
   m_ObjectHideFlags: 0

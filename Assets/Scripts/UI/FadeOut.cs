@@ -9,6 +9,7 @@ public class FadeOut : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] UIManager uiManager;
     [SerializeField] SaveManager saveManager;
+    [SerializeField] GameObject instructions;
 
     private void Start()
     {
@@ -39,5 +40,7 @@ public class FadeOut : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         StartFade.SetActive(false);
+        instructions.SetActive(true);
+
     }
 }

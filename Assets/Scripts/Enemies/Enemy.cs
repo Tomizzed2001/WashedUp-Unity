@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour
         }
         player = GameObject.FindGameObjectWithTag("Player");
         playerPos = player.transform.position;
-        StartCoroutine(getPlayerPos());
+        StartCoroutine(GetPlayerPos());
     }
 
     public void TakeDamage(float damage)
@@ -48,11 +48,11 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private IEnumerator getPlayerPos()
+    private IEnumerator GetPlayerPos()
     {
         yield return new WaitForSeconds(2);
         playerPos = player.transform.position;
-        StartCoroutine(getPlayerPos());
+        StartCoroutine(GetPlayerPos());
     }
 
     private void Update()

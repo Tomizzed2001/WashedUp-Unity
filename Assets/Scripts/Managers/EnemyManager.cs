@@ -48,21 +48,15 @@ public class EnemyManager : MonoBehaviour
 
     public void isLastEnemy()
     {
-        Debug.Log("Check Last");
         if (currentEnemyNum == 0)
         {
-            Debug.Log("None Left");
             for (int i = 0; i < day1Spawners.Length; i++)
             {
-                Debug.Log(i);
                 if (!day1Spawners[i].finishedSpawning)
                 {
-                    Debug.Log("Not yet");
-                    Debug.Log(day1Spawners[i].finishedSpawning);
                     return;
                 }
             }
-            Debug.Log("Finished");
             StartCoroutine(NightEnd());            
         }
     }

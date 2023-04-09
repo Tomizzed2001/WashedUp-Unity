@@ -142,5 +142,5 @@ MonoBehaviour:
   needsTool: 1
   drops:
   - {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
-  dropRateLower: 02000000
-  dropRateUpper: 04000000
+  dropRateLower: 03000000
+  dropRateUpper: 06000000

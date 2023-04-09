@@ -113,11 +113,11 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftPitfall()
     {
-        bool testWood = InventoryManager.CheckItem("Wood", 15);
+        bool testWood = InventoryManager.CheckItem("Wood", 10);
         bool testLeaves = InventoryManager.CheckItem("Leaves", 30);
         if (testWood && testLeaves)
         {
-            InventoryManager.removeItem("Wood", 15);
+            InventoryManager.removeItem("Wood", 10);
             InventoryManager.removeItem("Leaves", 30);
             InventoryManager.AddItem(craftItem);
         }
@@ -145,7 +145,7 @@ public class CraftingScript : MonoBehaviour
     {
         bool testWood = InventoryManager.CheckItem("Wood", 50);
         Debug.Log(testWood);
-        bool testStone = InventoryManager.CheckItem("Stone", 100);
+        bool testStone = InventoryManager.CheckItem("Stone", 80);
         Debug.Log(testStone);
         bool testSling = InventoryManager.CheckItem("Slingshot", 1);
         Debug.Log(testSling);

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Collect stone
 public class ObjectiveTwo : Objective
 {
     private void Update()
@@ -10,9 +11,8 @@ public class ObjectiveTwo : Objective
 
         if (checkWood)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
-            GameManager.Instance.objectivesManager.Objective3();
+            GameManager.Instance.objectivesManager.ShowTools();
+            ObjectiveComplete();
         }
     }
 }

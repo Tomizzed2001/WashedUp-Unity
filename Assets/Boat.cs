@@ -30,7 +30,7 @@ public class Boat : MonoBehaviour
         {
             boatFixed = true;
             sailButton.SetActive(true);
-            GameManager.Instance.objectivesManager.Objective9();
+            GameManager.Instance.objectivesManager.ShowSail();
         }
     }
 

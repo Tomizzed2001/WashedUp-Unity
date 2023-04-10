@@ -65,11 +65,11 @@ public class TimeManager : MonoBehaviour
         boat.fixedToday = false;
         if (currentDay == 2)
         {
-            GameManager.Instance.objectivesManager.Objective8();
+            GameManager.Instance.objectivesManager.ShowExplore();
         }
         if (!boat.boatFixed)
         {
-            GameManager.Instance.objectivesManager.Objective7();
+            GameManager.Instance.objectivesManager.ShowFix();
         }
     }
 

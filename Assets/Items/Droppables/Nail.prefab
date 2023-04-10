@@ -99,5 +99,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0.5
   collectionRange: 0.05
-  despawnTime: 10
+  despawnTime: 120
   item: {fileID: 11400000, guid: 0fc149a19706ac346b88f5b8d81b4fba, type: 2}

@@ -6,6 +6,7 @@ using UnityEngine.UIElements;
 public class Chest : MonoBehaviour
 {
     [SerializeField] private GameObject chestInventory;
+    public bool chestOpen;
 
     private UIManager uiManager;
     private InventoryManager inventoryManager;
@@ -38,7 +39,7 @@ public class Chest : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && inRange)
         {
-            GameManager.Instance.chestOpened = true;
+            chestOpen = true;
             uiManager.inventoryButton.inventoryOpen = true;
             uiManager.InventoryOpen = true;
             chestInventory.SetActive(true);

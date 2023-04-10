@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+// Collect wood
 public class ObjectiveOne : Objective
 {
     private void Update()
@@ -12,9 +13,8 @@ public class ObjectiveOne : Objective
 
         if (checkWood)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
-            GameManager.Instance.objectivesManager.Objective3();
+            GameManager.Instance.objectivesManager.ShowTools();
+            ObjectiveComplete();
         }
     }
 }

@@ -28,8 +28,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] public ObjectivesManager objectivesManager;
     [SerializeField] public UIManager uiManager;
 
-    [Header("Objective Helper Variables")]
-    [SerializeField] public bool chestOpened;
+    [Header("Recipes")]
+    [SerializeField] private GameObject[] recipes;
+         
+    [Header("Things to save")]
+    [SerializeField] public bool recipesEnabled;
+    [SerializeField] public bool wreckageActive;
+    
 
     private void Awake()
     {
@@ -69,16 +74,39 @@ public class GameManager : MonoBehaviour
         gameWin.GameWon();
     }
 
+    public void EnableRecipes()
+    {
+        recipesEnabled = true;
+        for (int i = 0; i < recipes.Length; i++)
+        {
+            recipes[i].SetActive(true);
+        }
+    }
+
     public void SaveGame()
     {
-        Save.SaveGame(GameHealth);
+        Save.SaveGame(GameHealth, recipesEnabled, wreckageActive);
     }
 
     public void LoadGame()
     {
         GameData data = Save.LoadGame();
         GameHealth = data.health;
+        recipesEnabled = data.recipes;
+        wreckageActive = data.wreckage;
         uiManager.Health2.text = GameHealth.ToString();
+        if (GameHealth <= 0)
+        {
+            gameOver.GameEnd();
+        }
+        if (data.recipes)
+        {
+            EnableRecipes();
+        }
+        if(data.wreckage)
+        {
+            objectivesManager.ShowWreckage();
+        }
     }
 
 }

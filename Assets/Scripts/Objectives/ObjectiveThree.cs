@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Basic tools
 public class ObjectiveThree : Objective
 {
     private void Update()
@@ -11,10 +12,8 @@ public class ObjectiveThree : Objective
 
         if (checkAxe && checkPick)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
-            GameManager.Instance.objectivesManager.Objective4();
-            GameManager.Instance.objectivesManager.Objective7();
+            GameManager.Instance.objectivesManager.ShowShelter();
+            ObjectiveComplete();
         }
     }
 }

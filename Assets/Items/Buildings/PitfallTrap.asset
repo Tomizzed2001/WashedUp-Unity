@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: PitfallTrap
   icon: {fileID: 21300000, guid: 08e69d1fbc2144d4d9293270a19a1ad9, type: 3}
-  stackable: 0
+  stackable: 1
   isTool: 0
   isStructure: 1
   isWeapon: 0

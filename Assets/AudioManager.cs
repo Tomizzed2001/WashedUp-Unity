@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource tree;
     [SerializeField] AudioSource stone;
     [SerializeField] AudioSource slingshot;
+    [SerializeField] AudioSource objective;
 
     private bool stepsInProgress;
 
@@ -79,6 +80,11 @@ public class AudioManager : MonoBehaviour
             footstep.loop = false;
             footstep.Stop();
         }
+    }
+
+    public void Objecive()
+    {
+        objective.Play();
     }
 
     public void TreeChop()

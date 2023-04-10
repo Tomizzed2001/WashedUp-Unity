@@ -354,6 +354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   collisionOffset: 0.05
+  playerHealth: 0
   moveFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -370,6 +371,7 @@ MonoBehaviour:
     maxNormalAngle: 0
   lastPos: {x: 0, y: 0}
   FadeScreen: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!114 &3518235015808488914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,11 +386,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetDistrance: 1
   sizeOfInteractableArea: 0
-  fireRate: 0
+  slingshotFireRate: 0.5
+  bowFireRate: 0.7
   uiManager: {fileID: 0}
   towerManager: {fileID: 0}
   inventoryManager: {fileID: 0}
-  Projectile: {fileID: 0}
+  ProjectileSlingshot: {fileID: 0}
+  ProjectileArrowMetal: {fileID: 0}
+  ProjectileArrowStone: {fileID: 0}
   player: {fileID: 633922769490175071}
   pivot: {fileID: 742748933518031298}
 --- !u!114 &116501141053391784

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//Fix Boat
 public class ObjectiveSeven : Objective
 {
     [Header("Objective Specific")]
@@ -38,11 +39,11 @@ public class ObjectiveSeven : Objective
 
     private void Update()
     {
+        UpdateText();
         if (boat.fixedToday)
         {
             UpdateText();
-            objectiveActive = false;
-            gameObject.SetActive(false);
+            ObjectiveComplete();
         }
     }
 }

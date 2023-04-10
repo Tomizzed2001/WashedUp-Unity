@@ -39,26 +39,7 @@ public class ObjectManager : MonoBehaviour
         UpdateActiveList();
         Save.SaveObjects(activeList);
     }
-    /*
-    public void objectAppear(int day)
-    {
-        UpdateActiveList();
-        for (int i = 0; i < objects.Length; i++)
-        {
-            Breakable script = objects[i].GetComponent<Breakable>();
-            if (activeList[i] == false && script.DayToSpawn <= day)
-            {
-                int respawn = Random.Range(0, 10);
-                if (respawn >= 5)
-                {
-                    objects[i].SetActive(true);
-                    script.resetHealth();
-                }
-            }
-        }
-        UpdateActiveList();
-    }
-    */
+
     public void ObjectRespawn(int day)
     {
         UpdateActiveList();

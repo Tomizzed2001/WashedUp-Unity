@@ -336,13 +336,13 @@ public static class Save
     }
 
     //GameManager Saving and Loading
-    public static void SaveGame(int gameHealth)
+    public static void SaveGame(int gameHealth, bool recipesLearnt, bool wreckageActive)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/game.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(gameHealth);
+        GameData data = new GameData(gameHealth, recipesLearnt, wreckageActive);
 
         formatter.Serialize(stream, data);
 

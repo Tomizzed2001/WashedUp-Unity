@@ -16,6 +16,7 @@ public class CraftingScript : MonoBehaviour
         {
             InventoryManager.removeItem("Wood", 6);
             InventoryManager.removeItem("Stone", 4);
+            InventoryManager.removeItem("Rope", 2);
             InventoryManager.AddItem(craftItem);
         }
         else
@@ -33,6 +34,7 @@ public class CraftingScript : MonoBehaviour
         {
             InventoryManager.removeItem("Wood", 10);
             InventoryManager.removeItem("Stone", 6);
+            InventoryManager.removeItem("Rope", 2);
             InventoryManager.AddItem(craftItem);
         }
         else

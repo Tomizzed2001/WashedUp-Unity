@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Defences
 public class ObjectiveFive : Objective
 {
     [Header("Tower Manager")]
@@ -11,9 +12,8 @@ public class ObjectiveFive : Objective
     {
         if (towerManager.defencesPlaced == 4)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
-            GameManager.Instance.objectivesManager.Objective6();
+            GameManager.Instance.objectivesManager.ShowSurvive();
+            ObjectiveComplete();
         }
     }
 }

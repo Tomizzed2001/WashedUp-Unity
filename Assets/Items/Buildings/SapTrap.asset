@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: SapTrap
   icon: {fileID: 21300000, guid: d53eaec262b816946a19c4f7f42f506e, type: 3}
-  stackable: 0
+  stackable: 1
   isTool: 0
   isStructure: 1
   isWeapon: 0

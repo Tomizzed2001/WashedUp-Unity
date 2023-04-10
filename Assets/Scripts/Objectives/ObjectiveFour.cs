@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Build Shelter
 public class ObjectiveFour : Objective
 {
     [SerializeField] private BuildArea buildArea;
@@ -10,9 +11,9 @@ public class ObjectiveFour : Objective
     {
         if (buildArea.buildingComplete)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
-            GameManager.Instance.objectivesManager.Objective5();
+            GameManager.Instance.objectivesManager.ShowFix();
+            GameManager.Instance.objectivesManager.ShowDefences();
+            ObjectiveComplete();
         }
     }
 }

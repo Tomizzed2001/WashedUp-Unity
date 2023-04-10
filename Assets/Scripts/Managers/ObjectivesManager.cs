@@ -15,6 +15,9 @@ public class ObjectivesManager : MonoBehaviour
     [SerializeField] private Objective[] objectiveArray;
     [SerializeField] private bool[] activeObjectives;
 
+    [Header("Objective related objects")]
+    [SerializeField] private GameObject wreckage;
+
     private bool checkForObjectives = false;
 
     private void Start()
@@ -54,44 +57,49 @@ public class ObjectivesManager : MonoBehaviour
     }
 
     //Check for objective 3
-    public void Objective3()
+    public void ShowTools()
     {
         checkForObjectives = true;
-        if (activeObjectives[0] == false && activeObjectives[1] == false)
+        if (objectiveArray[0].objectiveDone && objectiveArray[1].objectiveDone && objectiveArray[2].objectiveDone)
         {
             checkForObjectives = false;
-            objectiveArray[2].objectiveActive = true;
+            objectiveArray[3].objectiveActive = true;
         }
     }
 
-    public void Objective4()
-    {
-        objectiveArray[3].objectiveActive = true;
-    }
-
-    public void Objective5()
+    public void ShowShelter()
     {
         objectiveArray[4].objectiveActive = true;
     }
 
-    public void Objective6()
+    public void ShowFix()
     {
         objectiveArray[5].objectiveActive = true;
     }
 
-    public void Objective7()
+    public void ShowDefences()
     {
         objectiveArray[6].objectiveActive = true;
     }
 
-    public void Objective8()
+    public void ShowSurvive()
     {
         objectiveArray[7].objectiveActive = true;
     }
 
-    public void Objective9()
+    public void ShowExplore()
     {
         objectiveArray[8].objectiveActive = true;
+    }
+
+    public void ShowSail()
+    {
+        objectiveArray[9].objectiveActive = true;
+    }
+
+    public void ShowWreckage()
+    {
+        wreckage.SetActive(true);
     }
 
     //Calls update every frame to check if the objective border is needed
@@ -100,7 +108,7 @@ public class ObjectivesManager : MonoBehaviour
         updateObjectives();
         if (checkForObjectives)
         {
-            Objective3();
+            ShowTools();
         }
         if (allObjectivesFalse())
         {

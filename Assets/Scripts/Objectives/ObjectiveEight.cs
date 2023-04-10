@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//Explore
 public class ObjectiveEight : Objective
 {
     [SerializeField] ChestManager chestManager;
 
     private void Update()
     {
-        if (GameManager.Instance.chestOpened)
+        if (chestManager.wreckageOneChest.chestOpen)
         {
-            objectiveActive = false;
-            gameObject.SetActive(false);
+            GameManager.Instance.EnableRecipes();
+            ObjectiveComplete();
         }
     }
 }

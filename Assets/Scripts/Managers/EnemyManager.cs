@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     public int currentEnemyNum;
 
     [Header("Spawners")]
+    private Spawner[] spawners;
     [SerializeField] Spawner[] day1Spawners;
     [SerializeField] Spawner[] day2Spawners;
 
@@ -30,6 +31,7 @@ public class EnemyManager : MonoBehaviour
     {
         if (timeManager.currentDay == 1)
         {
+            spawners = day1Spawners;
             for (int i = 0; i < day1Spawners.Length; i++)
             {
                 Spawner spawner = day1Spawners[i];
@@ -38,6 +40,7 @@ public class EnemyManager : MonoBehaviour
         }
         else if (timeManager.currentDay == 2)
         {
+            spawners = day2Spawners;
             for (int i = 0; i < day2Spawners.Length; i++)
             {
                 Spawner spawner = day2Spawners[i];
@@ -50,9 +53,9 @@ public class EnemyManager : MonoBehaviour
     {
         if (currentEnemyNum == 0)
         {
-            for (int i = 0; i < day1Spawners.Length; i++)
+            for (int i = 0; i < spawners.Length; i++)
             {
-                if (!day1Spawners[i].finishedSpawning)
+                if (!spawners[i].finishedSpawning)
                 {
                     return;
                 }

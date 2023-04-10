@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 54ba8c62644af504a9fc52db139734fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -145,13 +145,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isbroken: 0
   objectHealth: 5
-  dropNum: 10
-  spread: 0.5
-  needsTool: 1
   Tool: Axe
   objectType: Tree
+  needsTool: 1
   DayToSpawn: 1
-  drop: {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
+  canRespawn: 1
+  respawnChance: 0.7
+  spread: 0.5
   drops:
   - {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}
   - {fileID: 40109902139978021, guid: cab09145fe3949e47b6889e691416343, type: 3}

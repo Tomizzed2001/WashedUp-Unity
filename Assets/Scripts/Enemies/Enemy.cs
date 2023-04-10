@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float moveSpeed;
     public float health;
     public bool attackPlayer;
+    public string enemyName;
 
     private Waypoints Wpoints;
     private int waypointIndex;

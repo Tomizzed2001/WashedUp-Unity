@@ -61,7 +61,7 @@ public class TimeManager : MonoBehaviour
     {
         currentTime = TimeSpan.FromMinutes(morningTime);
         currentDay++;
-        objectManager.objectAppear(currentDay);
+        objectManager.ObjectRespawn(currentDay);
         boat.fixedToday = false;
         if (currentDay == 2)
         {

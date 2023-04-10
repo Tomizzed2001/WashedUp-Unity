@@ -25,7 +25,7 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
-    private void updateActiveList()
+    private void UpdateActiveList()
     {
         activeList = new bool[objects.Length];
         for (int i = 0; i < objects.Length; i++)
@@ -36,13 +36,13 @@ public class ObjectManager : MonoBehaviour
 
     public void SaveObjects()
     {
-        updateActiveList();
+        UpdateActiveList();
         Save.SaveObjects(activeList);
     }
-
+    /*
     public void objectAppear(int day)
     {
-        updateActiveList();
+        UpdateActiveList();
         for (int i = 0; i < objects.Length; i++)
         {
             Breakable script = objects[i].GetComponent<Breakable>();
@@ -56,7 +56,28 @@ public class ObjectManager : MonoBehaviour
                 }
             }
         }
-        updateActiveList();
+        UpdateActiveList();
+    }
+    */
+    public void ObjectRespawn(int day)
+    {
+        UpdateActiveList();
+        for (int i = 0; i < objects.Length; i++)
+        {
+            Breakable script = objects[i].GetComponent<Breakable>();
+            if (script.canRespawn)
+            {
+                if (activeList[i] == false && script.DayToSpawn <= day)
+                {
+                    float respawn = Random.Range(0f, 1f);
+                    if (respawn <= script.respawnChance)
+                    {
+                        objects[i].SetActive(true);
+                        script.resetHealth();
+                    }
+                }
+            }
+        }
     }
 
     public void LoadObjects()

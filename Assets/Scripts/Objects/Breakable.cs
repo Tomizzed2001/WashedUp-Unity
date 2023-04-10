@@ -6,13 +6,17 @@ public class Breakable : UseTool
 
     [Header("Object Settings")]
     [SerializeField] int objectHealth = 3;
-    [SerializeField] float spread = 2f;
     [SerializeField] string Tool;
     [SerializeField] string objectType;
-    public int DayToSpawn = 1;
     [SerializeField] bool needsTool;
 
+    [Header("Spawn Settings")]
+    public int DayToSpawn = 1;
+    public bool canRespawn;
+    public float respawnChance;
+
     [Header("Drop Settings")]
+    [SerializeField] float spread = 2f;
     [SerializeField] GameObject[] drops;
     [SerializeField] int[] dropRateLower;
     [SerializeField] int[] dropRateUpper;

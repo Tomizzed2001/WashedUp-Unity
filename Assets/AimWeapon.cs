@@ -14,6 +14,8 @@ public class AimWeapon : MonoBehaviour
 
     private bool WeaponOut = false;
 
+    [SerializeField] private GameObject ammoCounter;
+
     private void Start()
     {
         //Centralise the cursor and the crosshair
@@ -24,12 +26,14 @@ public class AimWeapon : MonoBehaviour
     {
         currentCam = GameManager.Instance.currentCam;
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
+        ammoCounter.SetActive(true);
         WeaponOut = true;
     }
 
     public void WeaponAway()
     {
         Cursor.SetCursor(null, Vector2.zero , cursorMode);
+        ammoCounter?.SetActive(false);
         WeaponOut = false;
     }
 

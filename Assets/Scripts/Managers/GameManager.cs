@@ -65,12 +65,17 @@ public class GameManager : MonoBehaviour
         if (GameHealth <= 0)
         {
             isGameOver = true;
+            audioManager.StopRaid();
+            audioManager.GameLose();
             gameOver.GameEnd();
+            
         }
     }
 
     public void GameWin()
     {
+        audioManager.StopRaid();
+        audioManager.GameWin();
         gameWin.GameWon();
     }
 

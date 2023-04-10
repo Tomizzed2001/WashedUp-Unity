@@ -12,31 +12,10 @@ public class sleep : MonoBehaviour
 
     [SerializeField] GameObject sleepUI;
 
-    [Header("Managers")]
-    [SerializeField] UIManager uiManager;
-    [SerializeField] EnemyManager enemyManager;
-
 
     public void SkipTime()
     {           
-        StartCoroutine(TriggerSpawn());
-    }
-
-    public void startSpawn()
-    {
-        enemyManager.BeginSpawn();
-    }
-
-    private IEnumerator TriggerSpawn()
-    {
-        uiManager.FadeScript.BlackOut();
-        yield return new WaitForSeconds(2.5f);
-        GameManager.Instance.UseRaidCam();
-        WorldTime.goNight(nightTime);
-        GameManager.Instance.audioManager.PlayRaid();
-        yield return new WaitForSeconds(2.5f);
-        startSpawn();
-        sleepUI.SetActive(false);
+        StartCoroutine(WorldTime.TriggerSpawn());
     }
 
 }

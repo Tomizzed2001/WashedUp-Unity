@@ -13,6 +13,11 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource stone;
     [SerializeField] AudioSource slingshot;
     [SerializeField] AudioSource objective;
+    [SerializeField] AudioSource barrel;
+    [SerializeField] AudioSource bow;
+    [SerializeField] AudioSource noAmmo;
+    [SerializeField] AudioSource gameWin;
+    [SerializeField] AudioSource gameLose;
 
     private bool stepsInProgress;
 
@@ -97,9 +102,34 @@ public class AudioManager : MonoBehaviour
         stone.Play();
     }
 
+    public void BarrelHit()
+    {
+        barrel.Play();
+    }
+
     public void Slingshot()
     {
         slingshot.Play();
+    }
+
+    public void Bow()
+    {
+        bow.Play();
+    }
+
+    public void NoAmmo()
+    {
+        noAmmo.Play();
+    }
+
+    public void GameWin()
+    {
+        gameWin.Play();
+    }
+
+    public void GameLose()
+    {
+        gameLose.Play();
     }
 
     private IEnumerator FadeAudioIn(AudioSource audio, int volume)

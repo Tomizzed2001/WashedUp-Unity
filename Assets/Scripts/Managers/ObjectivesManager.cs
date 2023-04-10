@@ -64,6 +64,7 @@ public class ObjectivesManager : MonoBehaviour
         {
             checkForObjectives = false;
             objectiveArray[3].objectiveActive = true;
+            objectiveArray[10].objectiveActive = true;
         }
     }
 
@@ -89,6 +90,7 @@ public class ObjectivesManager : MonoBehaviour
 
     public void ShowExplore()
     {
+        ShowWreckage();
         objectiveArray[8].objectiveActive = true;
     }
 
@@ -100,6 +102,7 @@ public class ObjectivesManager : MonoBehaviour
     public void ShowWreckage()
     {
         wreckage.SetActive(true);
+        GameManager.Instance.wreckageActive = true;
     }
 
     //Calls update every frame to check if the objective border is needed

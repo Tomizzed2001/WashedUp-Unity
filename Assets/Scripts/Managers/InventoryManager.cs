@@ -156,6 +156,42 @@ public class InventoryManager : MonoBehaviour
         return false;
     }
 
+    public int CheckAmmo()
+    {
+        int counter = 0;
+        string weapon = getSelectedItemName();
+        if (weapon != null )
+        {
+            if (weapon == "Bow")
+            {
+                for (int i = 0; i < inventorySlots.Length; i++)
+                {
+                    InventorySlot slot = inventorySlots[i];
+                    InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
+
+                    if (itemItem != null && (itemItem.item.Name == "ArrowStone" || itemItem.item.Name == "ArrowMetal"))
+                    {
+                        counter += itemItem.stackCount;
+                    }
+                }
+            }
+            else if (weapon == "Slingshot")
+            {
+                for (int i = 0; i < inventorySlots.Length; i++)
+                {
+                    InventorySlot slot = inventorySlots[i];
+                    InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
+
+                    if (itemItem != null && itemItem.item.Name == "Stone")
+                    {
+                        counter += itemItem.stackCount;
+                    }
+                }
+            }
+        }
+        return counter;
+    }
+
     public void removeItem(string ItemName, int ItemNum)
     {
         for (int i = 0; i < inventorySlots.Length; i++)

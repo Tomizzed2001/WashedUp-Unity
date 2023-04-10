@@ -61,6 +61,10 @@ public class Breakable : UseTool
             else if (objectType == "Rock") {
                 GameManager.Instance.audioManager.StoneHit();
             }
+            else if (objectType == "Barrel")
+            {
+                GameManager.Instance.audioManager.BarrelHit();
+            }
             
             //Change object health and destroy and 0
             objectHealth -= 1;

@@ -99,7 +99,7 @@ public class PlayerToolsController : MonoBehaviour
             }
             else
             {
-                Debug.Log("No Ammo");
+                GameManager.Instance.audioManager.NoAmmo();
             }
         }
         else if (inventoryManager.getSelectedItemName() == "Bow")
@@ -109,19 +109,20 @@ public class PlayerToolsController : MonoBehaviour
             if (testArrowMetal)
             {
                 inventoryManager.removeItem("ArrowMetal", 1);
-                //Add arrow sound here
+                GameManager.Instance.audioManager.Bow();
                 nextShot = Time.time + bowFireRate;
                 GameObject newProjectile = Instantiate(ProjectileArrowMetal, pivot.position, pivot.rotation);
             }
             else if (testArrowStone)
             {
                 inventoryManager.removeItem("ArrowStone", 1);
-                //Add arrow sound here
+                GameManager.Instance.audioManager.Bow();
                 nextShot = Time.time + bowFireRate;
                 GameObject newProjectile = Instantiate(ProjectileArrowStone, pivot.position, pivot.rotation);
             }
             else
             {
+                GameManager.Instance.audioManager.NoAmmo();
                 Debug.Log("No Ammo");
             }
         }

@@ -24,6 +24,7 @@ public class TimeManager : MonoBehaviour
     [Header("Output places")]
     [SerializeField] private Boat boat;
     [SerializeField] private ObjectManager objectManager;
+    [SerializeField] private GameObject raidInfo;
 
     [Header("Force Spawning Systems")]
     [SerializeField] private UIManager uiManager;
@@ -90,7 +91,7 @@ public class TimeManager : MonoBehaviour
         StartCoroutine(AddMinute());
     }
 
-    private IEnumerator TriggerSpawn()
+    public IEnumerator TriggerSpawn()
     {
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);
@@ -100,5 +101,10 @@ public class TimeManager : MonoBehaviour
         GameManager.Instance.audioManager.PlayRaid();
         yield return new WaitForSeconds(2.5f);
         enemyManager.BeginSpawn();
+        if (currentDay == 1)
+        {
+            Time.timeScale = 0f;
+            raidInfo.SetActive(true);
+        }
     }
 }

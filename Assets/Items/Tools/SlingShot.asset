@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Slingshot
   m_EditorClassIdentifier: 
   Name: Slingshot
-  icon: {fileID: 21300000, guid: 558d08fee313b6642a73d877bf428437, type: 3}
+  icon: {fileID: 21300000, guid: 3054071c11bfd7f4fb5f76b5e7e6a4f5, type: 3}
   stackable: 0
   isTool: 0
   isStructure: 0
   isWeapon: 1
+  isTrap: 0

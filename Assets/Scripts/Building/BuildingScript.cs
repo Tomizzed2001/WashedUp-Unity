@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BuildingScript : MonoBehaviour
+public class BuildingScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public InventoryManager InventoryManager;
     public GameObject Button;
@@ -13,19 +14,32 @@ public class BuildingScript : MonoBehaviour
     public GameObject BuildingArea;
 
     public BuildArea BuildArea;
+    [SerializeField] public GameObject buildCost;
 
     [SerializeField] private PlayerController playerController;
     [SerializeField] private UIManager uIManager;
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        buildCost.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        buildCost.SetActive(false);
+    }
 
     public void BeginBuild()
     {
         
         bool testWood = InventoryManager.CheckItem("Wood", 60);
         bool testStone = InventoryManager.CheckItem("Stone", 30);
+        bool testLeaves = InventoryManager.CheckItem("Leaves", 50);
         if (testWood && testWood)
         {
             InventoryManager.removeItem("Wood", 60);
             InventoryManager.removeItem("Stone", 30);
+            InventoryManager.removeItem("Leaves", 50);
             StartCoroutine(TriggerBuild());
         }
         else

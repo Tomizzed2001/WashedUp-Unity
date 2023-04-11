@@ -6,12 +6,30 @@ using UnityEngine.SceneManagement;
 public class GameWin : MonoBehaviour
 {
     [Header("UI Screens")]
-    [SerializeField] private GameObject screen;
+    [SerializeField] private GameObject screenSail;
+    [SerializeField] private GameObject screenConquer;
 
-    public void GameWon()
+    public void GameWon(bool conquest)
     {
+        if (conquest)
+        {
+            StartCoroutine(ShowMessageConquer());
+        }
+        StartCoroutine(ShowMessageSail());
+    }
+
+    private IEnumerator ShowMessageSail()
+    {
+        yield return new WaitForSeconds(2);
         Time.timeScale = 0f;
-        screen.SetActive(true);
+        screenSail.SetActive(true);
+    }
+
+    private IEnumerator ShowMessageConquer()
+    {
+        yield return new WaitForSeconds(2);
+        Time.timeScale = 0f;
+        screenSail.SetActive(true);
     }
 
     public void GoMenu()

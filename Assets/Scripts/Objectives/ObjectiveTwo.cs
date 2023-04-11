@@ -9,7 +9,7 @@ public class ObjectiveTwo : Objective
     {
         bool checkWood = inventoryManager.CheckItem("Stone", 10);
 
-        if (checkWood)
+        if (checkWood && !objectiveDone)
         {
             GameManager.Instance.objectivesManager.ShowTools();
             ObjectiveComplete();

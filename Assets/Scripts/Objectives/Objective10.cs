@@ -9,7 +9,7 @@ public class Objective10 : Objective
     {
         bool checkRope = inventoryManager.CheckItem("Rope", 4);
 
-        if (checkRope)
+        if (checkRope && !objectiveDone)
         {
             GameManager.Instance.objectivesManager.ShowTools();
             ObjectiveComplete();

@@ -30,11 +30,14 @@ public class GameManager : MonoBehaviour
 
     [Header("Recipes")]
     [SerializeField] private GameObject[] recipes;
-         
+    [SerializeField] private GameObject[] recipes2;
+
     [Header("Things to save")]
     [SerializeField] public bool recipesEnabled;
+    [SerializeField] public bool recipes2Enabled;
     [SerializeField] public bool wreckageActive;
     [SerializeField] public bool inLand = false;
+    [SerializeField] public bool gameWon;
     
 
     private void Awake()
@@ -68,19 +71,22 @@ public class GameManager : MonoBehaviour
             isGameOver = true;
             audioManager.StopRaid();
             audioManager.GameLose();
+            uiManager.canPause = false;
             gameOver.GameEnd();
             
         }
     }
 
-    public void GameWin()
+    public void GameWin(bool conquer)
     {
+        gameWon = true;
+        uiManager.FadeScript.EndingFade();
         audioManager.StopRaid();
         audioManager.GameWin();
-        gameWin.GameWon();
+        gameWin.GameWon(conquer);
     }
 
-    public void EnableRecipes()
+    public void EnableRecipesPart1()
     {
         recipesEnabled = true;
         for (int i = 0; i < recipes.Length; i++)
@@ -89,9 +95,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void EnableRecipesPart2()
+    {
+        recipes2Enabled = true;
+        for (int i = 0; i < recipes2.Length; i++)
+        {
+            recipes2[i].SetActive(true);
+        }
+    }
+
     public void SaveGame()
     {
-        Save.SaveGame(GameHealth, recipesEnabled, wreckageActive, inLand);
+        Save.SaveGame(GameHealth, recipesEnabled, wreckageActive, inLand, recipes2Enabled, gameWon);
     }
 
     public void LoadGame()
@@ -102,13 +117,21 @@ public class GameManager : MonoBehaviour
         wreckageActive = data.wreckage;
         inLand = data.land;
         uiManager.Health2.text = GameHealth.ToString();
+        if (data.won)
+        {
+            GameWin(true);
+        }
         if (GameHealth <= 0)
         {
             gameOver.GameEnd();
         }
         if (data.recipes)
         {
-            EnableRecipes();
+            EnableRecipesPart1();
+        }
+        if (data.recipes2)
+        {
+            EnableRecipesPart2();
         }
         if(data.wreckage)
         {

@@ -26,9 +26,12 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] TimeManager timeManager;
     [SerializeField] SaveManager saveManager;
 
-    [Header("Grid")]
+    [Header("Extras")]
     [SerializeField] private GameObject blockingGrid;
     [SerializeField] private GameObject notification;
+    [SerializeField] private Boat boat;
+    [SerializeField] private Objective boatObjective;
+    [SerializeField] private GameObject recipeNotification;
 
     private void Start()
     {
@@ -76,18 +79,18 @@ public class EnemyManager : MonoBehaviour
         else if (timeManager.currentDay == 5)
         {
             spawners = day5Spawners;
-            for (int i = 0; i < day4Spawners.Length; i++)
+            for (int i = 0; i < day5Spawners.Length; i++)
             {
-                Spawner spawner = day4Spawners[i];
+                Spawner spawner = day5Spawners[i];
                 spawner.StartSpawn();
             }
         }
         else if (timeManager.currentDay == 6)
         {
             spawners = day6Spawners;
-            for (int i = 0; i < day4Spawners.Length; i++)
+            for (int i = 0; i < day6Spawners.Length; i++)
             {
-                Spawner spawner = day4Spawners[i];
+                Spawner spawner = day6Spawners[i];
                 spawner.StartSpawn();
             }
         }
@@ -119,13 +122,23 @@ public class EnemyManager : MonoBehaviour
         StartCoroutine(SaveTime());
         if (timeManager.currentDay == 7)
         {
-            GameManager.Instance.GameWin();
+            GameManager.Instance.GameWin(true);
+        }
+        if (timeManager.currentDay == 3)
+        {
+            GameManager.Instance.EnableRecipesPart2();
+            recipeNotification.SetActive(true);
         }
         if (timeManager.currentDay == 4)
         {
             blockingGrid.SetActive(false);
             notification.SetActive(true);
         }
+        if (!boat.boatFixed)
+        {
+            boatObjective.objectiveDone = false;
+        }
+
 
     }
 

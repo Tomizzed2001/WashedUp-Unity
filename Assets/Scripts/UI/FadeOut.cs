@@ -6,10 +6,12 @@ public class FadeOut : MonoBehaviour
 {
     public GameObject FadeScreen;
     public GameObject StartFade;
+    public GameObject EndFade;
     [SerializeField] PlayerController player;
     [SerializeField] UIManager uiManager;
     [SerializeField] SaveManager saveManager;
     [SerializeField] GameObject instructions;
+    [SerializeField] GameObject saving;
 
     private void Start()
     {
@@ -21,12 +23,30 @@ public class FadeOut : MonoBehaviour
 
     public void BlackOut()
     {
+        saving.SetActive(true);
         saveManager.Save();
         uiManager.canPause = false;
         FadeScreen.SetActive(true);
         player.FreezeMovement();
         FadeScreen.GetComponent<Animation>().Play("FadeOut");
         StartCoroutine(EnableMovement());
+    }
+
+    public void ForceBlackOut()
+    {
+        saving.SetActive(false);
+        uiManager.canPause = false;
+        FadeScreen.SetActive(true);
+        player.FreezeMovement();
+        FadeScreen.GetComponent<Animation>().Play("FadeOut");
+        StartCoroutine(EnableMovement());
+    }
+
+    public void EndingFade()
+    {
+        uiManager.canPause = false;
+        EndFade.SetActive(true);
+        EndFade.GetComponent<Animation>().Play("FadeEnd");
     }
 
     private IEnumerator EnableMovement()

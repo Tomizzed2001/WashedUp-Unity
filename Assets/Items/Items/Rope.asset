@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Rope
   m_EditorClassIdentifier: 
   Name: Rope
-  icon: {fileID: 21300000, guid: d4ff3f42c4316f54595b05c6b5570753, type: 3}
+  icon: {fileID: 21300000, guid: cee84903a046ffb49889c045f56de43d, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 0
   isWeapon: 0
+  isTrap: 0

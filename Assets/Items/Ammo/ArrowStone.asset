@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: ArrowStone
   m_EditorClassIdentifier: 
   Name: ArrowStone
-  icon: {fileID: 21300000, guid: 9335866c4c45cc94aa925066ee481960, type: 3}
+  icon: {fileID: 21300000, guid: edfae1802f0b782499a85ba352aa852f, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 0
   isWeapon: 0
+  isTrap: 0

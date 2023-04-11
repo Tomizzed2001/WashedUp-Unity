@@ -14,6 +14,7 @@ public class ObjectivesManager : MonoBehaviour
     [SerializeField] private GameObject objectiveTitle;
     [SerializeField] private Objective[] objectiveArray;
     [SerializeField] private bool[] activeObjectives;
+    [SerializeField] private bool[] doneObjectives;
 
     [Header("Objective related objects")]
     [SerializeField] private GameObject wreckage;
@@ -23,6 +24,7 @@ public class ObjectivesManager : MonoBehaviour
     private void Start()
     {
         activeObjectives = new bool[objectiveArray.Length];
+        doneObjectives = new bool[objectiveArray.Length];
         updateObjectives();
     }
 
@@ -40,6 +42,14 @@ public class ObjectivesManager : MonoBehaviour
             {
                 objectiveArray[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void checkDoneObjectives()
+    {
+        for (int i = 0; i < objectiveArray.Length; i++)
+        {
+            doneObjectives[i] = objectiveArray[i].objectiveDone;
         }
     }
 
@@ -128,7 +138,8 @@ public class ObjectivesManager : MonoBehaviour
     //Saves the active objectives
     public void SaveObjectives()
     {
-        Save.SaveObjectives(activeObjectives);
+        checkDoneObjectives();
+        Save.SaveObjectives(activeObjectives, doneObjectives);
     }
 
     //Loads in active objectives
@@ -137,10 +148,16 @@ public class ObjectivesManager : MonoBehaviour
         ObjectiveData data = Save.LoadObjectives();
 
         activeObjectives = data.activeObjectives;
+        doneObjectives = data.doneObjectives;
 
+        for (int i = 0; i < objectiveArray.Length; i++)
+        {
+            objectiveArray[i].objectiveDone = doneObjectives[i];
+        }
         for (int i = 0; i < activeObjectives.Length; i++)
         {
             objectiveArray[i].objectiveActive = activeObjectives[i];
         }
+        //updateObjectives();
     }
 }

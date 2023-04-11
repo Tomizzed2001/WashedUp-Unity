@@ -11,7 +11,7 @@ public class ObjectiveEight : Objective
     {
         if (chestManager.wreckageOneChest.chestOpen)
         {
-            GameManager.Instance.EnableRecipes();
+            GameManager.Instance.EnableRecipesPart1();
             ObjectiveComplete();
         }
     }

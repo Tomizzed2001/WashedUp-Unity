@@ -99,12 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbroken: 0
+  originalHealth: 2
   objectHealth: 2
-  spread: 1
   Tool: 
-  objectType: 
-  DayToSpawn: 0
+  objectType: collectable
   needsTool: 0
+  DayToSpawn: 1
+  canRespawn: 1
+  respawnChance: 1
+  spread: 1
   drops:
   - {fileID: 40109902139978021, guid: 89e85cb5c7af2d047b324b1639245d72, type: 3}
   dropRateLower: 01000000

@@ -18,7 +18,7 @@ public class SapTrap : Trap
                 enemy.TakeDamage(10);
                 Destroy(gameObject);
             }
-            enemy.moveSpeed /= 2;
+            enemy.moveSpeed -= 0.2f;
         }
     }
 
@@ -31,7 +31,7 @@ public class SapTrap : Trap
             {
                 return;
             }
-            enemy.moveSpeed *= 2;
+            enemy.moveSpeed += 0.2f;
         }
     }
 }

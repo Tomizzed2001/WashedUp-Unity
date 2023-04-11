@@ -144,13 +144,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbroken: 0
+  originalHealth: 5
   objectHealth: 5
   Tool: Axe
   objectType: Tree
   needsTool: 1
   DayToSpawn: 1
   canRespawn: 1
-  respawnChance: 0.7
+  respawnChance: 0.6
   spread: 0.5
   drops:
   - {fileID: 40109902139978021, guid: e5b68a1cd72f4274fab73bba5da6223e, type: 3}

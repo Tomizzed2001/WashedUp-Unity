@@ -5,6 +5,7 @@ public class Breakable : UseTool
     public bool isbroken;
 
     [Header("Object Settings")]
+    [SerializeField] int originalHealth = 3;
     [SerializeField] int objectHealth = 3;
     [SerializeField] string Tool;
     [SerializeField] string objectType;
@@ -21,15 +22,7 @@ public class Breakable : UseTool
     [SerializeField] int[] dropRateLower;
     [SerializeField] int[] dropRateUpper;
 
-
-    private int originalHealth;
-
-    private void Start()
-    {
-        originalHealth = objectHealth;
-    }
-
-    public void resetHealth()
+    public void ResetHealth()
     {
         objectHealth = originalHealth;
     }
@@ -66,10 +59,14 @@ public class Breakable : UseTool
                 GameManager.Instance.audioManager.BarrelHit();
             }
             
-            //Change object health and destroy and 0
+            //Change object health and destroy at 0
             objectHealth -= 1;
             if (objectHealth == 0)
             {
+                if (objectType == "collectable")
+                {
+                    GameManager.Instance.audioManager.Pop();
+                }
                 for (int i = 0; i < drops.Length; i++)
                 {
                     int dropNum = Random.Range(dropRateLower[i], dropRateUpper[i]+1);

@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: SlingshotTower
   m_EditorClassIdentifier: 
   Name: SlingshotTower
-  icon: {fileID: 21300000, guid: 629ec385eb7cb4641874f0811975ec0c, type: 3}
+  icon: {fileID: 21300000, guid: 5e4f23bc79eaea543b51af59417ce20e, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 1
   isWeapon: 0
+  isTrap: 0

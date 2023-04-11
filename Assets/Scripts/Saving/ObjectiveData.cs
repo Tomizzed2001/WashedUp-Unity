@@ -6,9 +6,11 @@ using UnityEngine;
 public class ObjectiveData
 {
     public bool[] activeObjectives;
+    public bool[] doneObjectives;
 
-    public ObjectiveData(bool[] objectives)
+    public ObjectiveData(bool[] objectives, bool[] finishedObjectives)
     {
         activeObjectives = objectives;
+        doneObjectives = finishedObjectives;
     }
 }

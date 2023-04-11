@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Hide
   m_EditorClassIdentifier: 
   Name: Hide
-  icon: {fileID: 21300000, guid: 073f22db7141b9a4698a7133db3a81cb, type: 3}
+  icon: {fileID: 21300000, guid: aa6f8d1ac79b8574b8a5d1d7a5be4692, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 0
   isWeapon: 0
+  isTrap: 0

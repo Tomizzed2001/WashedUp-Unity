@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbroken: 0
+  originalHealth: 7
   objectHealth: 7
   Tool: Pickaxe
   objectType: Rock

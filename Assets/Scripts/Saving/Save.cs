@@ -266,13 +266,13 @@ public static class Save
     }
 
     //Objectives Saving and Loading
-    public static void SaveObjectives(bool[] objectives)
+    public static void SaveObjectives(bool[] objectives, bool[] finished)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/objectives.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        ObjectiveData data = new ObjectiveData(objectives);
+        ObjectiveData data = new ObjectiveData(objectives, finished);
 
         formatter.Serialize(stream, data);
 
@@ -336,13 +336,13 @@ public static class Save
     }
 
     //GameManager Saving and Loading
-    public static void SaveGame(int gameHealth, bool recipesLearnt, bool wreckageActive, bool inLand)
+    public static void SaveGame(int gameHealth, bool recipesLearnt, bool wreckageActive, bool inLand, bool recipesSecond, bool gameWon)
     {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/game.save";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        GameData data = new GameData(gameHealth, recipesLearnt, wreckageActive, inLand);
+        GameData data = new GameData(gameHealth, recipesLearnt, wreckageActive, inLand, recipesSecond, gameWon);
 
         formatter.Serialize(stream, data);
 

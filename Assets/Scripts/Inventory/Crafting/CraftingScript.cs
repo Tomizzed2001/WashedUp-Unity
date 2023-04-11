@@ -115,12 +115,12 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftPitfall()
     {
-        bool testWood = InventoryManager.CheckItem("Wood", 10);
-        bool testLeaves = InventoryManager.CheckItem("Leaves", 30);
+        bool testWood = InventoryManager.CheckItem("Wood", 15);
+        bool testLeaves = InventoryManager.CheckItem("Leaves", 40);
         if (testWood && testLeaves)
         {
-            InventoryManager.removeItem("Wood", 10);
-            InventoryManager.removeItem("Leaves", 30);
+            InventoryManager.removeItem("Wood", 15);
+            InventoryManager.removeItem("Leaves", 40);
             InventoryManager.AddItem(craftItem);
         }
         else
@@ -131,10 +131,10 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftSapTrap()
     {
-        bool testSap = InventoryManager.CheckItem("Sap", 12);
+        bool testSap = InventoryManager.CheckItem("Sap", 20);
         if (testSap)
         {
-            InventoryManager.removeItem("Sap", 12);
+            InventoryManager.removeItem("Sap", 20);
             InventoryManager.AddItem(craftItem);
         }
         else
@@ -166,12 +166,12 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftArcherTower()
     {
-        bool testWood = InventoryManager.CheckItem("Wood", 60);
+        bool testWood = InventoryManager.CheckItem("Wood", 80);
         bool testStone = InventoryManager.CheckItem("ArrowStone", 100);
         bool testSling = InventoryManager.CheckItem("Bow", 1);
         if (testWood && testStone && testSling)
         {
-            InventoryManager.removeItem("Wood", 60);
+            InventoryManager.removeItem("Wood", 80);
             InventoryManager.removeItem("ArrowStone", 100);
             InventoryManager.removeItem("Bow", 1);
             InventoryManager.AddItem(craftItem);

@@ -54,7 +54,7 @@ public class ObjectManager : MonoBehaviour
                     if (respawn <= script.respawnChance)
                     {
                         objects[i].SetActive(true);
-                        script.resetHealth();
+                        script.ResetHealth();
                     }
                 }
             }

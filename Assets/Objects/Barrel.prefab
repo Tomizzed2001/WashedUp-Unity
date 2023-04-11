@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isbroken: 0
+  originalHealth: 16
   objectHealth: 16
   Tool: 
   objectType: Barrel
@@ -157,5 +158,5 @@ MonoBehaviour:
   - {fileID: 40109902139978021, guid: 2cb2b5d9405641d46a492d676c5f5b29, type: 3}
   - {fileID: 40109902139978021, guid: db32c4016d351f64f8938ba496c76498, type: 3}
   - {fileID: 40109902139978021, guid: ef0fb35f1e8c7bc498548b5c7d972cc4, type: 3}
-  dropRateLower: 02000000020000000500000003000000
-  dropRateUpper: 04000000060000000a00000006000000
+  dropRateLower: 02000000020000000700000004000000
+  dropRateUpper: 04000000060000000c00000006000000

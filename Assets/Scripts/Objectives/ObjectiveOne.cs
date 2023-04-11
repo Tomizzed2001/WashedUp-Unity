@@ -11,7 +11,7 @@ public class ObjectiveOne : Objective
     {
         bool checkWood = inventoryManager.CheckItem("Wood", 16);
 
-        if (checkWood)
+        if (checkWood && !objectiveDone)
         {
             GameManager.Instance.objectivesManager.ShowTools();
             ObjectiveComplete();

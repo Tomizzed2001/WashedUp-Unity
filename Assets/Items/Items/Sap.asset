@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Sap
   m_EditorClassIdentifier: 
   Name: Sap
-  icon: {fileID: 21300000, guid: bcd4ebdae3b943f4486f3ddaefc993b1, type: 3}
+  icon: {fileID: 21300000, guid: 7f4d7395c87587b45b31d96a580292c9, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 0
   isWeapon: 0
+  isTrap: 0

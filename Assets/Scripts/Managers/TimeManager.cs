@@ -34,6 +34,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private PlayerController playerController;
 
     private float timeLength => dayLength / 1440;
+    private bool forceSleep= false;
 
     private void Start()
     {
@@ -54,7 +55,7 @@ public class TimeManager : MonoBehaviour
         currentDay = data.dayCount;
         if (currentDay >= 4)
         {
-            blockingGrid.SetActive(true);
+            blockingGrid.SetActive(false);
         }
     }
 
@@ -88,6 +89,7 @@ public class TimeManager : MonoBehaviour
 
         if (currentTime.TotalMinutes == 1320) //1320
         {
+            forceSleep = true;
             StartCoroutine(TriggerSpawn());
         }
 
@@ -99,7 +101,15 @@ public class TimeManager : MonoBehaviour
 
     public IEnumerator TriggerSpawn()
     {
-        uiManager.FadeScript.BlackOut();
+        if (forceSleep)
+        {
+            forceSleep = false;
+            uiManager.FadeScript.ForceBlackOut();
+        }
+        else
+        {
+            uiManager.FadeScript.BlackOut();
+        }
         yield return new WaitForSeconds(2.5f);
         playerController.OnBuild();
         GameManager.Instance.UseRaidCam();

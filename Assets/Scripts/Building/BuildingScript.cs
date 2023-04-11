@@ -35,7 +35,7 @@ public class BuildingScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         bool testWood = InventoryManager.CheckItem("Wood", 60);
         bool testStone = InventoryManager.CheckItem("Stone", 30);
         bool testLeaves = InventoryManager.CheckItem("Leaves", 50);
-        if (testWood && testWood)
+        if (testWood && testStone && testLeaves)
         {
             InventoryManager.removeItem("Wood", 60);
             InventoryManager.removeItem("Stone", 30);

@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource gun;
     [SerializeField] AudioSource gameWin;
     [SerializeField] AudioSource gameLose;
+    [SerializeField] AudioSource pop;
 
     private bool stepsInProgress;
 
@@ -146,6 +147,11 @@ public class AudioManager : MonoBehaviour
     public void GameLose()
     {
         gameLose.Play();
+    }
+
+    public void Pop()
+    {
+        pop.Play();
     }
 
     private IEnumerator FadeAudioIn(AudioSource audio, int volume)

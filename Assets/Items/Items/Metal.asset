@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Metal
   m_EditorClassIdentifier: 
   Name: Metal
-  icon: {fileID: 21300000, guid: 5e2ca7cb3f2d01d44a25c3be943df374, type: 3}
+  icon: {fileID: 21300000, guid: 0768d56c6752cdf408beb8830ee5c317, type: 3}
   stackable: 1
   isTool: 0
   isStructure: 0
   isWeapon: 0
+  isTrap: 0

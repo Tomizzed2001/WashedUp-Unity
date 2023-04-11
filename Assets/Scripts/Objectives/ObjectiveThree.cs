@@ -10,7 +10,7 @@ public class ObjectiveThree : Objective
         bool checkAxe = inventoryManager.CheckItem("Axe", 1);
         bool checkPick = inventoryManager.CheckItem("Pickaxe", 1);
 
-        if (checkAxe && checkPick)
+        if (checkAxe && checkPick && !objectiveDone)
         {
             GameManager.Instance.objectivesManager.ShowShelter();
             ObjectiveComplete();

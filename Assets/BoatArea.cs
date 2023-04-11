@@ -27,5 +27,6 @@ public class BoatArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         FixButton.SetActive(false);
+        SailButton.SetActive(false);
     }
 }

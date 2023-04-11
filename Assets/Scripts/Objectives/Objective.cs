@@ -27,6 +27,15 @@ public class Objective : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         if (!objectiveDone)
         {
             objectiveDone = true;
+            GameManager.Instance.audioManager.Objecive();
+        }
+        StartCoroutine(RemoveObjective());
+    }
+
+    private void FixedUpdate()
+    {
+        if (objectiveDone)
+        {
             StartCoroutine(RemoveObjective());
         }
     }
@@ -34,7 +43,6 @@ public class Objective : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private IEnumerator RemoveObjective()
     {
         strike.SetActive(true);
-        GameManager.Instance.audioManager.Objecive();
         yield return new WaitForSeconds(1f);
         objectiveActive = false;
         info.SetActive(false);

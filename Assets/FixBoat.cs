@@ -18,11 +18,19 @@ public class FixBoat : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     //Show the cost of the build upon hovering over the button
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (boat.boatFixed)
+        {
+            return;
+        }
         buildCosts[boat.boatTier].SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        if (boat.boatFixed)
+        {
+            return;
+        }
         buildCosts[boat.boatTier].SetActive(false);
     }
 
@@ -110,7 +118,7 @@ public class FixBoat : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     // End the game by sailing off the island
     public void setSail()
     {
-        GameManager.Instance.GameWin();
+        GameManager.Instance.GameWin(false);
     }
 
 

@@ -9,7 +9,11 @@ public class SapTrap : Trap
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy.enemyName == "Bear")
+            if (enemy.moveSpeed <0.1)
+            {
+                return;
+            }
+            if (enemy.enemyName == "Bear" || enemy.enemyName == "Bat")
             {
                 return;
             }
@@ -18,7 +22,7 @@ public class SapTrap : Trap
                 enemy.TakeDamage(10);
                 Destroy(gameObject);
             }
-            enemy.moveSpeed -= 0.2f;
+            enemy.moveSpeed /= 1.5f;
         }
     }
 
@@ -31,7 +35,7 @@ public class SapTrap : Trap
             {
                 return;
             }
-            enemy.moveSpeed += 0.2f;
+            enemy.moveSpeed *= 1.5f;
         }
     }
 }

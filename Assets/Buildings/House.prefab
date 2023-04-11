@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4061416187208874692, guid: 15273d3b2c39d8749b57c82ad8d46be1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.451
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4061416187208874692, guid: 15273d3b2c39d8749b57c82ad8d46be1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -194,6 +194,10 @@ PrefabInstance:
     - target: {fileID: 7683058852500314713, guid: 15273d3b2c39d8749b57c82ad8d46be1, type: 3}
       propertyPath: m_Name
       value: Chest
+      objectReference: {fileID: 0}
+    - target: {fileID: 8514711888491009194, guid: 15273d3b2c39d8749b57c82ad8d46be1, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

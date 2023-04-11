@@ -86,6 +86,11 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(new Vector2(2.167939f, 1.40794f));
     }
 
+    public void OnDig()
+    {
+        rb.MovePosition(new Vector2(9.542206f, -2.312031f));
+    }
+
     public void FreezeMovement()
     {
         freezeMovement = true;

@@ -7,6 +7,8 @@ public class Dig : MonoBehaviour
     [SerializeField] GameObject chest;
     [SerializeField] GameObject digBox;
 
+    [SerializeField] PlayerController playerController;
+
     public void DigUpChest()
     {
         StartCoroutine(ShowChest());
@@ -16,7 +18,7 @@ public class Dig : MonoBehaviour
     private IEnumerator ShowChest()
     {
         yield return new WaitForSeconds(2.5f);
-        Debug.Log("Active?");
+        playerController.OnDig();
         chest.SetActive(true);
         digBox.SetActive(false);
         gameObject.SetActive(false);

@@ -45,36 +45,36 @@ public class FixBoat : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         bool check3 = false;
         if (boat.boatTier == 0)
         {
-            check1 = inventoryManager.CheckItem("Wood", 80);
+            check1 = inventoryManager.CheckItem("Wood", 60);
             check2 = inventoryManager.CheckItem("Rope", 6);
             check3 = inventoryManager.CheckItem("Sap", 20);
             if (check1 && check2 && check3)
             {
-                inventoryManager.removeItem("Wood", 80);
+                inventoryManager.removeItem("Wood", 60);
                 inventoryManager.removeItem("Rope", 6);
                 inventoryManager.removeItem("Sap", 20);
             }
         }
         else if (boat.boatTier == 1)
         {
-            check1 = inventoryManager.CheckItem("Wood", 150);
+            check1 = inventoryManager.CheckItem("Wood", 90);
             check2 = inventoryManager.CheckItem("Nail", 80);
             check3 = inventoryManager.CheckItem("Sap", 40);
             if (check1 && check2 && check3)
             {
-                inventoryManager.removeItem("Wood", 150);
+                inventoryManager.removeItem("Wood", 90);
                 inventoryManager.removeItem("Nail", 80);
                 inventoryManager.removeItem("Sap", 40);
             }
         }
         else if (boat.boatTier == 2)
         {
-            check1 = inventoryManager.CheckItem("Wood", 200);
+            check1 = inventoryManager.CheckItem("Wood", 120);
             check2 = inventoryManager.CheckItem("Nail", 100);
             check3 = inventoryManager.CheckItem("Rope", 50);
             if (check1 && check2 && check3)
             {
-                inventoryManager.removeItem("Wood", 200);
+                inventoryManager.removeItem("Wood", 120);
                 inventoryManager.removeItem("Nail", 100);
                 inventoryManager.removeItem("Rope", 50);
             }

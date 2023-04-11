@@ -29,7 +29,7 @@ public class GameWin : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Time.timeScale = 0f;
-        screenSail.SetActive(true);
+        screenConquer.SetActive(true);
     }
 
     public void GoMenu()

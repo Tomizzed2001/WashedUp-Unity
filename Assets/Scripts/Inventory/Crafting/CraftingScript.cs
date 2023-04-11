@@ -115,11 +115,11 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftPitfall()
     {
-        bool testWood = InventoryManager.CheckItem("Wood", 15);
+        bool testWood = InventoryManager.CheckItem("Wood", 7);
         bool testLeaves = InventoryManager.CheckItem("Leaves", 40);
         if (testWood && testLeaves)
         {
-            InventoryManager.removeItem("Wood", 15);
+            InventoryManager.removeItem("Wood", 7);
             InventoryManager.removeItem("Leaves", 40);
             InventoryManager.AddItem(craftItem);
         }
@@ -147,14 +147,14 @@ public class CraftingScript : MonoBehaviour
     {
         bool testWood = InventoryManager.CheckItem("Wood", 50);
         Debug.Log(testWood);
-        bool testStone = InventoryManager.CheckItem("Stone", 80);
+        bool testStone = InventoryManager.CheckItem("Stone", 60);
         Debug.Log(testStone);
         bool testSling = InventoryManager.CheckItem("Slingshot", 1);
         Debug.Log(testSling);
         if (testWood && testStone && testSling)
         {
             InventoryManager.removeItem("Wood", 50);
-            InventoryManager.removeItem("Stone", 100);
+            InventoryManager.removeItem("Stone", 60);
             InventoryManager.removeItem("Slingshot", 1);
             InventoryManager.AddItem(craftItem);
         }
@@ -166,13 +166,13 @@ public class CraftingScript : MonoBehaviour
 
     public void CraftArcherTower()
     {
-        bool testWood = InventoryManager.CheckItem("Wood", 80);
-        bool testStone = InventoryManager.CheckItem("ArrowStone", 100);
+        bool testWood = InventoryManager.CheckItem("Wood", 70);
+        bool testStone = InventoryManager.CheckItem("ArrowStone", 50);
         bool testSling = InventoryManager.CheckItem("Bow", 1);
         if (testWood && testStone && testSling)
         {
-            InventoryManager.removeItem("Wood", 80);
-            InventoryManager.removeItem("ArrowStone", 100);
+            InventoryManager.removeItem("Wood", 70);
+            InventoryManager.removeItem("ArrowStone", 50);
             InventoryManager.removeItem("Bow", 1);
             InventoryManager.AddItem(craftItem);
         }

@@ -16,8 +16,14 @@ public class PitfallTrap : Trap
                 Destroy(gameObject);
                 return;
             }
+            if (enemy.enemyName == "Bat")
+            {
+                return;
+            }
             if (enemy.enemyName == "ShieldMan" || enemy.enemyName == "Bear" || enemy.enemyName == "Bat")
             {
+                enemy.TakeDamage(10);
+                Destroy(gameObject);
                 return;
             }
             enemy.TakeDamage(100);

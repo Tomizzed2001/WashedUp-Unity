@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.2
-  health: 260
+  health: 180
   attackPlayer: 0
   enemyName: ShieldMan
 --- !u!70 &7055923682251079333

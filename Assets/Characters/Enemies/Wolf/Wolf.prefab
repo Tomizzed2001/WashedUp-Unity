@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e6a2d527cab08c4aab19d1511169b1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.2
+  moveSpeed: 0.4
   health: 12
   attackPlayer: 0
   enemyName: Wolf

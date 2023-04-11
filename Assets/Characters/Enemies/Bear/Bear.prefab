@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
-  health: 100
+  health: 140
   attackPlayer: 0
   enemyName: Bear
 --- !u!70 &7055923682251079333

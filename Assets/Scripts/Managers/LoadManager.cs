@@ -16,6 +16,15 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private ObjectivesManager objectivesManager;
 
+    private void Awake()
+    {
+        if (StartScript.toLoad)
+        {
+            //Load game manager
+            GameManager.Instance.LoadGame();
+        }
+    }
+
     private void Start()
     {
         if (StartScript.toLoad)
@@ -43,9 +52,6 @@ public class LoadManager : MonoBehaviour
 
             //Load boat related values
             boat.LoadBoat();
-
-            //Load game manager
-            GameManager.Instance.LoadGame();
         }
     }
 }

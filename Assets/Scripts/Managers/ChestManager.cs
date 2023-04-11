@@ -39,6 +39,30 @@ public class ChestManager : MonoBehaviour
     [Header("House Chest")]
     [SerializeField] public Chest houseChest;
 
+    [Header("Hidden Island Chest")]
+    [SerializeField] public Chest HiddenOneChest;
+    [Header("Slot and Item 6")]
+    [SerializeField] private InventorySlot slot6;
+    [SerializeField] private Item item6;
+    [SerializeField] private int numberToSpawn6;
+
+    [Header("Slot and Item 7")]
+    [SerializeField] private InventorySlot slot7;
+    [SerializeField] private Item item7;
+    [SerializeField] private int numberToSpawn7;
+
+    [Header("TreasureChest")]
+    [SerializeField] public Chest TreasureChest;
+    [Header("Slot and Item 8")]
+    [SerializeField] private InventorySlot slot8;
+    [SerializeField] private Item item8;
+    [SerializeField] private int numberToSpawn8;
+
+    [Header("Slot and Item 9")]
+    [SerializeField] private InventorySlot slot9;
+    [SerializeField] private Item item9;
+    [SerializeField] private int numberToSpawn9;
+
     public void Start()
     {
         if (!StartScript.toLoad)
@@ -48,6 +72,10 @@ public class ChestManager : MonoBehaviour
             inventoryManager.SpawnNewStack(item3, slot3, numberToSpawn3);
             inventoryManager.SpawnNewStack(item4, slot4, numberToSpawn4);
             inventoryManager.SpawnNewStack(item5, slot5, numberToSpawn5);
+            inventoryManager.SpawnNewStack(item6, slot6, numberToSpawn6);
+            inventoryManager.SpawnNewStack(item7, slot7, numberToSpawn7);
+            inventoryManager.SpawnNewStack(item8, slot8, numberToSpawn8);
+            inventoryManager.SpawnNewStack(item9, slot9, numberToSpawn9);
         }
     }
 }

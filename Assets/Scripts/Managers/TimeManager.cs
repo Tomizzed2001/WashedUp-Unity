@@ -25,6 +25,8 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Boat boat;
     [SerializeField] private ObjectManager objectManager;
     [SerializeField] private GameObject raidInfo;
+    [SerializeField] public GameObject blockingGrid;
+    [SerializeField] private GameObject sleepButton;
 
     [Header("Force Spawning Systems")]
     [SerializeField] private UIManager uiManager;
@@ -50,6 +52,10 @@ public class TimeManager : MonoBehaviour
 
         currentTime = TimeSpan.FromSeconds(data.totalSeconds);
         currentDay = data.dayCount;
+        if (currentDay >= 4)
+        {
+            blockingGrid.SetActive(true);
+        }
     }
 
     public void goNight(int nightTime)
@@ -106,5 +112,6 @@ public class TimeManager : MonoBehaviour
             Time.timeScale = 0f;
             raidInfo.SetActive(true);
         }
+        sleepButton.SetActive(false);
     }
 }

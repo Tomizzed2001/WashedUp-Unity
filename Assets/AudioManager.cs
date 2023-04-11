@@ -16,6 +16,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource barrel;
     [SerializeField] AudioSource bow;
     [SerializeField] AudioSource noAmmo;
+    [SerializeField] AudioSource gun;
     [SerializeField] AudioSource gameWin;
     [SerializeField] AudioSource gameLose;
 
@@ -23,9 +24,19 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        PlayBeach();
-        PlayForest();
-        forestSong.Stop();
+        if (GameManager.Instance.inLand)
+        {
+            PlayForest();
+            PlayBeach();
+            beachSong.Stop();
+        }
+        else
+        {
+            PlayBeach();
+            PlayForest();
+            forestSong.Stop();
+        }
+
     }
 
     //Raid
@@ -115,6 +126,11 @@ public class AudioManager : MonoBehaviour
     public void Bow()
     {
         bow.Play();
+    }
+
+    public void Gun()
+    {
+        gun.Play();
     }
 
     public void NoAmmo()

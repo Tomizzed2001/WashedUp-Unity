@@ -13,6 +13,11 @@ public class SapTrap : Trap
             {
                 return;
             }
+            if (enemy.enemyName == "AxeMan")
+            {
+                enemy.TakeDamage(10);
+                Destroy(gameObject);
+            }
             enemy.moveSpeed /= 2;
         }
     }

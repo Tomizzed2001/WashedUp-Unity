@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public bool attackPlayer;
     public string enemyName;
 
+    private Rigidbody2D rb;
+
     private Waypoints Wpoints;
     private int waypointIndex;
 
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         Wpoints = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoints>();
         foreach (var gameObj in GameObject.FindGameObjectsWithTag("EnemyManager"))
         {

@@ -150,7 +150,6 @@ MonoBehaviour:
   needsTool: 0
   DayToSpawn: 2
   canRespawn: 1
-  DayToRespawn: 2
   respawnChance: 0.25
   spread: 0.5
   drops:
@@ -158,6 +157,5 @@ MonoBehaviour:
   - {fileID: 40109902139978021, guid: 2cb2b5d9405641d46a492d676c5f5b29, type: 3}
   - {fileID: 40109902139978021, guid: db32c4016d351f64f8938ba496c76498, type: 3}
   - {fileID: 40109902139978021, guid: ef0fb35f1e8c7bc498548b5c7d972cc4, type: 3}
-  - {fileID: 40109902139978021, guid: db34ce0e91d118245b6eb164e7d033ac, type: 3}
-  dropRateLower: 0200000002000000050000000300000000000000
-  dropRateUpper: 04000000060000000a0000000600000001000000
+  dropRateLower: 02000000020000000500000003000000
+  dropRateUpper: 04000000060000000a00000006000000

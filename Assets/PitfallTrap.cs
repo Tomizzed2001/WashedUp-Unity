@@ -10,6 +10,16 @@ public class PitfallTrap : Trap
         if (collision.tag == "Enemy")
         {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy.enemyName == "AxeMan")
+            {
+                enemy.TakeDamage(10);
+                Destroy(gameObject);
+                return;
+            }
+            if (enemy.enemyName == "ShieldMan")
+            {
+                return;
+            }
             enemy.TakeDamage(100);
             Destroy(gameObject);
         }

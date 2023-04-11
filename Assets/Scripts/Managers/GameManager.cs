@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [Header("Things to save")]
     [SerializeField] public bool recipesEnabled;
     [SerializeField] public bool wreckageActive;
+    [SerializeField] public bool inLand = false;
     
 
     private void Awake()
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveGame()
     {
-        Save.SaveGame(GameHealth, recipesEnabled, wreckageActive);
+        Save.SaveGame(GameHealth, recipesEnabled, wreckageActive, inLand);
     }
 
     public void LoadGame()
@@ -99,6 +100,7 @@ public class GameManager : MonoBehaviour
         GameHealth = data.health;
         recipesEnabled = data.recipes;
         wreckageActive = data.wreckage;
+        inLand = data.land;
         uiManager.Health2.text = GameHealth.ToString();
         if (GameHealth <= 0)
         {

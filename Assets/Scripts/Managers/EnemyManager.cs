@@ -16,11 +16,19 @@ public class EnemyManager : MonoBehaviour
     private Spawner[] spawners;
     [SerializeField] Spawner[] day1Spawners;
     [SerializeField] Spawner[] day2Spawners;
+    [SerializeField] Spawner[] day3Spawners;
+    [SerializeField] Spawner[] day4Spawners;
+    [SerializeField] Spawner[] day5Spawners;
+    [SerializeField] Spawner[] day6Spawners;
 
     [Header("Managers")]
     [SerializeField] UIManager uiManager;
     [SerializeField] TimeManager timeManager;
     [SerializeField] SaveManager saveManager;
+
+    [Header("Grid")]
+    [SerializeField] private GameObject blockingGrid;
+    [SerializeField] private GameObject notification;
 
     private void Start()
     {
@@ -44,6 +52,42 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day2Spawners.Length; i++)
             {
                 Spawner spawner = day2Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+        else if (timeManager.currentDay == 3)
+        {
+            spawners = day3Spawners;
+            for (int i = 0; i < day3Spawners.Length; i++)
+            {
+                Spawner spawner = day3Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+        else if (timeManager.currentDay == 4)
+        {
+            spawners = day4Spawners;
+            for (int i = 0; i < day4Spawners.Length; i++)
+            {
+                Spawner spawner = day4Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+        else if (timeManager.currentDay == 5)
+        {
+            spawners = day5Spawners;
+            for (int i = 0; i < day4Spawners.Length; i++)
+            {
+                Spawner spawner = day4Spawners[i];
+                spawner.StartSpawn();
+            }
+        }
+        else if (timeManager.currentDay == 6)
+        {
+            spawners = day6Spawners;
+            for (int i = 0; i < day4Spawners.Length; i++)
+            {
+                Spawner spawner = day4Spawners[i];
                 spawner.StartSpawn();
             }
         }
@@ -73,10 +117,16 @@ public class EnemyManager : MonoBehaviour
         GameManager.Instance.audioManager.StopRaid(); 
         timeManager.goDay();
         StartCoroutine(SaveTime());
-        if (timeManager.currentDay == 3)
+        if (timeManager.currentDay == 7)
         {
             GameManager.Instance.GameWin();
         }
+        if (timeManager.currentDay == 4)
+        {
+            blockingGrid.SetActive(false);
+            notification.SetActive(true);
+        }
+
     }
 
     private IEnumerator SaveTime()

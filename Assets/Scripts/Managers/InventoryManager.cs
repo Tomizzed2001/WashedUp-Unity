@@ -26,6 +26,8 @@ public class InventoryManager : MonoBehaviour
 
     [Header("Player assets to update")]
     [SerializeField] AimWeapon playerAim;
+    [SerializeField] GameObject treasureMap;
+    [SerializeField] GameObject digZone;
 
     private void Start()
     {
@@ -99,6 +101,22 @@ public class InventoryManager : MonoBehaviour
         {
             playerAim.WeaponAway();
         }
+        if (getSelectedItemName() == "TreasureMap")
+        {
+            treasureMap.SetActive(true);
+        }
+        else {
+            treasureMap.SetActive(false );
+        }
+        if (getSelectedItemName() == "Shovel")
+        {
+            digZone.SetActive(true);
+        }
+        else
+        {
+            digZone.SetActive(false);
+        }
+
     }
 
     public void AddItem(Item item)
@@ -183,6 +201,19 @@ public class InventoryManager : MonoBehaviour
                     InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
 
                     if (itemItem != null && itemItem.item.Name == "Stone")
+                    {
+                        counter += itemItem.stackCount;
+                    }
+                }
+            }
+            else if (weapon == "Blunderbuss")
+            {
+                for (int i = 0; i < inventorySlots.Length; i++)
+                {
+                    InventorySlot slot = inventorySlots[i];
+                    InventoryItem itemItem = slot.GetComponentInChildren<InventoryItem>();
+
+                    if (itemItem != null && itemItem.item.Name == "Bullet")
                     {
                         counter += itemItem.stackCount;
                     }

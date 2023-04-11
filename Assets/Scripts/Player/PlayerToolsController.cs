@@ -14,6 +14,7 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] private float sizeOfInteractableArea;
     [SerializeField] private float slingshotFireRate = 0.5f;
     [SerializeField] private float bowFireRate = 0.7f;
+    [SerializeField] private float gunFireRate = 0.4f;
     private float nextShot = 0.0f;
 
     [Header("Managers")]
@@ -25,6 +26,7 @@ public class PlayerToolsController : MonoBehaviour
     [SerializeField] GameObject ProjectileSlingshot;
     [SerializeField] GameObject ProjectileArrowMetal;
     [SerializeField] GameObject ProjectileArrowStone;
+    [SerializeField] GameObject ProjectileGun;
     [SerializeField] Transform player;
     [SerializeField] Transform pivot;
 
@@ -124,6 +126,21 @@ public class PlayerToolsController : MonoBehaviour
             {
                 GameManager.Instance.audioManager.NoAmmo();
                 Debug.Log("No Ammo");
+            }
+        }
+        else if (inventoryManager.getSelectedItemName() == "Blunderbuss")
+        {
+            bool testStone = inventoryManager.CheckItem("Bullet", 1);
+            if (testStone)
+            {
+                inventoryManager.removeItem("Bullet", 1);
+                GameManager.Instance.audioManager.Gun();
+                nextShot = Time.time + gunFireRate;
+                GameObject newProjectile = Instantiate(ProjectileGun, pivot.position, pivot.rotation);
+            }
+            else
+            {
+                GameManager.Instance.audioManager.NoAmmo();
             }
         }
     }

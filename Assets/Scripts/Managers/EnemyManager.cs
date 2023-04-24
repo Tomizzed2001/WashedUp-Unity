@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class EnemyManager : MonoBehaviour
     [Header("Enemy Values")]
     [SerializeField]
     public int currentEnemyNum;
+    public int toSpawn;
 
     [Header("Spawners")]
     private Spawner[] spawners;
@@ -32,20 +34,30 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private Boat boat;
     [SerializeField] private Objective boatObjective;
     [SerializeField] private GameObject recipeNotification;
+    [SerializeField] private GameObject enemyCounter;
+    [SerializeField] private Text enemyCounterText;
 
     private void Start()
     {
         level = timeManager.currentDay;
     }
 
+    private void UpdateCounter()
+    {
+        enemyCounterText.text = toSpawn.ToString();
+    }
+
     public void BeginSpawn()
     {
+        enemyCounter.SetActive(true);
+        toSpawn = 0;
         if (timeManager.currentDay == 1)
         {
             spawners = day1Spawners;
             for (int i = 0; i < day1Spawners.Length; i++)
             {
                 Spawner spawner = day1Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
@@ -55,6 +67,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day2Spawners.Length; i++)
             {
                 Spawner spawner = day2Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
@@ -64,6 +77,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day3Spawners.Length; i++)
             {
                 Spawner spawner = day3Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
@@ -73,6 +87,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day4Spawners.Length; i++)
             {
                 Spawner spawner = day4Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
@@ -82,6 +97,7 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day5Spawners.Length; i++)
             {
                 Spawner spawner = day5Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
@@ -91,13 +107,19 @@ public class EnemyManager : MonoBehaviour
             for (int i = 0; i < day6Spawners.Length; i++)
             {
                 Spawner spawner = day6Spawners[i];
+                toSpawn += spawner.toSpawnCount;
                 spawner.StartSpawn();
             }
         }
+        UpdateCounter();
+        StartCoroutine(CheckRaidEnd());
     }
 
     public void isLastEnemy()
     {
+        toSpawn--;
+        UpdateCounter();
+        /*
         if (currentEnemyNum == 0)
         {
             for (int i = 0; i < spawners.Length; i++)
@@ -109,10 +131,26 @@ public class EnemyManager : MonoBehaviour
             }
             StartCoroutine(NightEnd());            
         }
+        */
+    }
+
+    private IEnumerator CheckRaidEnd()
+    {
+        Debug.Log("Checking " + toSpawn);
+        yield return new WaitForSeconds(2);
+        if (toSpawn == 0)
+        {
+            StartCoroutine(NightEnd());
+        }
+        else
+        {
+            StartCoroutine(CheckRaidEnd());
+        }
     }
 
     private IEnumerator NightEnd()
     {
+        enemyCounter.SetActive(false);
         GameManager.Instance.audioManager.FadeRaid();
         uiManager.FadeScript.BlackOut();
         yield return new WaitForSeconds(2.5f);

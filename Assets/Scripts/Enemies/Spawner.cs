@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     [Header("Enemy spawn settings")]
-    [SerializeField] private int toSpawnCount = 10;
+    [SerializeField] public int toSpawnCount = 10;
     [SerializeField] private int initialDelay;
     [SerializeField] private float spawnDelay;
 
@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
         else
         {
             finishedSpawning = true;
-            enemyManager.isLastEnemy();
+            //enemyManager.isLastEnemy();
         }
     }
 }

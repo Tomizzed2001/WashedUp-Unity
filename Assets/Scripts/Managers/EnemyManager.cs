@@ -136,7 +136,6 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator CheckRaidEnd()
     {
-        Debug.Log("Checking " + toSpawn);
         yield return new WaitForSeconds(2);
         if (toSpawn == 0)
         {

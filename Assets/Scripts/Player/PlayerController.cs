@@ -13,20 +13,20 @@ public class PlayerController : MonoBehaviour
 
     List<RaycastHit2D> collisions = new List<RaycastHit2D>();
     Vector2 moveInput;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
 
     Animator animator;
     SpriteRenderer spriteRenderer;
 
     [HideInInspector] public Vector2 lastPos;
 
-    private bool freezeMovement = false;
+    public bool freezeMovement = false;
 
     [Header("Related components")]
     [SerializeField] private GameObject FadeScreen;
     [SerializeField] private AudioManager audioManager;
 
-    private void Start()
+    private void Awake()
     {
         //Initialises Variables
         rb = GetComponent<Rigidbody2D>();
@@ -71,8 +71,11 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            audioManager.FootStep(false);
-            animator.SetBool("isMoving", false);
+            if (audioManager != null)
+            {
+                audioManager.FootStep(false);
+                animator.SetBool("isMoving", false);
+            }
         }
     }
 
@@ -83,12 +86,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnBuild()
     {
-        rb.MovePosition(new Vector2(2.167939f, 1.40794f));
+        rb.MovePosition(new Vector2(2.17f, 1.41f));
     }
 
     public void OnDig()
     {
-        rb.MovePosition(new Vector2(9.542206f, -2.312031f));
+        rb.MovePosition(new Vector2(9.54f, -2.31f));
     }
 
     public void FreezeMovement()
@@ -104,7 +107,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator EnableMovement(float seconds)
     {
         yield return new WaitForSeconds(seconds);
-        FadeScreen.SetActive(false);
+        if (FadeScreen != null)
+        {
+            FadeScreen.SetActive(false);
+        }
         freezeMovement = false;
     }
 

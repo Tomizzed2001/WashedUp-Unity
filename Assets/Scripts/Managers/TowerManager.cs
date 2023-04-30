@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] Defences;
-    [SerializeField] Transform PlacementZone;
-    [SerializeField] InventoryManager inventoryManager;
+    public GameObject[] Defences;
+    public Transform PlacementZone;
+    public InventoryManager inventoryManager;
 
     [HideInInspector] public int defencesPlaced = 0;
 
@@ -16,7 +16,10 @@ public class TowerManager : MonoBehaviour
         {
             if (towerName == Defences[i].name)
             {
-                inventoryManager.removeItem(towerName, 1);
+                if (inventoryManager != null)
+                {
+                    inventoryManager.removeItem(towerName, 1);
+                }
                 GameObject newTower = Instantiate(Defences[i], PlacementZone.position, Quaternion.identity);
             }
         }

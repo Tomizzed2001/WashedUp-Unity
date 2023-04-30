@@ -18,6 +18,14 @@ public class Enemy : MonoBehaviour
 
     private EnemyManager enemyManager;
 
+    //Components
+    private HealthComponent Health;
+
+    private void Awake()
+    {
+        Health = new HealthComponent(health);
+    }
+
     private void Start()
     {
         Wpoints = GameObject.FindGameObjectWithTag("Waypoint").GetComponent<Waypoints>();
@@ -32,11 +40,10 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        health -= damage;
-        if (health <= 0)
+        Health.TakeDamage(damage);
+        if (Health.IsDead())
         {
             enemyManager.currentEnemyNum--;
-            Debug.Log("Take damage call");
             enemyManager.isLastEnemy();
             Destroy(gameObject);
         }

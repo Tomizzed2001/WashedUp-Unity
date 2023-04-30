@@ -38,12 +38,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] public bool wreckageActive;
     [SerializeField] public bool inLand = false;
     [SerializeField] public bool gameWon;
-    
+
+    //Components
+    private HealthComponent Health;
+
 
     private void Awake()
     {
         Instance = this;
         currentCam = playerCam;
+    }
+
+    private void Start()
+    {
+        Health = new HealthComponent(GameHealth);
     }
 
     public void UsePlayerCam()
@@ -64,9 +72,9 @@ public class GameManager : MonoBehaviour
 
     public void LoseHealth()
     {
-        GameHealth--;
-        uiManager.Health2.text = GameHealth.ToString();
-        if (GameHealth <= 0)
+        Health.TakeDamage(1);
+        uiManager.Health2.text = Health.Health.ToString();
+        if (Health.IsDead())
         {
             isGameOver = true;
             audioManager.StopRaid();

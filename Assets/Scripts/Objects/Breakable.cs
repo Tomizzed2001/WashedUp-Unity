@@ -6,7 +6,6 @@ public class Breakable : UseTool
 
     [Header("Object Settings")]
     [SerializeField] int originalHealth = 3;
-    [SerializeField] int objectHealth = 3;
     [SerializeField] string Tool;
     [SerializeField] string objectType;
     [SerializeField] bool needsTool;
@@ -22,9 +21,17 @@ public class Breakable : UseTool
     [SerializeField] int[] dropRateLower;
     [SerializeField] int[] dropRateUpper;
 
+    //Components
+    private HealthComponent Health;
+
+    private void Awake()
+    {
+        Health = new HealthComponent(originalHealth);
+    }
+
     public void ResetHealth()
     {
-        objectHealth = originalHealth;
+        Health = new HealthComponent(originalHealth);
     }
 
     void Shake()
@@ -58,10 +65,10 @@ public class Breakable : UseTool
             {
                 GameManager.Instance.audioManager.BarrelHit();
             }
-            
+
             //Change object health and destroy at 0
-            objectHealth -= 1;
-            if (objectHealth == 0)
+            Health.TakeDamage(1);
+            if (Health.IsDead())
             {
                 if (objectType == "collectable")
                 {

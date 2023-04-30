@@ -15,8 +15,11 @@ Main Tileset - https://projectalme.itch.io/colorful-rpg-assets-16x16
 <h3>Characters</h3>
 
 Player - https://game-endeavor.itch.io/mystic-woods
+
 Animated Wolf - https://free-game-assets.itch.io/free-street-animal-pixel-art-asset-pack
+
 Animated Bat - https://caz-creates-games.itch.io/bat
+
 Human Raiders - https://lionheart963.itch.io/axe-bandit
 
 <h3>Items</h3>

@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1718
     height: 1358
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: TestRunnerWindow
+  m_Name: CodeCoverageWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -43,12 +43,13 @@ MonoBehaviour:
     y: 872
     width: 629
     height: 436
-  m_MinSize: {x: 101, y: 121}
+  m_MinSize: {x: 446, y: 86}
   m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
+  - {fileID: 15}
   - {fileID: 14}
-  m_Selected: 0
+  m_Selected: 1
   m_LastSelected: 0
 --- !u!114 &3
 MonoBehaviour:
@@ -242,9 +243,9 @@ MonoBehaviour:
     height: 996
   m_MinSize: {x: 201, y: 221}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 16}
+  m_ActualView: {fileID: 17}
   m_Panes:
-  - {fileID: 16}
+  - {fileID: 17}
   m_Selected: 0
   m_LastSelected: 0
 --- !u!114 &11
@@ -268,11 +269,11 @@ MonoBehaviour:
     height: 996
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
-  m_ActualView: {fileID: 17}
+  m_ActualView: {fileID: 18}
   m_Panes:
-  - {fileID: 17}
-  - {fileID: 15}
   - {fileID: 18}
+  - {fileID: 16}
+  - {fileID: 19}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &12
@@ -285,7 +286,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: ConsoleWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -294,15 +295,15 @@ MonoBehaviour:
     y: 996
     width: 1089
     height: 312
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 20}
   m_Panes:
-  - {fileID: 19}
   - {fileID: 20}
   - {fileID: 21}
-  m_Selected: 1
-  m_LastSelected: 0
+  - {fileID: 22}
+  m_Selected: 0
+  m_LastSelected: 1
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -324,14 +325,47 @@ MonoBehaviour:
     height: 872
   m_MinSize: {x: 276, y: 71}
   m_MaxSize: {x: 4001, y: 4021}
-  m_ActualView: {fileID: 22}
+  m_ActualView: {fileID: 23}
   m_Panes:
-  - {fileID: 22}
   - {fileID: 23}
   - {fileID: 24}
+  - {fileID: 25}
   m_Selected: 0
   m_LastSelected: 1
 --- !u!114 &14
+MonoBehaviour:
+  m_ObjectHideFlags: 52
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5115ff20f1ea204dac14fa49c0e8f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MinSize: {x: 445, y: 65}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_TitleContent:
+    m_Text: Code Coverage
+    m_Image: {fileID: 2800000, guid: 48e45b7f100ee4b48a02e05135e6cece, type: 3}
+    m_Tooltip: 
+  m_Pos:
+    serializedVersion: 2
+    x: 2810
+    y: 953
+    width: 628
+    height: 415
+  m_SerializedDataModeController:
+    m_DataMode: 0
+    m_PreferredDataMode: 0
+    m_SupportedDataModes: 
+    isAutomatic: 1
+  m_ViewDataDictionary: {fileID: 0}
+  m_OverlayCanvas:
+    m_LastAppliedPresetName: Default
+    m_SaveData: []
+--- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -365,7 +399,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
   m_Spl:
-    ID: 166
+    ID: 178
     splitterInitialOffset: 238
     currentActiveSplitter: -1
     realSizes:
@@ -390,14 +424,14 @@ MonoBehaviour:
     oldSplitSize: 0
   m_TestTypeToolbarIndex: 0
   m_PlayModeTestListGUI:
-    m_Window: {fileID: 14}
+    m_Window: {fileID: 15}
     m_NewResultList:
     - id: 1005
       uniqueId: '[WashedUp][suite]'
       name: WashedUp
       fullName: WashedUp
-      resultStatus: 1
-      duration: 5.7763963
+      resultStatus: 0
+      duration: 8.274083
       messages: 
       output: 
       stacktrace: 
@@ -412,8 +446,8 @@ MonoBehaviour:
       uniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
       name: PlayMode.dll
       fullName: C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll
-      resultStatus: 1
-      duration: 5.7642045
+      resultStatus: 0
+      duration: 8.25972
       messages: 
       output: 
       stacktrace: 
@@ -425,11 +459,212 @@ MonoBehaviour:
       parentId: 1000
       parentUniqueId: '[WashedUp][suite]'
     - id: 1001
+      uniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+      name: GameTests
+      fullName: GameTests
+      resultStatus: 0
+      duration: 0.4859754
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1024
+      parentUniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1004
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSaveHealth]
+      name: TestSaveHealth
+      fullName: GameTests.TestSaveHealth
+      resultStatus: 0
+      duration: 0.1743767
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1008
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSaveInLand]
+      name: TestSaveInLand
+      fullName: GameTests.TestSaveInLand
+      resultStatus: 0
+      duration: 0.0101614
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1005
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSaveRecipesOne]
+      name: TestSaveRecipesOne
+      fullName: GameTests.TestSaveRecipesOne
+      resultStatus: 0
+      duration: 0.006059
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1006
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSaveRecipesTwo]
+      name: TestSaveRecipesTwo
+      fullName: GameTests.TestSaveRecipesTwo
+      resultStatus: 0
+      duration: 0.0059837
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1007
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSaveWreckage]
+      name: TestSaveWreckage
+      fullName: GameTests.TestSaveWreckage
+      resultStatus: 0
+      duration: 0.0056513
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1002
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSwapCameraPlayer]
+      name: TestSwapCameraPlayer
+      fullName: GameTests.TestSwapCameraPlayer
+      resultStatus: 0
+      duration: 0.1217263
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1003
+      uniqueId: PlayMode.dll/GameTests/[PlayMode][GameTests.TestSwapCameraRaid]
+      name: TestSwapCameraRaid
+      fullName: GameTests.TestSwapCameraRaid
+      resultStatus: 0
+      duration: 0.0104504
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][GameTests][suite]
+    - id: 1001
+      uniqueId: PlayMode.dll/[PlayMode][HouseTests][suite]
+      name: HouseTests
+      fullName: HouseTests
+      resultStatus: 0
+      duration: 0.0142543
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1016
+      parentUniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1002
+      uniqueId: PlayMode.dll/HouseTests/[PlayMode][HouseTests.TestSave]
+      name: TestSave
+      fullName: HouseTests.TestSave
+      resultStatus: 0
+      duration: 0.0117788
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1001
+      parentUniqueId: PlayMode.dll/[PlayMode][HouseTests][suite]
+    - id: 1003
+      uniqueId: PlayMode.dll/[PlayMode][ObjectTests][suite]
+      name: ObjectTests
+      fullName: ObjectTests
+      resultStatus: 0
+      duration: 0.0204273
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1018
+      parentUniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1004
+      uniqueId: PlayMode.dll/ObjectTests/[PlayMode][ObjectTests.TestSave]
+      name: TestSave
+      fullName: ObjectTests.TestSave
+      resultStatus: 0
+      duration: 0.0179122
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1003
+      parentUniqueId: PlayMode.dll/[PlayMode][ObjectTests][suite]
+    - id: 1001
       uniqueId: PlayMode.dll/[PlayMode][PlayerTests][suite]
       name: PlayerTests
       fullName: PlayerTests
-      resultStatus: 1
-      duration: 2.7415123
+      resultStatus: 0
+      duration: 2.6384203
       messages: 
       output: 
       stacktrace: 
@@ -444,8 +679,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/PlayerTests/[PlayMode][PlayerTests.TestFreeze]
       name: TestFreeze
       fullName: PlayerTests.TestFreeze
-      resultStatus: 1
-      duration: 0.0600304
+      resultStatus: 0
+      duration: 0.0065975
       messages: 
       output: 
       stacktrace: 
@@ -461,8 +696,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/PlayerTests/[PlayMode][PlayerTests.TestOnBuild]
       name: TestOnBuild
       fullName: PlayerTests.TestOnBuild
-      resultStatus: 1
-      duration: 0.5086999
+      resultStatus: 0
+      duration: 0.5064353
       messages: 
       output: 
       stacktrace: 
@@ -478,8 +713,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/PlayerTests/[PlayMode][PlayerTests.TestOnDig]
       name: TestOnDig
       fullName: PlayerTests.TestOnDig
-      resultStatus: 1
-      duration: 0.506992
+      resultStatus: 0
+      duration: 0.5071694
       messages: 
       output: 
       stacktrace: 
@@ -495,8 +730,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/PlayerTests/[PlayMode][PlayerTests.TestSave]
       name: TestSave
       fullName: PlayerTests.TestSave
-      resultStatus: 1
-      duration: 0.1091352
+      resultStatus: 0
+      duration: 0.1073185
       messages: 
       output: 
       stacktrace: 
@@ -512,8 +747,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/PlayerTests/[PlayMode][PlayerTests.TestUnFreeze]
       name: TestUnFreeze
       fullName: PlayerTests.TestUnFreeze
-      resultStatus: 1
-      duration: 1.5082595
+      resultStatus: 0
+      duration: 1.505999
       messages: 
       output: 
       stacktrace: 
@@ -525,12 +760,146 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1001
       parentUniqueId: PlayMode.dll/[PlayMode][PlayerTests][suite]
+    - id: 1011
+      uniqueId: PlayMode.dll/[PlayMode][TestBoat][suite]
+      name: TestBoat
+      fullName: TestBoat
+      resultStatus: 0
+      duration: 0.0398121
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1020
+      parentUniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1014
+      uniqueId: PlayMode.dll/TestBoat/[PlayMode][TestBoat.TestSaveFixed]
+      name: TestSaveFixed
+      fullName: TestBoat.TestSaveFixed
+      resultStatus: 0
+      duration: 0.0120356
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: PlayMode.dll/[PlayMode][TestBoat][suite]
+    - id: 1013
+      uniqueId: PlayMode.dll/TestBoat/[PlayMode][TestBoat.TestSaveFixToday]
+      name: TestSaveFixToday
+      fullName: TestBoat.TestSaveFixToday
+      resultStatus: 0
+      duration: 0.0110461
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: PlayMode.dll/[PlayMode][TestBoat][suite]
+    - id: 1012
+      uniqueId: PlayMode.dll/TestBoat/[PlayMode][TestBoat.TestSaveTier]
+      name: TestSaveTier
+      fullName: TestBoat.TestSaveTier
+      resultStatus: 0
+      duration: 0.0136776
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1011
+      parentUniqueId: PlayMode.dll/[PlayMode][TestBoat][suite]
+    - id: 1007
+      uniqueId: PlayMode.dll/[PlayMode][TimeTests][suite]
+      name: TimeTests
+      fullName: TimeTests
+      resultStatus: 0
+      duration: 2.033446
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 1
+      categories: []
+      parentId: 1012
+      parentUniqueId: '[PlayMode][C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/PlayMode.dll][suite]'
+    - id: 1009
+      uniqueId: PlayMode.dll/TimeTests/[PlayMode][TimeTests.TestGoNight]
+      name: TestGoNight
+      fullName: TimeTests.TestGoNight
+      resultStatus: 0
+      duration: 0.0072473
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: PlayMode.dll/[PlayMode][TimeTests][suite]
+    - id: 1010
+      uniqueId: PlayMode.dll/TimeTests/[PlayMode][TimeTests.TestSave]
+      name: TestSave
+      fullName: TimeTests.TestSave
+      resultStatus: 0
+      duration: 0.0121524
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: PlayMode.dll/[PlayMode][TimeTests][suite]
+    - id: 1008
+      uniqueId: PlayMode.dll/TimeTests/[PlayMode][TimeTests.TestTime]
+      name: TestTime
+      fullName: TimeTests.TestTime
+      resultStatus: 0
+      duration: 2.0090091
+      messages: 
+      output: 
+      stacktrace: 
+      notRunnable: 0
+      ignoredOrSkipped: 0
+      description: 
+      isSuite: 0
+      categories:
+      - Uncategorized
+      parentId: 1007
+      parentUniqueId: PlayMode.dll/[PlayMode][TimeTests][suite]
     - id: 1007
       uniqueId: PlayMode.dll/[PlayMode][TowerTests][suite]
       name: TowerTests
       fullName: TowerTests
-      resultStatus: 1
-      duration: 3.0194838
+      resultStatus: 0
+      duration: 3.020394
       messages: 
       output: 
       stacktrace: 
@@ -545,8 +914,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/TowerTests/[PlayMode][TowerTests.TestBuild]
       name: TestBuild
       fullName: TowerTests.TestBuild
-      resultStatus: 1
-      duration: 1.0057132
+      resultStatus: 0
+      duration: 1.0074056
       messages: 
       output: 
       stacktrace: 
@@ -562,8 +931,8 @@ MonoBehaviour:
       uniqueId: PlayMode.dll/TowerTests/[PlayMode][TowerTests.TestSave]
       name: TestSave
       fullName: TowerTests.TestSave
-      resultStatus: 1
-      duration: 2.0092673
+      resultStatus: 0
+      duration: 2.0099666
       messages: 
       output: 
       stacktrace: 
@@ -575,13 +944,13 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1007
       parentUniqueId: PlayMode.dll/[PlayMode][TowerTests][suite]
-    m_ResultText: TestSave (2.009s)
+    m_ResultText: GameTests (0.486s)
     m_ResultStacktrace: 
     m_TestListState:
-      scrollPos: {x: 0, y: 10}
-      m_SelectedIDs: 7f0783f3
-      m_LastClickedID: -209516673
-      m_ExpandedIDs: efa62f803bf3c48807069f158318ea76ffffff7f
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 8e12f411
+      m_LastClickedID: 301208206
+      m_ExpandedIDs: 8e12f41107069f158318ea76ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -609,14 +978,14 @@ MonoBehaviour:
       - Uncategorized
     m_SelectedOption: 0
   m_EditModeTestListGUI:
-    m_Window: {fileID: 14}
+    m_Window: {fileID: 15}
     m_NewResultList:
     - id: 1000
       uniqueId: '[WashedUp][suite]'
       name: WashedUp
       fullName: WashedUp
       resultStatus: 1
-      duration: 0.0820892
+      duration: 0.0661157
       messages: 
       output: 
       stacktrace: 
@@ -632,7 +1001,7 @@ MonoBehaviour:
       name: EditMode.dll
       fullName: C:/Users/tjfli/Unity/WashedUp-Unity/Library/ScriptAssemblies/EditMode.dll
       resultStatus: 1
-      duration: 0.0443361
+      duration: 0.0125477
       messages: 
       output: 
       stacktrace: 
@@ -648,7 +1017,7 @@ MonoBehaviour:
       name: CheckHealthComponent
       fullName: CheckHealthComponent
       resultStatus: 1
-      duration: 0.0425017
+      duration: 0.0120373
       messages: 
       output: 
       stacktrace: 
@@ -664,7 +1033,7 @@ MonoBehaviour:
       name: TestDamage
       fullName: CheckHealthComponent.TestDamage
       resultStatus: 1
-      duration: 0.0250731
+      duration: 0.0041447
       messages: 
       output: 
       stacktrace: 
@@ -681,7 +1050,7 @@ MonoBehaviour:
       name: TestIsDead
       fullName: CheckHealthComponent.TestIsDead
       resultStatus: 1
-      duration: 0.0004024
+      duration: 0.0005687
       messages: 
       output: 
       stacktrace: 
@@ -693,12 +1062,12 @@ MonoBehaviour:
       - Uncategorized
       parentId: 1004
       parentUniqueId: EditMode.dll/[EditMode][CheckHealthComponent][suite]
-    m_ResultText: CheckHealthComponent (0.043s)
+    m_ResultText: WashedUp (0.066s)
     m_ResultStacktrace: 
     m_TestListState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40b63c64
-      m_LastClickedID: 1681700416
+      m_SelectedIDs: 8318ea76
+      m_LastClickedID: 1995053187
       m_ExpandedIDs: cc55204540b63c648318ea76f78a2577ffffff7f
       m_RenameOverlay:
         m_UserAcceptedRename: 0
@@ -725,7 +1094,7 @@ MonoBehaviour:
       selectedCategoryMask: 0
       availableCategories:
       - Uncategorized
---- !u!114 &15
+--- !u!114 &16
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -822,7 +1191,7 @@ MonoBehaviour:
   m_LowResolutionForAspectRatios: 01000000000000000000
   m_XRRenderMode: 0
   m_RenderTexture: {fileID: 0}
---- !u!114 &16
+--- !u!114 &17
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -860,7 +1229,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: aa13fbff4e14fbff4218fbff4630fbffea30fbff8a34fbffc450fbff6851fbfff054fbffd86efbff7c6ffbffb273fbff2293fbffc693fbff5097fbff58b1fbfffcb1fbff86b5fbff68cffbff0cd0fbff96d3fbff18f1fbffbcf1fbff44f5fbff240ffcffc80ffcff1214fcff302cfcffd42cfcffc030fcffaa4afcff4e4bfcffe84efcff986afcff3c6bfcff2a6ffcff2289fcffc689fcff5e8dfcff64a7fcff08a8fcff8aabfcffdcc9fcff80cafcff16cefcffd4f3fcff78f4fcff16f8fcfff013fdff9414fdff1c18fdffda33fdff7e34fdff0638fdffba53fdff5e54fdffe657fdffde73fdff8274fdffda78fdffb892fdff5c93fdffe496fdffeab0fdff8eb1fdff16b5fdff0acffdffaecffdff36d3fdffa8f0fdff4cf1fdffe0f4fdff9e10feff4211feffca14feffb02ffeff5430fefff233feffa24ffeff4650feffea53feffcc6efeff706ffeff0073feffa08efeff448ffeffce92feff0cb3feffb0b3feff46b7feffeed1feff92d2feff2ad6feffb0f3feff54f4feffd6f7feffd811ffff7c12fffffe15ffffec2fffff9030ffff5a34ffff624cffff064dffff8450ffff666affff0a6bffffd86effffce88ffff7289ffff428dfffffab5ffff9eb6ffff70bafffffafaffffe6cf0000b8a40100
+      m_ExpandedIDs: faccf5fff4e4f5ff98e5f5ffa4eff5ff2808f6ff6620f6ff0a21f6ffe82af6ff2843f6ffcc43f6ffa44cf6ffc87ff6ff6c80f6ff0a89f6ffc2a7f6ff66a8f6fff8b0f6ffaee9f6ff52eaf6ffc0f2f6ff101ef7ffb41ef7ffb426f7ff4845f7ffec45f7ffe04df7ff1473f7ffb873f7ffac7bf7ff109af7ffb49af7ffb6a2f7ff3acdf7ffdecdf7ffc8d5f7ff4afaf7ffeefaf7ffc602f8ff3e2df8ffe22df8ff7835f8fff453f8ff9854f8ffaa5cf8ffb47af8ff587bf8ffd482f8ffd6a0f8ff7aa1f8ffeaa8f8ffb6d7f8ff5ad8f8ffacdff8ff9610f9ff3a11f9ff8a18f9ff8e51f9ff3252f9ff3c59f9ffc276f9ff6677f9ff667ef9ff30c4f9ffd4c4f9ffa8cbf9ffa801faff4c02fafff608fafff02afaff942bfaff2032faff224ffaffc64ffaff4656faff8281faff2682faff8888faff98e2faff3ce3faff44e9faff7c2cfbff202dfbff8633fbfffa4bfbff9e4cfbfffe52fbff0c6bfbffb06bfbff8671fbff968dfbff3a8efbfff693fbff06b0fbffaab0fbff4cb6fbff64d2fbff08d3fbff9ed8fbffb0f4fbff54f5fbffdefafbffd216fcff7617fcff0a1dfcffe238fcff8639fcfff83efcffaa5efcff4e5ffcffae64fcff829dfcff269efcff4aa3fcffd6befcff7abffcff92c4fcff6ce3fcff10e4fcff16e9fcff9004fdff3405fdff2e0afdffe628fdff8a29fdff882efdffde49fdff824afdff5e4ffdffa06afdff446bfdff2c70fdff648bfdff088cfdffcc90fdff4eb2fdfff2b2fdff9eb7fdffbad2fdff5ed3fdfffed7fdff20f3fdffc4f3fdff58f8fdff1a16feffbe16feff401bfeff4436feffe836feff743bfeff4e56fefff256feff5c5bfeff5076fefff476feff527bfeff1c96feffc096feff289bfefffeb5feffa2b6fefff6bafeff00e0feffa4e0feffcce4feffcc01ffff7002ffff8606ffff4823ffffec23ffff5a28ffff1645ffffba45ffffac49fffffc63ffffa064ffff0669ffff2481ffffc881ffffa885ffff10a2ffffb4a2ffff82a6ffff88ccffff2ccdffff5ad1fffffafaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -884,7 +1253,7 @@ MonoBehaviour:
       m_IsLocked: 0
     m_CurrentSortingName: TransformSorting
   m_WindowGUID: 4c969a2b90040154d917609493e03593
---- !u!114 &17
+--- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1194,7 +1563,7 @@ MonoBehaviour:
       containerId: overlay-container--right
       floating: 0
       collapsed: 0
-      displayed: 1
+      displayed: 0
       snapOffset: {x: 48, y: 48}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
@@ -1265,9 +1634,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 7.0827255, y: 1.2767864, z: 0.75085014}
+    m_Target: {x: 1333.4673, y: 247.97098, z: -11.002055}
     speed: 2
-    m_Value: {x: 7.0827255, y: 1.2767864, z: 0.75085014}
+    m_Value: {x: 1333.4673, y: 247.97098, z: -11.002055}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1317,9 +1686,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 12.714575
+    m_Target: 1292.7433
     speed: 2
-    m_Value: 12.714575
+    m_Value: 1292.7433
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1344,7 +1713,7 @@ MonoBehaviour:
   m_SceneVisActive: 1
   m_LastLockedObject: {fileID: 0}
   m_ViewIsLockedToObject: 0
---- !u!114 &18
+--- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1464,7 +1833,7 @@ MonoBehaviour:
   m_CurrentEditor: 1
   m_LayerEditor:
     m_SelectedLayerIndex: 0
---- !u!114 &19
+--- !u!114 &20
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1497,7 +1866,7 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &20
+--- !u!114 &21
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1543,23 +1912,23 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Buildings/Towers
+    - Assets/Tests/PlayMode
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Buildings/Towers
+  - Assets/Tests/PlayMode
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\tjfli\Unity\WashedUp-Unity
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 51}
-    m_SelectedIDs: 84e80200
-    m_LastClickedID: 190596
-    m_ExpandedIDs: 00000000b2980000b4980000b6980000b8980000ba980000bc980000be980000c0980000c2980000c8980000ca980000cc980000ce980000d09800002e9900004499000000ca9a3b
+    m_SelectedIDs: 3e990000
+    m_LastClickedID: 39230
+    m_ExpandedIDs: 00000000b2980000b4980000b6980000b8980000ba980000bc980000be980000c0980000c2980000c4980000c6980000c8980000ca980000cc980000d098000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1587,7 +1956,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000b2980000b4980000b6980000b8980000ba980000bc980000be980000c0980000c2980000c4980000c6980000c8980000ca980000cc980000ce980000d0980000d2980000
+    m_ExpandedIDs: 00000000b2980000b4980000b6980000b8980000ba980000bc980000be980000c0980000c2980000c4980000c6980000c8980000ca980000cc980000ce980000d0980000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1643,7 +2012,7 @@ MonoBehaviour:
     m_GridSize: 96
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
---- !u!114 &21
+--- !u!114 &22
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1678,8 +2047,8 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 165068
---- !u!114 &22
+  m_LastSelectedObjectID: 351462
+--- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1725,7 +2094,7 @@ MonoBehaviour:
   m_LockTracker:
     m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
---- !u!114 &23
+--- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1758,7 +2127,7 @@ MonoBehaviour:
   m_OverlayCanvas:
     m_LastAppliedPresetName: Default
     m_SaveData: []
---- !u!114 &24
+--- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1793,4 +2162,4 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 165068
+  m_LastSelectedObjectID: 351462

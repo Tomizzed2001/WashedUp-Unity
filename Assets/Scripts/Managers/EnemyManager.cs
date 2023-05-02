@@ -137,7 +137,7 @@ public class EnemyManager : MonoBehaviour
     private IEnumerator CheckRaidEnd()
     {
         yield return new WaitForSeconds(2);
-        if (toSpawn == 0)
+        if (toSpawn <= 0)
         {
             StartCoroutine(NightEnd());
         }

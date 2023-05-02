@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ObjectManager : MonoBehaviour
 {
-    [SerializeField] GameObject[] objects;
-    [SerializeField] bool[] activeList;
+    [SerializeField] public GameObject[] objects;
+    [SerializeField] public bool[] activeList;
 
     [SerializeField] private int rarity;
 
@@ -64,6 +64,8 @@ public class ObjectManager : MonoBehaviour
     public void LoadObjects()
     {
         ObjectData data = Save.LoadObjects();
+
+        activeList = data.isBroken;
 
         for (int i = 0; i<objects.Length; i++)
         {

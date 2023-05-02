@@ -45,7 +45,10 @@ public class Boat : MonoBehaviour
 
         boatTier = data.boatTier;
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprites[boatTier];
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = sprites[boatTier];
+        }
         fixedToday = data.fixedToday;
         boatFixed = data.boatFixed;
     }

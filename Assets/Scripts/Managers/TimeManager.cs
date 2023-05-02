@@ -6,7 +6,7 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     [Header("Time Settings")]
-    [SerializeField] float dayLength;
+    [SerializeField] public float dayLength;
     [SerializeField] int startTime;
     [SerializeField] int morningTime;
 
@@ -62,7 +62,6 @@ public class TimeManager : MonoBehaviour
     public void goNight(int nightTime)
     {
         currentTime = TimeSpan.FromMinutes(nightTime);
-
     }
 
     public void goDay()
@@ -84,7 +83,7 @@ public class TimeManager : MonoBehaviour
     private IEnumerator AddMinute()
     {
         currentTime += TimeSpan.FromMinutes(1);
-        timeDisplay.timer = currentTime;
+        
         totalSeconds = currentTime.TotalSeconds;
 
         if (currentTime.TotalMinutes == 1320) //1320
@@ -92,9 +91,15 @@ public class TimeManager : MonoBehaviour
             forceSleep = true;
             StartCoroutine(TriggerSpawn());
         }
-
-        timeDisplay.UpdateTime();
-        daylight.UpdateLights();
+        if (timeDisplay != null)
+        {
+            timeDisplay.timer = currentTime;
+            timeDisplay.UpdateTime();
+        }
+        if (daylight != null)
+        {
+            daylight.UpdateLights();
+        }
         yield return new WaitForSeconds(timeLength);
         StartCoroutine(AddMinute());
     }

@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [Header("Game Settings")]
     [SerializeField]
     public bool inRaid = false;
-    public int GameHealth;
+    public int GameHealth = 10;
     public bool isGameOver = false;
 
     [Header("Game Screens")]
@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] public UIManager uiManager;
 
     [Header("Recipes")]
-    [SerializeField] private GameObject[] recipes;
-    [SerializeField] private GameObject[] recipes2;
+    [SerializeField] public GameObject[] recipes;
+    [SerializeField] public GameObject[] recipes2;
 
     [Header("Things to save")]
     [SerializeField] public bool recipesEnabled;
@@ -121,10 +121,12 @@ public class GameManager : MonoBehaviour
     {
         GameData data = Save.LoadGame();
         GameHealth = data.health;
-        recipesEnabled = data.recipes;
         wreckageActive = data.wreckage;
         inLand = data.land;
-        uiManager.Health2.text = GameHealth.ToString();
+        if (uiManager != null)
+        {
+            uiManager.Health2.text = GameHealth.ToString();
+        }
         if (data.won)
         {
             GameWin(true);
@@ -141,7 +143,7 @@ public class GameManager : MonoBehaviour
         {
             EnableRecipesPart2();
         }
-        if(data.wreckage)
+        if(data.wreckage && objectivesManager != null)
         {
             objectivesManager.ShowWreckage();
         }

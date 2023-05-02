@@ -48,7 +48,7 @@ public class BuildArea : MonoBehaviour
         HouseData data = Save.LoadHouse();
 
         buildingComplete = data.houseBuilt;
-        if (buildingComplete)
+        if (buildingComplete && buildingScript != null)
         {
             buildingScript.LoadHut();
         }
